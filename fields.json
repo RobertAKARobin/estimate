@@ -1,0 +1,143 @@
+[
+	{
+		"name": "Platform",
+		"desc": "What kinds of devices will your users be using?",
+		"choices": [
+			{
+				"name": "Web",
+				"desc": "Your users will access your app from a laptop, phone, or tablet using a web browser like Chrome or Safari. This is usually cheapest, and guarantees anyone with a smartphone or computer can use your app.",
+				"ex": true,
+				"points": 1
+			},
+			{
+				"name": "Mobile Android",
+				"desc": "Your users can download your app from Google Play, the Android App Store, to their Android phones or tablets.",
+				"points": 2
+			},
+			{
+				"name": "Mobile iOS",
+				"desc": "Your users can download your app from the Apple App Store to their iPhones or iPads.",
+				"points": 2
+			}
+		]
+	},
+	{
+		"name": "Authentication",
+		"desc": "How will your users sign in? (If you or your users aren't saving information anywhere, you might not need this at all!)",
+		"choices": [
+			{
+				"name": "Sign in through a social network",
+				"desc": "Google, Twitter, Facebook, LinkedIn, Github... These all provide ways of letting people log in and sign up. How many social networks do you want to include?",
+				"type": "multiply",
+				"points": 1
+			},
+			{
+				"name": "Sign in without going through anyone else's site",
+				"desc": "This is more expensive than letting people use their social media accounts, but means you have more control over your user experience.",
+				"points": 3
+			},
+			{
+				"name": "Admin portal",
+				"desc": "Use a secure admin account to manage your users and your data.",
+				"points": 3
+			}
+		]
+	},
+	{
+		"name": "Database",
+		"desc": "Where does your app get all its data? Where does it save data?",
+		"choices": [
+			{
+				"name": "Reading from an API",
+				"desc": "Your app tells you whether it's raining using data from the National Weather Service, or shows graphs of basketball scores from ESPN, or visualizes data that it gets from somewhere else.",
+				"points": 1
+			},
+			{
+				"name": "Reading from a spreadsheet or table",
+				"desc": "Your app pulls data from a CSV or JSON file. This is great when your data is rarely going to change, like if you want to show data from a census or survey.",
+				"ex": true,
+				"points": 1
+			},
+			{
+				"name": "Reading from and writing to a database",
+				"desc": "You want to collect and display data, and want to have total control over all of it. You may be building a complicated web of data, like a social network. A PHP back-end will be set up to handle this.",
+				"points": 3
+			},
+			{
+				"name": "Reading from and writing to Firebase",
+				"desc": "You'll have less than a hundred people using your app at any given time. It's important that your users see data change in real-time: if a person on Computer B types something in, a person on Computer A sees it immediately.",
+				"points": 2
+			}
+		]
+	},
+	{
+		"name": "Data models",
+		"desc": "How many different collections of data will your app have?",
+		"choices": [
+			{
+				"desc": "A 'model' is like one row in a spreadsheet. It's a collection of pieces of text and numbers. For example: a blog post, an event, an invitation to an event, a product, a product review, an product order... You usually add data by typing things into a form.",
+				"type": "multiply",
+				"points": 2
+			}
+		]
+	},
+	{
+		"name": "Design",
+		"desc": "How much work, if any, needs to be put into your user interface?",
+		"choices": [
+			{
+				"name": "Heavy",
+				"desc": "You need to stand out visually. You may have some sketches and wireframes, but will need to graphics drawn and a layout constructed for you.",
+				"points": 3
+			},
+			{
+				"name": "Medium",
+				"desc": "Your app needs some visual customization, but you have a well-defined styleguide and you will provide all necessary images and graphics.",
+				"points": 2
+			},
+			{
+				"name": "Light",
+				"desc": "A customized user interface isn't important to your app. Bootstrap or another CSS framework will cover the bare necessities, but otherwise design can be left alone.",
+				"ex": true,
+				"points": 1
+			}
+		]
+	},
+	{
+		"name": "Features",
+		"desc": "What else will you add to your app to make it unique?",
+		"choices": [
+			{
+				"name": "Capture photos",
+				"desc": "Collect images from your users' cameras.",
+				"points": 1
+			},
+			{
+				"name": "File upload",
+				"desc": "Let your users upload videos and documents. This is pricey because files are big, and finding a secure way to store all that data is tricky.",
+				"points": 3
+			},
+			{
+				"name": "Data reporting",
+				"desc": "Display data in a slick graphical or print-friendly fashion.",
+				"points": 2
+			},
+			{
+				"name": "Automatic e-mails",
+				"desc": "The app will use a template to automatically send e-mails.",
+				"ex": true,
+				"points": 2
+			},
+			{
+				"name": "Analytics",
+				"desc": "Incorporate Google analytics or similar into your app.",
+				"points": 1
+			},
+			{
+				"name": "Payment processing",
+				"desc": "Use Stripe, PayPal, Bitcoin, or a similar third-party service to collect payments.",
+				"points": 2
+			}
+		]
+	}
+]
