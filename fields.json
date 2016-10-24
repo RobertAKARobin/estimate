@@ -86,19 +86,25 @@
 		"desc": "How much work, if any, needs to be put into your user interface?",
 		"choices": [
 			{
-				"name": "Heavy",
-				"desc": "You need to stand out visually. You may have some sketches and wireframes, but will need to graphics drawn and a layout constructed for you.",
-				"points": 3
+				"name": "Basic responsive styling",
+				"desc": "Bootstrap or another CSS framework with some very light customization will make sure your app looks clean and presentable on most web browsers.",
+				"ex": true,
+				"points": 1
 			},
 			{
-				"name": "Medium",
-				"desc": "Your app needs some visual customization, but you have a well-defined styleguide and you will provide all necessary images and graphics.",
+				"name": "Pixel-perfect wireframes",
+				"desc": "Professional wireframes are much more than a sketch or mock-up. Having a development-minded designer establish your layout will keep you from spending too much on programmers: you'll know exactly what you want, and they'll know exactly what to code. You won't need to make lots of small costly tweaks as you go.",
 				"points": 2
 			},
 			{
-				"name": "Light",
-				"desc": "A customized user interface isn't important to your app. Bootstrap or another CSS framework will cover the bare necessities, but otherwise design can be left alone.",
-				"ex": true,
+				"name": "A unique, branded look-and-feel",
+				"desc": "User experience is the most important thing to your app's success, and the hardest thing to get right. Design professionals will work with you to define the typesets, colors, buttons, icons, and logos that add the most to your bottom line. Packaged up with all the necessary font files, images, and hex codes, this style guide can be incorporated into any other project.",
+				"points": 3
+			},
+			{
+				"name": "Custom graphics",
+				"desc": "Even the smallest logo or icon can take a lot of time and thought. How many custom graphics do you need?",
+				"type": "multiply",
 				"points": 1
 			}
 		]
@@ -119,7 +125,7 @@
 			},
 			{
 				"name": "Data reporting",
-				"desc": "Display data in a slick graphical or print-friendly fashion.",
+				"desc": "Display data in a slick graphical or print-friendly format.",
 				"points": 2
 			},
 			{
