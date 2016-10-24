@@ -12,12 +12,12 @@
 			{
 				"name": "Mobile Android",
 				"desc": "Your users can download your app from Google Play, the Android App Store, to their Android phones or tablets.",
-				"points": 2
+				"points": 3
 			},
 			{
 				"name": "Mobile iOS",
 				"desc": "Your users can download your app from the Apple App Store to their iPhones or iPads.",
-				"points": 2
+				"points": 3
 			}
 		]
 	},
@@ -34,12 +34,12 @@
 			{
 				"name": "Sign in without going through anyone else's site",
 				"desc": "This is more expensive than letting people use their social media accounts, but means you have more control over your user experience.",
-				"points": 3
+				"points": 2
 			},
 			{
 				"name": "Admin portal",
 				"desc": "Use a secure admin account to manage your users and your data.",
-				"points": 3
+				"points": 2
 			}
 		]
 	},
@@ -114,18 +114,13 @@
 		"desc": "What else will you add to your app to make it unique?",
 		"choices": [
 			{
-				"name": "Capture photos",
-				"desc": "Collect images from your users' cameras.",
-				"points": 1
-			},
-			{
 				"name": "File upload",
-				"desc": "Let your users upload videos and documents. This is pricey because files are big, and finding a secure way to store all that data is tricky.",
-				"points": 3
+				"desc": "Let your users upload pictures, videos, and documents.",
+				"points": 2
 			},
 			{
 				"name": "Data reporting",
-				"desc": "Display data in a slick graphical or print-friendly format.",
+				"desc": "Aggregate and display data in a slick graphical or print-friendly format.",
 				"points": 2
 			},
 			{
@@ -142,7 +137,7 @@
 			{
 				"name": "Payment processing",
 				"desc": "Use Stripe, PayPal, Bitcoin, or a similar third-party service to collect payments.",
-				"points": 2
+				"points": 3
 			}
 		]
 	}
