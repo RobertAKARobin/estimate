@@ -44,6 +44,7 @@
 
 		function showExample(){
 			var choice;
+			vm.reset();
 			for(var i = 0, l = Choice.all.length; i < l; i++){
 				choice = Choice.all[i];
 				choice.clear();
