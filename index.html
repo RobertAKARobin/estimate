@@ -19,7 +19,7 @@
 
 			<p>Building an app from scratch?</p>
 
-			<p>Mix and match the components below to flesh out your idea and estimate its complexity (in &ldquo;points&rdquo;), and its cost if you work with a mid-size development shop.</p>
+			<p>Mix and match the components below to flesh out your idea and estimate its complexity (in &ldquo;points&rdquo;), and its cost if you work with a mid-size development shop like ours, <a href="http://mentormate.com">MentorMate</a>.</p>
 		</div>
 
 		<div data-ng-controller="mainController as main">
@@ -95,13 +95,17 @@
 
 							<p>If it's your first time building an app, or you've only worked with freelancers and overseas developers, it might!</p>
 
-							<p>This estimate is based on my experience at a mid-size development shop based in the US.</p>
+							<p>In app development, you get what you pay for.</p>
+
+							<p>This estimate is based on our experience at a mid-size development shop based in the US and Bulgaria.</p>
 
 							<p>How much your app <em>actually</em> costs may be more, or may be less. Things change based on the specific features you want, and even more based on how much <em>risk</em> you're willing to take.</p>
 
 							<h2>What is &ldquo;risk&rdquo;?</h2>
 
-							<p>It's a measure of how sure you can be that you'll get a functioning, finished product. An established development company with a lot of customers and experience is low-risk. Their development will include quality assurance testing and project management because they have a brand to protect. This may cost more in the short-term, but should make up for it in the long-term because you won't need to spend so much fixing bugs, and a better product will bring in more revenue.</p>
+							<p>It's a measure of how sure you can be that you'll get a functioning, finished product.</p>
+
+							<p>Working with an established development company like <a href="http://www.mentormate.com">MentorMate</a>, which has a lot of customers and experience, is low-risk. Our development includes quality assurance testing and project management because because we've worked hard to build our brand and want to protect it. A well-managed product will bring in more revenue, and leave you free to grow your business instead of worrying about bugs.</p>
 
 							<p>On the other hand, hiring a freelancer, a technical co-founder, or an offshore development company is high-risk. They may cost less in the short-term, but may also cost much more in the long-term because you don't have the &ldquo;safety net&rdquo; of a team of people all working to manage your development experience. Making an app is a complicated process, and a lack of accountability and experience can quickly spiral into a storm of bugs and un-met promises.</p>
 
@@ -109,11 +113,9 @@
 
 							<h2>Want to talk about it?</h2>
 
-							<p>I'm <a href="http://www.robertakarobin.com">Robin</a>! My hobby is now my job: When people have an app idea I get to help them flesh out what it will look like from a technical and design standpoint, and then estimate its cost. My last job was <a href="https://www.reddit.com/r/IAmA/comments/43s5re/i_teach_coding_to_total_beginners_in_a_fulltime/">teaching programming</a> to beginners.</p>
+							<p>We built this tool because a lot of people have really great app ideas but aren't sure how what they need to bring that idea to life, or how to budget for it.</p>
 
-							<p>I built this tool because a lot of people have really great app ideas but aren't sure how what they need to bring that idea to life, or how to budget for it.</p>
-
-							<p>I really enjoy talking about this stuff, and a conversation doesn't cost anything. Fill out the information below and I'll write back as quick as I can!</p>
+							<p>We really enjoy talking about this stuff, and a conversation doesn't cost anything. Fill out the information below and we'll write back as quick as we can!</p>
 
 						</td>
 					</tr>
@@ -126,14 +128,14 @@
 						<td><input type="text" data-ng-model="main.contact.email" name="email" /></td>
 					</tr>
 					<tr>
-						<td>Anything else you'd like me to know about you or your app?</td>
+						<td>Anything else you'd like us to know about you or your app?</td>
 						<td><textarea data-ng-model="main.contact.text"></textarea></td>
 					</tr>
 					<tr>
 						<td></td>
 						<td>
 							<p data-ng-if="main.emailErrors" class="error">{{main.emailErrors}}</p>
-							<button data-ng-if="main.emailStatus == 'unsent'" type="button" class="block important" data-ng-click="main.sendEmail()">Let me know!</button>
+							<button data-ng-if="main.emailStatus == 'unsent'" type="button" class="block important" data-ng-click="main.sendEmail()">Let us know!</button>
 							<button data-ng-if="main.emailStatus == 'sending'" disabled class="block">Sending...</button>
 							<button data-ng-if="main.emailStatus == 'sent'" disabled class="block">Sent! :)</button>
 						</td>
@@ -141,10 +143,6 @@
 				</tbody>
 			</table>
 		</div>
-
-		<footer>
-			<p>The source for this page is on <a href="https://github.com/RobertAKARobin/apps_a_la_carte">Github</a>. Let me know your thoughts!</p>
-		</footer>
 
 	</body>
 </html>
