@@ -55,7 +55,7 @@
 		}
 
 		function sendEmail(){
-			var choices = getFieldSummary();
+			var selections = Field.getSummary();
 			if(!vm.contact.email){
 				vm.emailErrors = "Enter an e-mail address!";
 				return;
@@ -67,7 +67,7 @@
 				url: "http://mailgun.robertakarobin.com/send",
 				data: {
 					contact: vm.contact,
-					choices: choices,
+					selections: selections,
 				}
 			}).then(emailSent, emailNotSent);
 		}
@@ -83,38 +83,6 @@
 		function emailNotSent(response){
 			vm.emailErrors = ((response.data || {}).error || "Something went wrong. Try again!");
 			vm.emailStatus = "unsent";
-		}
-
-		function getFieldSummary(){
-			var field,
-					choice,
-					summary,
-					summaries = {
-						selected: [],
-						unselected: [],
-						total: 0
-					};
-			for(var Fi = 0, Fl = Field.all.length; Fi < Fl; Fi++){
-				field = Field.all[Fi];
-				for(var Ci = 0, Cl = field.choices.length; Ci < Cl; Ci++){
-					choice = field.choices[Ci];
-					summary = {
-						field: field.name,
-						choice: choice.name,
-						points: choice.points
-					};
-					if(choice.type == 'multiply'){
-						summary.quantity = choice.quantity;
-					}
-					if(choice.value > 0){
-						summaries.selected.push(summary);
-						summaries.total += choice.value;
-					}else{
-						summaries.unselected.push(summary);
-					}
-				}
-			}
-			return summaries;
 		}
 
 	}

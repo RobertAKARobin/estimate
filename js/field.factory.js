@@ -13,6 +13,7 @@
 		Field.all = [];
 		Field.create = create;
 		Field.clearAll = clearAll;
+		Field.getSummary = getSummary;
 		return Field;
 
 		function create(field){
@@ -50,6 +51,38 @@
 			for(var i = 0, l = field.choices.length; i < l; i++){
 				field.choices[i].clear();
 			}
+		}
+
+		function getSummary(){
+			var field,
+					choice,
+					summary,
+					summaries = {
+						selected: [],
+						unselected: [],
+						total: 0
+					};
+			for(var Fi = 0, Fl = Field.all.length; Fi < Fl; Fi++){
+				field = Field.all[Fi];
+				for(var Ci = 0, Cl = field.choices.length; Ci < Cl; Ci++){
+					choice = field.choices[Ci];
+					summary = {
+						field: field.name,
+						choice: choice.name,
+						points: choice.points
+					};
+					if(choice.type == 'multiply'){
+						summary.quantity = choice.quantity;
+					}
+					if(choice.value > 0){
+						summaries.selected.push(summary);
+						summaries.total += choice.value;
+					}else{
+						summaries.unselected.push(summary);
+					}
+				}
+			}
+			return summaries;
 		}
 	}
 
