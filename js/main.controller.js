@@ -62,6 +62,7 @@
 			}
 			vm.emailStatus = "sending";
 			vm.emailErrors = null;
+			vm.contact.name = (vm.contact.firstname + " " + vm.contact.lastname);
 			$http({
 				method: "POST",
 				url: "http://mailgun.robertakarobin.com/send",

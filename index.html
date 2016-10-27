@@ -13,17 +13,17 @@
 	<body data-ng-app="estimator">
 
 		<div>
-			<img src="bricks.jpg" alt="Lego bricks" />
-
 			<h1>Apps &agrave; la carte</h1>
 
 			<p>Building an app from scratch?</p>
 
 			<p>Mix and match the components below to flesh out your idea and estimate its complexity (in &ldquo;points&rdquo;), and its cost if you work with a mid-size development shop like ours, <a href="http://mentormate.com">MentorMate</a>.</p>
+
+			<p>When you're done you can send it in to us to have a look!</p>
 		</div>
 
 		<div data-ng-controller="mainController as main">
-			<table cellspacing="0">
+			<table>
 				<thead data-ng-repeat-start="field in main.fields">
 					<tr>
 						<th style="width:25%;">{{field.name}}</th>
@@ -105,9 +105,17 @@
 
 							<p>It's a measure of how sure you can be that you'll get a functioning, finished product.</p>
 
-							<p>Working with an established development company like <a href="http://www.mentormate.com">MentorMate</a>, which has a lot of customers and experience, is low-risk. Our development includes quality assurance testing and project management because because we've worked hard to build our brand and want to protect it. A well-managed product will bring in more revenue, and leave you free to grow your business instead of worrying about bugs.</p>
+							<p>Working with an established development company like <a href="http://www.mentormate.com">MentorMate</a>, which has a lot of customers and experience, is <strong>low-risk</strong>.</p>
 
-							<p>On the other hand, hiring a freelancer, a technical co-founder, or an offshore development company is high-risk. They may cost less in the short-term, but may also cost much more in the long-term because you don't have the &ldquo;safety net&rdquo; of a team of people all working to manage your development experience. Making an app is a complicated process, and a lack of accountability and experience can quickly spiral into a storm of bugs and un-met promises.</p>
+							<p>Our development includes quality assurance testing and project management because because we've worked hard to build our brand and want to protect it.</p>
+
+							<p>A well-managed product will bring in more revenue, and leave you free to grow your business instead of worrying about bugs.</p>
+
+							<p>On the other hand, hiring a freelancer, a technical co-founder, or an offshore development company is <strong>high-risk</strong>.</p>
+
+							<p>They may cost less in the short-term, but may also cost much more in the long-term because you don't have the &ldquo;safety net&rdquo; of a team of people all working to manage your development experience.</p>
+
+							<p>Making an app is a complicated process, and a lack of accountability and experience can quickly spiral into a storm of bugs and un-met promises.</p>
 
 							<p>What balance of risk and cost is best? That's up to you!</p>
 
@@ -121,7 +129,12 @@
 					</tr>
 					<tr>
 						<td>Name</td>
-						<td><input type="text" data-ng-model="main.contact.name" name="name" /></td>
+						<td>
+							<div class="inline-inputs">
+								<input type="text" data-ng-model="main.contact.firstname" placeholder="First" name="firstname" />
+								<input type="text" data-ng-model="main.contact.lastname" placeholder="Last" name="lastname" />
+							</div>
+						</td>
 					</tr>
 					<tr>
 						<td>E-mail address</td>

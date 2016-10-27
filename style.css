@@ -38,8 +38,9 @@ h2{
 }
 p{
   text-align:left;
-	line-height:20px;
-	margin-bottom:14px;
+	line-height:24px;
+	margin-bottom:24px;
+	max-width:600px;
 }
 hr{
 	border:0px solid #ccc;
@@ -49,6 +50,10 @@ hr{
 em{
 	font-style:italic;
 }
+strong{
+	font-weight:bold;
+	text-decoration:underline;
+}
 a{
 	color:#EF4B3E;
 	text-decoration:underline;
@@ -56,6 +61,8 @@ a{
 table{
   width:100%;
 	margin:50px auto;
+	border-spacing:0px;
+	border-collapse:collapse;
 }
 tr > *:last-child:not(:only-child){
 	text-align:right;
@@ -77,14 +84,6 @@ thead > tr > th{
 	text-shadow:1px 1px 0px #369;
 	white-space:nowrap;
 }
-tfoot > tr:first-child > *:first-child,
-thead > tr > *:first-child{
-	border-top-left-radius:10px;
-}
-tfoot > tr:first-child > *:last-child,
-thead > tr > *:last-child{
-	border-top-right-radius:10px;
-}
 tbody{
 	vertical-align:top;
 }
@@ -99,14 +98,6 @@ tbody > tr > *:first-child{
 tfoot > tr > *:last-child,
 tbody > tr > *:last-child{
 	border-right:1px solid #eee;
-}
-tfoot > tr:last-child > *:first-child,
-tbody > tr:last-child > *:first-child{
-	border-bottom-left-radius:10px;
-}
-tfoot > tr:last-child > *:last-child,
-tbody > tr:last-child > *:last-child{
-	border-bottom-right-radius:10px;
 }
 tfoot > tr > td,
 tfoot > tr > th{
@@ -135,10 +126,18 @@ textarea,
 .checkbox-label{
 	display:inline-block;
 	height:2em;
-	border-radius:5px;
 	border:1px solid #ccc;
 	cursor:pointer;
   box-sizing:border-box;
+}
+.inline-inputs{
+	display:flex;
+}
+.inline-inputs input{
+	flex-grow:1;
+}
+.inline-inputs input:nth-child(1){
+	border-right:0;
 }
 textarea,
 [type=text],
@@ -180,7 +179,6 @@ button{
 	cursor:pointer;
 	background-color:#46A3E2;
 	color:#fff;
-  border-radius:5px;
 	padding:0.2em 0.5em;
 }
 button.block{
