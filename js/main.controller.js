@@ -55,20 +55,24 @@
 		}
 
 		function sendEmail(){
-			var selections = Field.getSummary();
-			if(!vm.contact.email){
+			var contact = vm.contact;
+			if(!contact.email){
 				vm.emailErrors = "Enter an e-mail address!";
 				return;
 			}
 			vm.emailStatus = "sending";
 			vm.emailErrors = null;
-			vm.contact.name = (vm.contact.firstname + " " + vm.contact.lastname);
+			contact.name = (contact.firstname + " " + contact.lastname);
+
 			$http({
 				method: "POST",
-				url: "http://mailgun.robertakarobin.com/send",
+				url: "http://mailgun.robertakarobin.com/apps_a_la_carte",
 				data: {
-					contact: vm.contact,
-					selections: selections,
+					email: vm.contact.email,
+					firstname: vm.contact.firstname,
+					lastname: vm.contact.lastname,
+					hubspotutk: getCookies().hubspotutk,
+					description: vm.contact.text
 				}
 			}).then(emailSent, emailNotSent);
 		}
@@ -84,6 +88,17 @@
 		function emailNotSent(response){
 			vm.emailErrors = ((response.data || {}).error || "Something went wrong. Try again!");
 			vm.emailStatus = "unsent";
+		}
+
+		function getCookies(){
+			var pairs = document.cookie.split(/ *; */),
+					pair,
+					cookies = {};
+			for(var i = 0, l = pairs.length; i < l; i++){
+				pair = pairs[i].split("=");
+				cookies[pair[0]] = pair[1];
+			}
+			return cookies;
 		}
 
 	}
