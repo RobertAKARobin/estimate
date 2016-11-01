@@ -19,7 +19,7 @@
 		vm.fields = Field.all;
 		vm.choices = Choice.all;
 		vm.sendEmail = sendEmail;
-		vm.emailStatus = "unsent";
+		vm.emailStatus = 'unsent';
 		vm.contact = {};
 		$http.get('fields.json').then(onLoad);
 
@@ -57,16 +57,16 @@
 		function sendEmail(){
 			var contact = vm.contact;
 			if(!contact.email){
-				vm.emailErrors = "Enter an e-mail address!";
+				vm.emailErrors = 'Enter an e-mail address!';
 				return;
 			}
-			vm.emailStatus = "sending";
+			vm.emailStatus = 'sending';
 			vm.emailErrors = null;
-			contact.name = (contact.firstname + " " + contact.lastname);
+			contact.name = (contact.firstname + ' ' + contact.lastname);
 
 			$http({
-				method: "POST",
-				url: "http://mailgun.robertakarobin.com/apps_a_la_carte",
+				method: 'POST',
+				url: 'http://mailgun.robertakarobin.com/apps_a_la_carte',
 				data: {
 					email: vm.contact.email,
 					firstname: vm.contact.firstname,
@@ -79,15 +79,15 @@
 
 		function emailSent(response){
 			if(response.data.success){
-				vm.emailStatus = "sent";
+				vm.emailStatus = 'sent';
 			}else{
 				emailNotSent(response);
 			}
 		}
 
 		function emailNotSent(response){
-			vm.emailErrors = ((response.data || {}).error || "Something went wrong. Try again!");
-			vm.emailStatus = "unsent";
+			vm.emailErrors = ((response.data || {}).error || 'Something went wrong. Try again!');
+			vm.emailStatus = 'unsent';
 		}
 
 		function getCookies(){
@@ -95,7 +95,7 @@
 					pair,
 					cookies = {};
 			for(var i = 0, l = pairs.length; i < l; i++){
-				pair = pairs[i].split("=");
+				pair = pairs[i].split('=');
 				cookies[pair[0]] = pair[1];
 			}
 			return cookies;
