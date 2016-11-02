@@ -1,0 +1,20 @@
+{
+  "name": "apps_a_la_carte",
+  "homepage": "https://github.com/RobertAKARobin/apps_a_la_carte",
+  "authors": [
+    "RobertAKARobin <robertgfthomas@gmail.com>"
+  ],
+  "description": "",
+  "main": "",
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "angular": "^1.5.8"
+  }
+}
