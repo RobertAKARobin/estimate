@@ -12,17 +12,27 @@
 		var Field = {};
 		Field.all = [];
 		Field.create = create;
+		Field.createMany = createMany;
 		Field.clearAll = clearAll;
 		Field.getSummary = getSummary;
 		return Field;
 
+		function createMany(input){
+			var input = (input.data || input);
+			for(var i = 0, l = input.length; i < l; i++){
+				Field.create(input[i]);
+			}
+		}
+
 		function create(field){
+			var choice = {};
 			Field.all.push(field);
 			field.total = 0;
 			field.clear = clear;
-			field.recalculate = recalculate;
 			for(var i = 0, l = field.choices.length; i < l; i++){
-				Choice.create(field.choices[i]).field = field;
+				choice = Choice.create(field.choices[i])
+				choice.field = field;
+				choice.id = [field.id, choice.id].join('_');
 			}
 			return field;
 		}
@@ -31,18 +41,6 @@
 			for(var i = 0, l = Field.all.length; i < l; i++){
 				Field.all[i].clear();
 			}
-		}
-
-		function recalculate(){
-			var field = this,
-					choice;
-			field.total = 0;
-			for(var i = 0, l = field.choices.length; i < l; i++){
-				choice = field.choices[i];
-				choice.calculateValue();
-				field.total += choice.value;
-			}
-			return field.total;
 		}
 
 		function clear(){

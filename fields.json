@@ -1,21 +1,25 @@
 [
 	{
 		"name": "Platform",
+		"id": "platform",
 		"desc": "What kinds of devices will your users be using?",
 		"choices": [
 			{
 				"name": "Web",
+				"id": "web",
 				"desc": "Your users will access your app from a laptop, phone, or tablet using a web browser like Chrome or Safari. This is usually cheapest, and guarantees anyone with a smartphone or computer can use your app.",
 				"ex": true,
 				"points": 1
 			},
 			{
 				"name": "Mobile Android",
+				"id": "android",
 				"desc": "Your users can download your app from Google Play, the Android App Store, to their Android phones or tablets.",
 				"points": 3
 			},
 			{
 				"name": "Mobile iOS",
+				"id": "ios",
 				"desc": "Your users can download your app from the Apple App Store to their iPhones or iPads.",
 				"points": 3
 			}
@@ -23,21 +27,25 @@
 	},
 	{
 		"name": "Authentication",
+		"id": "auth",
 		"desc": "How will your users sign in? (If you or your users aren't saving information anywhere, you might not need this at all!)",
 		"choices": [
 			{
 				"name": "Sign in through a social network",
+				"id": "social",
 				"desc": "Google, Twitter, Facebook, LinkedIn, Github... These all provide ways of letting people log in and sign up. How many social networks do you want to include?",
 				"type": "multiply",
 				"points": 1
 			},
 			{
 				"name": "Sign in without going through anyone else's site",
+				"id": "local",
 				"desc": "This is more expensive than letting people use their social media accounts, but means you have more control over your user experience.",
 				"points": 2
 			},
 			{
 				"name": "Admin portal",
+				"id": "admin",
 				"desc": "Use a secure admin account to manage your users and your data.",
 				"points": 2
 			}
@@ -45,64 +53,69 @@
 	},
 	{
 		"name": "Database",
-		"desc": "Where does your app get all its data? Where does it save data?",
+		"id": "data",
+		"desc": "Where does your app get its data? Where does it send new data?",
 		"choices": [
 			{
-				"name": "Reading from an API",
-				"desc": "Your app tells you whether it's raining using data from the National Weather Service, or shows graphs of basketball scores from ESPN, or visualizes data that it gets from somewhere else.",
+				"name": "Read from a spreadsheet or table",
+				"id": "static",
+				"desc": "Your app pulls data from a CSV or JSON file that you own. This is great when your data is rarely going to change, like if you want to show data from a census or survey.",
+				"points": 1,
+				"ex": true
+			},
+			{
+				"name": "Read from someone's API",
+				"id": "read_api",
+				"desc": "Your app tells you whether it's raining using data from the National Weather Service, or shows graphs of basketball scores from ESPN, or visualizes data that it gets from someone else's site.",
 				"points": 1
 			},
 			{
-				"name": "Reading from a spreadsheet or table",
-				"desc": "Your app pulls data from a CSV or JSON file. This is great when your data is rarely going to change, like if you want to show data from a census or survey.",
-				"ex": true,
-				"points": 1
-			},
-			{
-				"name": "Reading from and writing to a database",
-				"desc": "You want to collect and display data, and want to have total control over all of it. You may be building a complicated web of data, like a social network. A PHP back-end will be set up to handle this.",
+				"name": "Write to someone's API",
+				"id": "write_api",
+				"desc": "You forward user input to Salesforce, Mailchimp, or some other provider.",
 				"points": 3
 			},
 			{
-				"name": "Reading from and writing to Firebase",
-				"desc": "You'll have less than a hundred people using your app at any given time. It's important that your users see data change in real-time: if a person on Computer B types something in, a person on Computer A sees it immediately.",
-				"points": 2
-			}
-		]
-	},
-	{
-		"name": "Data models",
-		"desc": "How many different collections of data will your app have?",
-		"choices": [
+				"name": "Read from and write to a SQL database",
+				"id": "sql",
+				"desc": "You will be sifting through a lot of data, maybe more than 10,000 records. You might be managing complex relationships, like with a social network. This will be handled with PHP and MySQL.",
+				"points": 3
+			},
 			{
-				"desc": "A 'model' is like one row in a spreadsheet. It's a collection of pieces of text and numbers. For example: a blog post, an event, an invitation to an event, a product, a product review, an product order... You usually add data by typing things into a form.",
-				"type": "multiply",
+				"name": "Read from and write to a real-time database",
+				"id": "websockets",
+				"desc": "It's important that your users see data change in real-time: if a person on Computer B types something in, a person on Computer A sees it immediately. This will be handled by Google Firebase.",
 				"points": 2
 			}
 		]
 	},
 	{
 		"name": "Design",
+		"id": "design",
 		"desc": "How much work, if any, needs to be put into your user interface?",
 		"choices": [
 			{
 				"name": "Basic responsive styling",
+				"id": "basic",
 				"desc": "Bootstrap or another CSS framework with some very light customization will make sure your app looks clean and presentable on most web browsers.",
 				"ex": true,
 				"points": 1
 			},
 			{
 				"name": "Pixel-perfect wireframes",
+				"id": "wireframes",
 				"desc": "Professional wireframes are much more than a sketch or mock-up. Having a development-minded designer establish your layout will keep you from spending too much on programmers: you'll know exactly what you want, and they'll know exactly what to code. You won't need to make lots of small costly tweaks as you go.",
 				"points": 2
 			},
 			{
 				"name": "A unique, branded look-and-feel",
+				"id": "custom",
 				"desc": "User experience is the most important thing to your app's success, and the hardest thing to get right. Design professionals will work with you to define the typesets, colors, buttons, icons, and logos that add the most to your bottom line. Packaged up with all the necessary font files, images, and hex codes, this style guide can be incorporated into any other project.",
 				"points": 3
 			},
 			{
 				"name": "Custom graphics",
+				"id": "graphics",
 				"desc": "Even the smallest logo or icon can take a lot of time and thought. How many custom graphics do you need?",
 				"type": "multiply",
 				"points": 1
@@ -111,31 +124,37 @@
 	},
 	{
 		"name": "Features",
+		"id": "misc",
 		"desc": "What else will you add to your app to make it unique?",
 		"choices": [
 			{
 				"name": "File upload",
+				"id": "upload",
 				"desc": "Let your users upload pictures, videos, and documents.",
 				"points": 2
 			},
 			{
 				"name": "Data reporting",
+				"id": "visualize",
 				"desc": "Aggregate and display data in a slick graphical or print-friendly format.",
 				"points": 2
 			},
 			{
 				"name": "Automatic e-mails",
+				"id": "email",
 				"desc": "The app will use a template to automatically send e-mails.",
 				"ex": true,
 				"points": 2
 			},
 			{
 				"name": "Analytics",
+				"id": "analytics",
 				"desc": "Incorporate Google analytics or similar into your app.",
 				"points": 1
 			},
 			{
 				"name": "Payment processing",
+				"id": "payments",
 				"desc": "Use Stripe, PayPal, Bitcoin, or a similar third-party service to collect payments.",
 				"points": 3
 			}

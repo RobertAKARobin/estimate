@@ -17,34 +17,26 @@
 			choice.type = (choice.type || 'boolean');
 			choice.points = (choice.points || 1);
 			choice.calculateValue = calculateValue;
-			choice.showIfExample = showIfExample;
+			choice.setValue = setValue;
 			choice.clear = clear;
 			choice.calculateValue();
 			return choice;
 		}
 
-		function calculateValue(){
-			var choice = this,
-					output = 0;
-			if(choice.quantity < 0) choice.quantity = 0;
+		function calculateValue(value){
+			var choice = this;
+			choice.quantity = Math.max(choice.quantity, 0);
 			switch(choice.type){
-				case 'boolean': output = (choice.selected ? choice.points : 0); break;
-				case 'multiply': output = (choice.points * (choice.quantity || 0)); break;
+				case 'boolean': choice.value = (choice.selected ? choice.points : 0); break;
+				case 'multiply': choice.value = (choice.points * (choice.quantity || 0)); break;
 			}
-			choice.value = output;
-			return output;
 		}
 
-		function showIfExample(){
+		function setValue(value){
 			var choice = this;
-			if(choice.ex){
-				switch(choice.type){
-					case 'boolean': choice.selected = true; break;
-					case 'multiply': choice.quantity = choice.ex; break;
-				}
-				return true;
-			}else{
-				return false;
+			switch(choice.type){
+				case 'boolean': choice.selected = !!(value); break;
+				case 'multiply': choice.quantity = (value || 0); break;
 			}
 		}
 
@@ -54,9 +46,6 @@
 			choice.quantity = 0;
 		}
 
-		function randomPoints(){
-			return (0 + Math.floor(Math.random() * 3) * 1);
-		}
 	}
 
 })();

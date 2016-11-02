@@ -40,12 +40,12 @@
 							<div data-ng-if="choice.type == 'boolean'">
 								<label class="checkbox-label" data-ng-class="{'checked': choice.selected}">
 									{{choice.points}}
-									<input data-ng-change="main.update(field)" data-ng-model="choice.selected" type="checkbox" />
+									<input data-ng-change="main.recalculate()" data-ng-model="choice.selected" type="checkbox" />
 								</label>
 							</div>
 							<div data-ng-if="choice.type == 'multiply'">
 								{{choice.points}} &times;
-								<input data-ng-change="main.update(field)" data-ng-model="choice.quantity" placeholder="0" type="number" />
+								<input data-ng-change="main.recalculate()" data-ng-model="choice.quantity" placeholder="0" type="number" />
 							</div>
 						</td>
 					</tr>
@@ -73,11 +73,12 @@
 							<span data-ng-if="main.total >= 20">
 								20&plus; points: This is a very complex app. It would probably cost $150,000 or more.
 							</span>
+							<a href="{{main.url}}">Link to this configuration.</a>
 						</td>
 					</tr>
 					<tr>
 						<td colspan="3">
-							<button class="important" data-ng-click="main.reset()">Reset</button>
+							<button class="important" data-ng-click="main.clearAll()">Reset</button>
 							<button class="important" data-ng-click="main.showExample()">How much would this page have cost?</button>
 						</td>
 					</tr>

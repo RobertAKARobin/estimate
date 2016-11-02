@@ -13,45 +13,70 @@
 	function MainController($http, Field, Choice){
 		var vm = this;
 		vm.total = 0;
-		vm.reset = clearAll;
-		vm.update = updateToField;
+		vm.clearAll = clearAll;
+		vm.recalculate = recalculate;
 		vm.showExample = showExample;
 		vm.fields = Field.all;
 		vm.choices = Choice.all;
 		vm.sendEmail = sendEmail;
 		vm.emailStatus = 'unsent';
 		vm.contact = {};
-		$http.get('fields.json').then(onLoad);
+		vm.url = '';
+		$http
+			.get('fields.json')
+			.then(Field.createMany)
+			.then(updateFromQuerystring)
+			.then(vm.recalculate);
 
-		function onLoad(response){
-			for(var i = 0, l = response.data.length; i < l; i++){
-				Field.create(response.data[i]);
+		function recalculate(){
+			var field,
+					choice,
+					querystring = [];
+			vm.total = 0;
+			vm.url = '';
+			for(var f = {i: 0, l: Field.all.length}; f.i < f.l; f.i++){
+				field = Field.all[f.i];
+				field.total = 0;
+				for(var c = {i: 0, l: field.choices.length}; c.i < c.l; c.i++){
+					choice = field.choices[c.i];
+					choice.calculateValue();
+					if(choice.value){
+						vm.total += choice.value;
+						field.total += choice.value;
+						querystring.push(choice.id + '=' + (choice.type == 'multiply' ? choice.quantity : 'true'));
+					}
+				}
 			}
+			vm.url = window.location.origin + '?' + querystring.join('&');
 		}
 
-		function updateToField(field){
-			vm.total = 0;
-			field.recalculate();
-			for(var i = 0, l = Field.all.length; i < l; i++){
-				vm.total += Field.all[i].total;
+		function updateFromQuerystring(){
+			var params = {},
+					querystring = window.location.search.substring(1).split('&'),
+					pair,
+					choice;
+			for(var i = 0, l = querystring.length; i < l; i++){
+				pair = querystring[i].split('=');
+				params[pair[0]] = pair[1];
+			}
+			for(var i = 0, l = Choice.all.length; i < l; i++){
+				choice = Choice.all[i];
+				choice.setValue(params[choice.id]);
 			}
 		}
 
 		function clearAll(){
-			vm.total = 0;
 			Field.clearAll();
+			vm.recalculate();
 		}
 
 		function showExample(){
 			var choice;
-			vm.reset();
 			for(var i = 0, l = Choice.all.length; i < l; i++){
 				choice = Choice.all[i];
-				choice.clear();
-				if(choice.showIfExample()){
-					updateToField(choice.field);
-				}
+				choice.setValue(choice.ex);
 			}
+			vm.recalculate();
 		}
 
 		function sendEmail(){
