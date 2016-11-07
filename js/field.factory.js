@@ -18,7 +18,6 @@
 		return Field;
 
 		function createMany(input){
-			var input = (input.data || input);
 			for(var i = 0, l = input.length; i < l; i++){
 				Field.create(input[i]);
 			}

@@ -21,10 +21,15 @@
 		vm.sendEmail = sendEmail;
 		vm.emailStatus = 'unsent';
 		vm.contact = {};
+		vm.levels = [];
 		vm.url = '';
 		$http
 			.get('fields.json')
-			.then(Field.createMany)
+			.then(function(response){
+				var fields = response.data.fields;
+				vm.levels = response.data.levels;
+				Field.createMany(fields);
+			})
 			.then(updateFromQuerystring)
 			.then(vm.recalculate);
 

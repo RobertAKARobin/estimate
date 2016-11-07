@@ -38,7 +38,7 @@
 							data-ng-attr-id="{{::choice.id}}"
 							data-ng-change="main.recalculate()"
 							data-ng-model="choice.input"
-							data-ng-attr-type="{{choice.type == 'number' ? 'text' : 'checkbox'}}"
+							data-ng-attr-type="{{::choice.type == 'number' ? 'text' : 'checkbox'}}"
 							placeholder="0"
 						/>
 						<span>{{::choice.points}}</span>
@@ -46,6 +46,25 @@
 					<div class="info">
 						<h3>{{::choice.name}}</h3>
 						<p>{{::choice.desc}}</p>
+					</div>
+				</div>
+			</section>
+
+			<section class="field">
+				<header>
+					<span class="points total">{{main.total}}</span>
+					<div class="info">
+						<h2>Total Complexity Points</h2>
+						<p>How complicated would this idea be to develop?</p>
+					</div>
+				</header>
+				<div class="choice" data-ng-repeat="level in main.levels">
+					<span data-ng-class="['points',{on: main.total >= level.min}]">
+						&gE;{{::level.min}}
+					</span>
+					<div class="info">
+						<h3>{{::level.adj}}</h3>
+						<p>{{::level.desc}}</p>
 					</div>
 				</div>
 			</section>

@@ -65,6 +65,9 @@ a {
   overflow: hidden;
 }
 
+.field a {
+  color: #fff;
+}
 .field > * {
   display: flex;
   align-items: flex-start;
@@ -116,9 +119,9 @@ a {
 .points.toggle:hover {
   border-color: #aaa;
 }
-.points.toggle.on {
+.points.on {
   background-color: #EF4B3E !important;
-  border-color: transparent;
+  border-color: transparent !important;
   color: #444;
 }
 .points [type=text] {

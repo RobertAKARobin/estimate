@@ -66,12 +66,12 @@ a{
 }
 
 .field{
+	a{
+		color:#fff;
+	}
 	& > *{
 		display:flex;
 		align-items:flex-start;
-	}
-	& > * > *{
-		// box-sizing:border-box;
 	}
 	header{
 		background-color:$mm-blue;
@@ -116,19 +116,17 @@ a{
 	&.total{
 		border-color:transparent;
 		background-color:rgba(0,0,0,0.2);
-		// background-color:#fff;
 		color:#fff;
 	}
 
-	&.toggle{
-		&:hover{
-			border-color:#aaa;
-		}
-		&.on{
-			background-color:$mm-red !important;
-			border-color:transparent;
-			color:#444;
-		}
+	&.toggle:hover{
+		border-color:#aaa;
+	}
+
+	&.on{
+		background-color:$mm-red !important;
+		border-color:transparent !important;
+		color:#444;
 	}
 
 	[type=text]{
