@@ -1,7 +1,6 @@
 $mm-blue: #46A3E2;
 $mm-dblue: #231E20;
 $mm-red: #EF4B3E;
-$bw: 2em;
 
 @mixin hidden{
   display:block;
@@ -30,21 +29,21 @@ $bw: 2em;
 html, body {
   font-family: Lato, Helvetica, sans-serif;
   color: $mm-dblue;
-  font-size: 14px;
-  line-height:24px;
+  font-size: 15px;
+  line-height: 25px;
 }
 body{
 	margin:0 auto;
 	max-width:1000px;
 }
 h1{
-	font-size:4em;
-  line-height:1em;
-	margin:0.5em 0;
+	font-size:50px;
+  line-height:50px;
+	margin:25px 0;
 }
 p{
   text-align:left;
-	margin-bottom:1.5em;
+	margin-bottom:25px;
 }
 em{
 	font-style:italic;
@@ -72,17 +71,16 @@ a{
 	& > *{
 		display:flex;
 		align-items:flex-start;
+		padding-top:15px;
+		padding-bottom:10px;
 	}
 	header{
 		background-color:$mm-blue;
+		border-top:5px solid $mm-dblue;
 		color:#fff;
-
 	}
 	.info{
-		padding-top:0.5em;
-		padding-bottom:2em;
-		padding-left:1em;
-		padding-right:1em;
+		padding-right:10px;
 	}
 	.choice{
 		border-bottom:1px solid #eee;
@@ -94,21 +92,21 @@ a{
 		}
 	}
 	h2,h3{
-		font-size:1.5em;
-		margin-bottom:0.5em;
+		font-size:20px;
+		margin-bottom:10px;
 	}
 	p{
-		margin-bottom:0;
+		margin-bottom:10px;
 	}
 }
 .points{
-	flex-basis:$bw;
+	flex-basis:40px;
 	flex-shrink:0;
 	text-align:center;
-	font-size:1.5em;
-	line-height:$bw;
-	height:$bw;
-	margin:0.5em;
+	font-size:20px;
+	line-height:40px;
+	height:40px;
+	margin:5px 10px;
 	border:0.2em solid #e9e9e9;
 	background-color:#fff;
 	color:#aaa;
@@ -135,7 +133,7 @@ a{
 		& + *{
 			&:before{
 				content:" x";
-				font-size:0.5em;
+				font-size:10px;
 			}
 		}
 		&,
@@ -154,9 +152,13 @@ a{
   color:$mm-red;
 }
 
+section{
+	margin-bottom:100px;
 
-//  _     _            _
-// | |__ | | ___   ___| | _____
-// | '_ \| |/ _ \ / __| |/ / __|
-// | |_) | | (_) | (__|   <\__ \
-// |_.__/|_|\___/ \___|_|\_\___/
+	& > *{
+		padding:0 10px;
+	}
+	& > .field{
+		padding:0;
+	}
+}

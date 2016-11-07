@@ -18,8 +18,8 @@
 html, body {
   font-family: Lato, Helvetica, sans-serif;
   color: #231E20;
-  font-size: 14px;
-  line-height: 24px;
+  font-size: 15px;
+  line-height: 25px;
 }
 
 body {
@@ -28,14 +28,14 @@ body {
 }
 
 h1 {
-  font-size: 4em;
-  line-height: 1em;
-  margin: 0.5em 0;
+  font-size: 50px;
+  line-height: 50px;
+  margin: 25px 0;
 }
 
 p {
   text-align: left;
-  margin-bottom: 1.5em;
+  margin-bottom: 25px;
 }
 
 em {
@@ -71,16 +71,16 @@ a {
 .field > * {
   display: flex;
   align-items: flex-start;
+  padding-top: 15px;
+  padding-bottom: 10px;
 }
 .field header {
   background-color: #46A3E2;
+  border-top: 5px solid #231E20;
   color: #fff;
 }
 .field .info {
-  padding-top: 0.5em;
-  padding-bottom: 2em;
-  padding-left: 1em;
-  padding-right: 1em;
+  padding-right: 10px;
 }
 .field .choice {
   border-bottom: 1px solid #eee;
@@ -92,21 +92,21 @@ a {
   background-color: #f9f9f9;
 }
 .field h2, .field h3 {
-  font-size: 1.5em;
-  margin-bottom: 0.5em;
+  font-size: 20px;
+  margin-bottom: 10px;
 }
 .field p {
-  margin-bottom: 0;
+  margin-bottom: 10px;
 }
 
 .points {
-  flex-basis: 2em;
+  flex-basis: 40px;
   flex-shrink: 0;
   text-align: center;
-  font-size: 1.5em;
-  line-height: 2em;
-  height: 2em;
-  margin: 0.5em;
+  font-size: 20px;
+  line-height: 40px;
+  height: 40px;
+  margin: 5px 10px;
   border: 0.2em solid #e9e9e9;
   background-color: #fff;
   color: #aaa;
@@ -130,7 +130,7 @@ a {
 }
 .points [type=text] + *:before {
   content: " x";
-  font-size: 0.5em;
+  font-size: 10px;
 }
 .points [type=text], .points [type=text] + * {
   display: block;
@@ -144,4 +144,14 @@ a {
 
 .error {
   color: #EF4B3E;
+}
+
+section {
+  margin-bottom: 100px;
+}
+section > * {
+  padding: 0 10px;
+}
+section > .field {
+  padding: 0;
 }

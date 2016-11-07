@@ -14,14 +14,12 @@
 	</head>
 	<body data-ng-app="estimator">
 
-		<div>
-			<h1>Estimate your app</h1>
+		<section data-ng-controller="mainController as main">
+			<h1>What's your app idea?</h1>
 
-			<p>Mix and match the components below to flesh out your idea and estimate its complexity (in &ldquo;points&rdquo;).</p>
-		</div>
+			<p>Mix and match the components below to flesh out your idea and estimate its complexity (in points).</p>
 
-		<div data-ng-controller="mainController as main">
-			<section class="field" data-ng-repeat="field in main.fields">
+			<div class="field" data-ng-repeat="field in main.fields">
 				<header>
 					<span class="points total">{{field.total}}</span>
 					<div class="info">
@@ -48,9 +46,9 @@
 						<p>{{::choice.desc}}</p>
 					</div>
 				</div>
-			</section>
+			</div>
 
-			<section class="field">
+			<div class="field">
 				<header>
 					<span class="points total">{{main.total}}</span>
 					<div class="info">
@@ -58,17 +56,8 @@
 						<p>How complicated would this idea be to develop?</p>
 					</div>
 				</header>
-				<div class="choice" data-ng-repeat="level in main.levels">
-					<span data-ng-class="['points',{on: main.total >= level.min}]">
-						&gE;{{::level.min}}
-					</span>
-					<div class="info">
-						<h3>{{::level.adj}}</h3>
-						<p>{{::level.desc}}</p>
-					</div>
-				</div>
-			</section>
-		</div>
+			</div>
+		</section>
 
 	  <!-- <script type="text/javascript">
 	    (function(d,s,i,r) {
