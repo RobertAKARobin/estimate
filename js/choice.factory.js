@@ -14,7 +14,7 @@
 
 		function create(choice){
 			Choice.all.push(choice);
-			choice.type = (choice.type || 'boolean');
+			choice.type = (choice.type || 'checkbox');
 			choice.points = (choice.points || 1);
 			choice.calculateValue = calculateValue;
 			choice.setValue = setValue;
@@ -25,10 +25,14 @@
 
 		function calculateValue(value){
 			var choice = this;
-			choice.quantity = Math.max(choice.quantity, 0);
 			switch(choice.type){
-				case 'boolean': choice.value = (choice.selected ? choice.points : 0); break;
-				case 'multiply': choice.value = (choice.points * (choice.quantity || 0)); break;
+				case 'checkbox':
+					choice.value = (choice.input ? choice.points : 0);
+					break;
+				case 'number':
+					choice.input = Math.max(choice.input, 0);
+					choice.value = choice.input * choice.points;
+					break;
 			}
 		}
 

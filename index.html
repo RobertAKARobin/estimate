@@ -2,9 +2,10 @@
 <html>
 	<head>
 		<title>Apps &agrave; la carte</title>
-		<!-- <script src="./bower_components/angular/angular.js"></script> -->
-		<script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.8/angular.min.js"></script>
-		<link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet">
+		<script src="./bower_components/angular/angular.js"></script>
+		<style>@font-face{font-family:"Lato";font-style:normal;font-weight:400;src:url("./Lato.woff2");}</style>
+		<!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.8/angular.min.js"></script>
+		<link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet"> -->
 		<script src="./js/main.module.js"></script>
 		<script src="./js/main.controller.js"></script>
 		<script src="./js/choice.factory.js"></script>
@@ -14,159 +15,50 @@
 	<body data-ng-app="estimator">
 
 		<div>
-			<h1>Apps &agrave; la carte</h1>
+			<h1>Estimate your app</h1>
 
-			<p>Building an app from scratch?</p>
-
-			<p>Mix and match the components below to flesh out your idea and estimate its complexity (in &ldquo;points&rdquo;), and its cost if you work with a mid-size development shop like ours, <a href="http://mentormate.com">MentorMate</a>.</p>
-
-			<p>When you're done you can send it in to us to have a look!</p>
+			<p>Mix and match the components below to flesh out your idea and estimate its complexity (in &ldquo;points&rdquo;).</p>
 		</div>
 
 		<div data-ng-controller="mainController as main">
-			<table>
-				<thead data-ng-repeat-start="field in main.fields">
-					<tr>
-						<th style="width:25%;">{{field.name}}</th>
-						<td style="width:50%;">{{field.desc}}</td>
-						<th style="width:25%;">{{field.total}} points</th>
-					</tr>
-				</thead>
-				<tbody class="fields">
-					<tr data-ng-repeat="choice in field.choices">
-						<td data-ng-if="choice.name" colspan="{{choice.desc ? 1 : 2}}">{{choice.name}}</td>
-						<td data-ng-if="choice.desc" colspan="{{choice.name ? 1 : 2}}">{{choice.desc}}</td>
-						<td>
-							<div data-ng-if="choice.type == 'boolean'">
-								<label class="checkbox-label" data-ng-class="{'checked': choice.selected}">
-									{{choice.points}}
-									<input data-ng-change="main.recalculate()" data-ng-model="choice.selected" type="checkbox" />
-								</label>
-							</div>
-							<div data-ng-if="choice.type == 'multiply'">
-								{{choice.points}} &times;
-								<input data-ng-change="main.recalculate()" data-ng-model="choice.quantity" placeholder="0" type="number" />
-							</div>
-						</td>
-					</tr>
-				</tbody>
-				<tbody data-ng-repeat-end class="spacer">
-					<tr>
-						<td colspan="3"></td>
-					</tr>
-				</tbody>
-				<tfoot>
-					<tr>
-						<th colspan="3">Total Complexity Points: {{main.total}}</th>
-					</tr>
-					<tr>
-						<td colspan="3" data-ng-show="main.total > 0">
-							<span data-ng-if="main.total < 8">
-								0 &ndash; 7 points: This is not a very complex app. It would probably cost between $8,000 and $25,000.
-							</span>
-							<span data-ng-if="main.total >= 8 && main.total < 14">
-								8 &mdash; 13 points: This is a somewhat complex app. It would probably cost between $25,000 and $75,000.
-							</span>
-							<span data-ng-if="main.total >= 14 && main.total < 20">
-								14 &ndash; 19 points: This is a complex app. It would probably cost between $75,000 and $150,000.
-							</span>
-							<span data-ng-if="main.total >= 20">
-								20&plus; points: This is a very complex app. It would probably cost $150,000 or more.
-							</span>
-							<a href="{{main.url}}">Link to this configuration.</a>
-						</td>
-					</tr>
-					<tr>
-						<td colspan="3">
-							<button class="important" data-ng-click="main.clearAll()">Reset</button>
-							<button class="important" data-ng-click="main.showExample()">How much would this page have cost?</button>
-						</td>
-					</tr>
-				</tfoot>
-			</table>
-
-			<table>
-				<thead>
-					<tr>
-						<th colspan="2">Seem like a lot?</th>
-					</tr>
-				</thead>
-				<tbody>
-					<tr>
-						<td colspan="2">
-
-							<p>If it's your first time building an app, or you've only worked with freelancers and overseas developers, it might!</p>
-
-							<p>In app development, you get what you pay for.</p>
-
-							<p>This estimate is based on our experience at a mid-size development shop based in the US and Bulgaria.</p>
-
-							<p>How much your app <em>actually</em> costs may be more, or may be less. Things change based on the specific features you want, and even more based on how much <em>risk</em> you're willing to take.</p>
-
-							<h2>What is &ldquo;risk&rdquo;?</h2>
-
-							<p>It's a measure of how sure you can be that you'll get a functioning, finished product.</p>
-
-							<p>Working with an established development company like <a href="http://www.mentormate.com">MentorMate</a>, which has a lot of customers and experience, is <strong>low-risk</strong>.</p>
-
-							<p>Our development includes quality assurance testing and project management because because we've worked hard to build our brand and want to protect it.</p>
-
-							<p>A well-managed product will bring in more revenue, and leave you free to grow your business instead of worrying about bugs.</p>
-
-							<p>On the other hand, hiring a freelancer, a technical co-founder, or an offshore development company is <strong>high-risk</strong>.</p>
-
-							<p>They may cost less in the short-term, but may also cost much more in the long-term because you don't have the &ldquo;safety net&rdquo; of a team of people all working to manage your development experience.</p>
-
-							<p>Making an app is a complicated process, and a lack of accountability and experience can quickly spiral into a storm of bugs and un-met promises.</p>
-
-							<p>What balance of risk and cost is best? That's up to you!</p>
-
-							<h2>Want to talk about it?</h2>
-
-							<p>We built this tool because a lot of people have really great app ideas but aren't sure how what they need to bring that idea to life, or how to budget for it.</p>
-
-							<p>We really enjoy talking about this stuff, and a conversation doesn't cost anything. Fill out the information below and we'll write back as quick as we can!</p>
-
-						</td>
-					</tr>
-					<tr>
-						<td>Name</td>
-						<td>
-							<div class="inline-inputs">
-								<input type="text" data-ng-model="main.contact.firstname" placeholder="First" name="firstname" />
-								<input type="text" data-ng-model="main.contact.lastname" placeholder="Last" name="lastname" />
-							</div>
-						</td>
-					</tr>
-					<tr>
-						<td>E-mail address</td>
-						<td><input type="text" data-ng-model="main.contact.email" name="email" /></td>
-					</tr>
-					<tr>
-						<td>Anything else you'd like us to know about you or your app?</td>
-						<td><textarea data-ng-model="main.contact.text"></textarea></td>
-					</tr>
-					<tr>
-						<td></td>
-						<td>
-							<p data-ng-if="main.emailErrors" class="error">{{main.emailErrors}}</p>
-							<button data-ng-if="main.emailStatus == 'unsent'" type="button" class="block important" data-ng-click="main.sendEmail()">Let us know!</button>
-							<button data-ng-if="main.emailStatus == 'sending'" disabled class="block">Sending...</button>
-							<button data-ng-if="main.emailStatus == 'sent'" disabled class="block">Sent! :)</button>
-						</td>
-					</tr>
-				</tbody>
-			</table>
+			<section class="field" data-ng-repeat="field in main.fields">
+				<header>
+					<span class="points total">{{field.total}}</span>
+					<div class="info">
+						<h2>{{::field.name}}</h2>
+						<p>{{::field.desc}}</p>
+					</div>
+				</header>
+				<div class="choice" data-ng-repeat="choice in field.choices">
+					<label
+						data-ng-class="['points', 'toggle', {on: choice.input > 0}]"
+						data-ng-attr-for="{{::choice.id}}"
+					>
+						<input
+							data-ng-attr-id="{{::choice.id}}"
+							data-ng-change="main.recalculate()"
+							data-ng-model="choice.input"
+							data-ng-attr-type="{{choice.type == 'number' ? 'text' : 'checkbox'}}"
+							placeholder="0"
+						/>
+						<span>{{::choice.points}}</span>
+					</label>
+					<div class="info">
+						<h3>{{::choice.name}}</h3>
+						<p>{{::choice.desc}}</p>
+					</div>
+				</div>
+			</section>
 		</div>
 
-	  <script type="text/javascript">
+	  <!-- <script type="text/javascript">
 	    (function(d,s,i,r) {
 	      if (d.getElementById(i)){return;}
 	      var n=d.createElement(s),e=d.getElementsByTagName(s)[0];
 	      n.id=i;n.src='//js.hs-analytics.net/analytics/'+(Math.ceil(new Date()/r)*r)+'/211554.js';
 	      e.parentNode.insertBefore(n, e);
 	    })(document,"script","hs-analytics",300000);
-	  </script>
+	  </script> -->
 
 	</body>
 </html>

@@ -1,0 +1,164 @@
+$mm-blue: #46A3E2;
+$mm-dblue: #231E20;
+$mm-red: #EF4B3E;
+$bw: 2em;
+
+@mixin hidden{
+  display:block;
+  width:1px;
+  height:1px;
+  opacity:0.01;
+  position:absolute;
+  overflow:hidden;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: inherit;
+  font-weight: inherit;
+  font-family: inherit;
+  font-style: inherit;
+  text-decoration: inherit;
+  line-height: inherit;
+  color: inherit;
+}
+*:focus{
+	outline:none;
+}
+html, body {
+  font-family: Lato, Helvetica, sans-serif;
+  color: $mm-dblue;
+  font-size: 14px;
+  line-height:24px;
+}
+body{
+	margin:0 auto;
+	max-width:1000px;
+}
+h1{
+	font-size:4em;
+  line-height:1em;
+	margin:0.5em 0;
+}
+p{
+  text-align:left;
+	margin-bottom:1.5em;
+}
+em{
+	font-style:italic;
+}
+strong{
+	font-weight:bold;
+	text-decoration:underline;
+}
+label{
+	cursor:pointer;
+}
+a{
+	color:$mm-red;
+	text-decoration:underline;
+}
+
+[type=checkbox]{
+	@include hidden;
+}
+
+.field{
+	& > *{
+		display:flex;
+		align-items:flex-start;
+	}
+	& > * > *{
+		// box-sizing:border-box;
+	}
+	header{
+		background-color:$mm-blue;
+		color:#fff;
+
+	}
+	.info{
+		padding-top:0.5em;
+		padding-bottom:2em;
+		padding-left:1em;
+		padding-right:1em;
+	}
+	.choice{
+		border-bottom:1px solid #eee;
+		&:last-child{
+			border-bottom:0;
+		}
+		&:hover{
+			background-color:#f9f9f9;
+		}
+	}
+	h2,h3{
+		font-size:1.5em;
+		margin-bottom:0.5em;
+	}
+	p{
+		margin-bottom:0;
+	}
+}
+.points{
+	flex-basis:$bw;
+	flex-shrink:0;
+	text-align:center;
+	font-size:1.5em;
+	line-height:$bw;
+	height:$bw;
+	margin:0.5em;
+	border:0.2em solid #e9e9e9;
+	background-color:#fff;
+	color:#aaa;
+
+	&.total{
+		border-color:transparent;
+		background-color:rgba(0,0,0,0.2);
+		// background-color:#fff;
+		color:#fff;
+	}
+
+	&.toggle{
+		&:hover{
+			border-color:#aaa;
+		}
+		&.on{
+			background-color:$mm-red !important;
+			border-color:transparent;
+			color:#444;
+		}
+	}
+
+	[type=text]{
+		background-color:transparent;
+		text-align:center;
+		& + *{
+			&:before{
+				content:" x";
+				font-size:0.5em;
+			}
+		}
+		&,
+		& + *{
+			display:block;
+			width:50%;
+			float:left;
+		}
+	}
+}
+
+.important{
+	background-color:$mm-red;
+}
+.error{
+  color:$mm-red;
+}
+
+
+//  _     _            _
+// | |__ | | ___   ___| | _____
+// | '_ \| |/ _ \ / __| |/ / __|
+// | |_) | | (_) | (__|   <\__ \
+// |_.__/|_|\___/ \___|_|\_\___/

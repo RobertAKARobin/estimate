@@ -34,7 +34,7 @@
 				"name": "Sign in through a social network",
 				"id": "social",
 				"desc": "Google, Twitter, Facebook, LinkedIn, Github... These all provide ways of letting people log in and sign up. How many social networks do you want to include?",
-				"type": "multiply",
+				"type": "number",
 				"points": 1
 			},
 			{
@@ -117,7 +117,7 @@
 				"name": "Custom graphics",
 				"id": "graphics",
 				"desc": "Even the smallest logo or icon can take a lot of time and thought. How many custom graphics do you need?",
-				"type": "multiply",
+				"type": "number",
 				"points": 1
 			}
 		]
