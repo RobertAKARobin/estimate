@@ -39,11 +39,18 @@ body{
 h1{
 	font-size:50px;
   line-height:50px;
-	margin:25px 0;
+	margin:50px 0;
 }
-p{
-  text-align:left;
-	margin-bottom:25px;
+h2,
+h3{
+	font-size:20px;
+	line-height:17px;
+	margin-bottom:10px;
+}
+p,
+blockquote{
+	text-align:left;
+	margin-bottom:10px;
 }
 em{
 	font-style:italic;
@@ -59,31 +66,107 @@ a{
 	color:$mm-red;
 	text-decoration:underline;
 }
-
-[type=checkbox]{
-	@include hidden;
+blockquote{
+	font-style:italic;
 }
 
-.field{
-	a{
-		color:#fff;
-	}
+.recordset{
+	display:table;
+
 	& > *{
-		display:flex;
-		align-items:flex-start;
-		padding-top:15px;
-		padding-bottom:10px;
+		display:table-row;
+
+		& > *{
+			position:relative;
+			display:table-cell;
+			vertical-align:top;
+			padding-top:25px;
+			padding-bottom:10px;
+			padding-left:10px;
+			border-bottom:1px solid #eee;
+
+			&:last-child{
+				padding-right:10px;
+			}
+		}
 	}
-	header{
+}
+
+.input{
+
+	@at-root span#{&},
+	& + label,
+	&[type=text]{
+		display:inline-block;
+		text-align:center;
+		font-size:20px;
+		width:40px;
+		line-height:40px;
+		height:40px;
+		background-color:rgba(0,0,0,0.2);
+		border:4px solid transparent;
+	}
+
+	&[type=text],
+	& + label{
+		background-color:#fff;
+		border-color:#e9e9e9;
+		color:#aaa;
+	}
+
+	&[type]:hover,
+	&[type]:hover + label{
+		border-color:#ddd;
+	}
+
+	&:checked,
+	&[type=text].ng-not-empty{
+		&,
+		& + label{
+			background-color:$mm-red;
+			border-color:transparent !important;
+			color:#444;
+		}
+	}
+
+	&[type=radio],
+	&[type=checkbox]{
+		@include hidden;
+	}
+
+	&[type=radio] + label{
+		border-radius:25px;
+	}
+
+	&[type=text]{
+		margin-right:0;
+		border-right-width:0;
+
+		&{
+			width:20px;
+			float:left;
+		}
+
+		& + label{
+			width:20px;
+			border-left-width:0;
+
+			&:before{
+				content:"x";
+				font-size:10px;
+				float:left;
+			}
+		}
+	}
+}
+
+.epics{
+	.header{
 		background-color:$mm-blue;
 		border-top:5px solid $mm-dblue;
 		color:#fff;
 	}
-	.info{
-		padding-right:10px;
-	}
-	.choice{
-		border-bottom:1px solid #eee;
+	.record{
 		&:last-child{
 			border-bottom:0;
 		}
@@ -91,74 +174,87 @@ a{
 			background-color:#f9f9f9;
 		}
 	}
-	h2,h3{
-		font-size:20px;
-		margin-bottom:10px;
+}
+
+.devs{
+	& > *{
+		&:first-child > *{
+			border-top:1px solid #bbb;
+		}
+		& > *{
+			border-bottom:1px solid #bbb;
+			background-color:#f0f0f0;
+		}
+		&:hover > *{
+			background-color:#f9f9f9;
+		}
+		&.on > *{
+			background-color:#fff;
+		}
 	}
-	p{
-		margin-bottom:10px;
+	h2.mentormate{
+		color:transparent;
+		height:50px;
+		background-image:url("mentormate_logo.png");
+		background-size:contain;
+		background-repeat:no-repeat;
+	}
+	[type=radio]{
+		& + label{
+			border-color:#ddd;
+		}
+		&:hover + label{
+			border-color:#ccc;
+		}
+		&:checked + label{
+			background-color:$mm-blue;
+		}
 	}
 }
-.points{
-	flex-basis:40px;
-	flex-shrink:0;
-	text-align:center;
-	font-size:20px;
-	line-height:40px;
-	height:40px;
-	margin:5px 10px;
-	border:0.2em solid #e9e9e9;
-	background-color:#fff;
-	color:#aaa;
 
-	&.total{
-		border-color:transparent;
-		background-color:rgba(0,0,0,0.2);
-		color:#fff;
-	}
+.ratings{
+	float:right;
+	margin-left:10px;
+	margin-bottom:10px;
 
-	&.toggle:hover{
-		border-color:#aaa;
-	}
-
-	&.on{
-		background-color:$mm-red !important;
-		border-color:transparent !important;
-		color:#444;
-	}
-
-	[type=text]{
-		background-color:transparent;
+	& > *{
+		display:inline-block;
+		width:50px;
+		font-size:12px;
+		line-height:50px;
+		border-radius:25px;
 		text-align:center;
-		& + *{
-			&:before{
-				content:" x";
-				font-size:10px;
-			}
-		}
-		&,
-		& + *{
-			display:block;
-			width:50%;
-			float:left;
-		}
+		vertical-align:top;
+		border-right:1px solid rgba(0,0,0,0.1);
+		border-bottom:0;
+		box-sizing:border-box;
+		margin:0 2px;
+		color:#000;
+	}
+	.r1{
+		background-color:$mm-red;
+	}
+	.r2{
+		background-color:#fc3;
+	}
+	.r3{
+		background-color:#6c9;
 	}
 }
 
-.important{
-	background-color:$mm-red;
-}
-.error{
-  color:$mm-red;
+.condition{
+	& .conditional{
+		display:none;
+	}
+	&.on .conditional{
+		display:block;
+	}
 }
 
 section{
 	margin-bottom:100px;
 
-	& > *{
+	& > header{
 		padding:0 10px;
-	}
-	& > .field{
-		padding:0;
 	}
 }

@@ -8,47 +8,52 @@
 		.module('estimator')
 		.controller('mainController', MainController);
 
-	MainController.$inject = ['$http', 'Field', 'Choice'];
+	MainController.$inject = ['$http', 'Epic', 'Feature'];
 
-	function MainController($http, Field, Choice){
+	function MainController($http, Epic, Feature){
 		var vm = this;
 		vm.total = 0;
 		vm.clearAll = clearAll;
 		vm.recalculate = recalculate;
 		vm.showExample = showExample;
-		vm.fields = Field.all;
-		vm.choices = Choice.all;
+		vm.epics = Epic.all;
+		vm.features = Feature.all;
 		vm.sendEmail = sendEmail;
 		vm.emailStatus = 'unsent';
 		vm.contact = {};
 		vm.levels = [];
+		vm.devs = [];
 		vm.url = '';
 		$http
-			.get('fields.json')
+			.get('variables.json')
 			.then(function(response){
-				var fields = response.data.fields;
+				var epics = response.data.epics;
 				vm.levels = response.data.levels;
-				Field.createMany(fields);
+				vm.devs = response.data.devs;
+				for(var i = 0, l = vm.devs.length; i < l; i++){
+					vm.devs[i].id = vm.devs[i].name.toLowerCase().replace(/ /g,"_");
+				}
+				Epic.createMany(epics);
 			})
 			.then(updateFromQuerystring)
 			.then(vm.recalculate);
 
 		function recalculate(){
-			var field,
-					choice,
+			var epic,
+					feature,
 					querystring = [];
 			vm.total = 0;
 			vm.url = '';
-			for(var f = {i: 0, l: Field.all.length}; f.i < f.l; f.i++){
-				field = Field.all[f.i];
-				field.total = 0;
-				for(var c = {i: 0, l: field.choices.length}; c.i < c.l; c.i++){
-					choice = field.choices[c.i];
-					choice.calculateValue();
-					if(choice.value){
-						vm.total += choice.value;
-						field.total += choice.value;
-						querystring.push(choice.id + '=' + (choice.type == 'multiply' ? choice.quantity : 'true'));
+			for(var f = {i: 0, l: Epic.all.length}; f.i < f.l; f.i++){
+				epic = Epic.all[f.i];
+				epic.total = 0;
+				for(var c = {i: 0, l: epic.features.length}; c.i < c.l; c.i++){
+					feature = epic.features[c.i];
+					feature.calculateValue();
+					if(feature.value){
+						vm.total += feature.value;
+						epic.total += feature.value;
+						querystring.push(feature.id + '=' + (feature.type == 'multiply' ? feature.quantity : 'true'));
 					}
 				}
 			}
@@ -59,27 +64,27 @@
 			var params = {},
 					querystring = window.location.search.substring(1).split('&'),
 					pair,
-					choice;
+					feature;
 			for(var i = 0, l = querystring.length; i < l; i++){
 				pair = querystring[i].split('=');
 				params[pair[0]] = pair[1];
 			}
-			for(var i = 0, l = Choice.all.length; i < l; i++){
-				choice = Choice.all[i];
-				choice.setValue(params[choice.id]);
+			for(var i = 0, l = Feature.all.length; i < l; i++){
+				feature = Feature.all[i];
+				feature.setValue(params[feature.id]);
 			}
 		}
 
 		function clearAll(){
-			Field.clearAll();
+			Epic.clearAll();
 			vm.recalculate();
 		}
 
 		function showExample(){
-			var choice;
-			for(var i = 0, l = Choice.all.length; i < l; i++){
-				choice = Choice.all[i];
-				choice.setValue(choice.ex);
+			var feature;
+			for(var i = 0, l = Feature.all.length; i < l; i++){
+				feature = Feature.all[i];
+				feature.setValue(feature.ex);
 			}
 			vm.recalculate();
 		}

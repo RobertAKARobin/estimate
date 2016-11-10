@@ -30,12 +30,20 @@ body {
 h1 {
   font-size: 50px;
   line-height: 50px;
-  margin: 25px 0;
+  margin: 50px 0;
 }
 
-p {
+h2,
+h3 {
+  font-size: 20px;
+  line-height: 17px;
+  margin-bottom: 10px;
+}
+
+p,
+blockquote {
   text-align: left;
-  margin-bottom: 25px;
+  margin-bottom: 10px;
 }
 
 em {
@@ -56,7 +64,53 @@ a {
   text-decoration: underline;
 }
 
-[type=checkbox] {
+blockquote {
+  font-style: italic;
+}
+
+.recordset {
+  display: table;
+}
+.recordset > * {
+  display: table-row;
+}
+.recordset > * > * {
+  position: relative;
+  display: table-cell;
+  vertical-align: top;
+  padding-top: 25px;
+  padding-bottom: 10px;
+  padding-left: 10px;
+  border-bottom: 1px solid #eee;
+}
+.recordset > * > *:last-child {
+  padding-right: 10px;
+}
+
+span.input, .input + label, .input[type=text] {
+  display: inline-block;
+  text-align: center;
+  font-size: 20px;
+  width: 40px;
+  line-height: 40px;
+  height: 40px;
+  background-color: rgba(0, 0, 0, 0.2);
+  border: 4px solid transparent;
+}
+.input[type=text], .input + label {
+  background-color: #fff;
+  border-color: #e9e9e9;
+  color: #aaa;
+}
+.input[type]:hover, .input[type]:hover + label {
+  border-color: #ddd;
+}
+.input:checked, .input:checked + label, .input[type=text].ng-not-empty, .input[type=text].ng-not-empty + label {
+  background-color: #EF4B3E;
+  border-color: transparent !important;
+  color: #444;
+}
+.input[type=radio], .input[type=checkbox] {
   display: block;
   width: 1px;
   height: 1px;
@@ -64,94 +118,108 @@ a {
   position: absolute;
   overflow: hidden;
 }
+.input[type=radio] + label {
+  border-radius: 25px;
+}
+.input[type=text] {
+  margin-right: 0;
+  border-right-width: 0;
+}
+.input[type=text] {
+  width: 20px;
+  float: left;
+}
+.input[type=text] + label {
+  width: 20px;
+  border-left-width: 0;
+}
+.input[type=text] + label:before {
+  content: "x";
+  font-size: 10px;
+  float: left;
+}
 
-.field a {
-  color: #fff;
-}
-.field > * {
-  display: flex;
-  align-items: flex-start;
-  padding-top: 15px;
-  padding-bottom: 10px;
-}
-.field header {
+.epics .header {
   background-color: #46A3E2;
   border-top: 5px solid #231E20;
   color: #fff;
 }
-.field .info {
-  padding-right: 10px;
-}
-.field .choice {
-  border-bottom: 1px solid #eee;
-}
-.field .choice:last-child {
+.epics .record:last-child {
   border-bottom: 0;
 }
-.field .choice:hover {
+.epics .record:hover {
   background-color: #f9f9f9;
 }
-.field h2, .field h3 {
-  font-size: 20px;
-  margin-bottom: 10px;
-}
-.field p {
-  margin-bottom: 10px;
-}
 
-.points {
-  flex-basis: 40px;
-  flex-shrink: 0;
-  text-align: center;
-  font-size: 20px;
-  line-height: 40px;
-  height: 40px;
-  margin: 5px 10px;
-  border: 0.2em solid #e9e9e9;
+.devs > *:first-child > * {
+  border-top: 1px solid #bbb;
+}
+.devs > * > * {
+  border-bottom: 1px solid #bbb;
+  background-color: #f0f0f0;
+}
+.devs > *:hover > * {
+  background-color: #f9f9f9;
+}
+.devs > *.on > * {
   background-color: #fff;
-  color: #aaa;
 }
-.points.total {
-  border-color: transparent;
-  background-color: rgba(0, 0, 0, 0.2);
-  color: #fff;
+.devs h2.mentormate {
+  color: transparent;
+  height: 50px;
+  background-image: url("mentormate_logo.png");
+  background-size: contain;
+  background-repeat: no-repeat;
 }
-.points.toggle:hover {
-  border-color: #aaa;
+.devs [type=radio] + label {
+  border-color: #ddd;
 }
-.points.on {
-  background-color: #EF4B3E !important;
-  border-color: transparent !important;
-  color: #444;
+.devs [type=radio]:hover + label {
+  border-color: #ccc;
 }
-.points [type=text] {
-  background-color: transparent;
-  text-align: center;
-}
-.points [type=text] + *:before {
-  content: " x";
-  font-size: 10px;
-}
-.points [type=text], .points [type=text] + * {
-  display: block;
-  width: 50%;
-  float: left;
+.devs [type=radio]:checked + label {
+  background-color: #46A3E2;
 }
 
-.important {
+.ratings {
+  float: right;
+  margin-left: 10px;
+  margin-bottom: 10px;
+}
+.ratings > * {
+  display: inline-block;
+  width: 50px;
+  font-size: 12px;
+  line-height: 50px;
+  border-radius: 25px;
+  text-align: center;
+  vertical-align: top;
+  border-right: 1px solid rgba(0, 0, 0, 0.1);
+  border-bottom: 0;
+  box-sizing: border-box;
+  margin: 0 2px;
+  color: #000;
+}
+.ratings .r1 {
   background-color: #EF4B3E;
 }
+.ratings .r2 {
+  background-color: #fc3;
+}
+.ratings .r3 {
+  background-color: #6c9;
+}
 
-.error {
-  color: #EF4B3E;
+.condition .conditional {
+  display: none;
+}
+.condition.on .conditional {
+  display: block;
 }
 
 section {
   margin-bottom: 100px;
 }
-section > * {
+section > header {
   padding: 0 10px;
-}
-section > .field {
-  padding: 0;
 }
