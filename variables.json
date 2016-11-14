@@ -199,6 +199,7 @@
 	"devs": [
 		{
 			"name": "MentorMate",
+			"id": "dev_mentormate",
 			"desc": "An established development company with 15 years of experience, hundreds of published software solutions, and thousands of positive continuing relationships around the world.",
 			"rating": {
 				"scale": 3,
@@ -212,19 +213,21 @@
 		},
 		{
 			"name": "Staff Developer",
+			"id": "dev_employee",
+			"desc": "Someone you hire as an employee.",
 			"rating": {
 				"scale": 3,
 				"trust": 2,
 				"skill": 2,
 				"time": 2
 			},
-			"desc": "Someone you hire as an employee.",
 			"pros": "You benefit from everything an employee learns as their career progresses. Since they report to you, you don't need to worry about scheduling around their other commitments. You know precisely who's going to be working on what, and when.",
 			"cons": "If you hire a PHP developer, and then realize you actually need a .NET developer, your options are to pivot your whole project, ask them to learn a new technology, or let them go. This can be devastating to the morale of the employees close to the one in question. You're responsible for salaries, benefits, and working conditions.",
 			"good_if": "You already have several thousand customers, a solid revenue stream, and an HR department with bandwidth to spare."
 		},
 		{
 			"name": "Technical Cofounder",
+			"id": "dev_cofounder",
 			"rating": {
 				"scale": 2,
 				"trust": 2,
@@ -238,6 +241,7 @@
 		},
 		{
 			"name": "Freelancer",
+			"id": "dev_freelance",
 			"rating": {
 				"scale": 1,
 				"trust": 1,
@@ -251,6 +255,7 @@
 		},
 		{
 			"name": "Discount Development Shop",
+			"id": "dev_overseas",
 			"rating": {
 				"scale": 1,
 				"trust": 1,

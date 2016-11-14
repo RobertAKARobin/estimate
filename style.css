@@ -164,10 +164,10 @@ span.input, .input + label, .input[type=text] {
 .devs > *.on > * {
   background-color: #fff;
 }
-.devs h2.mentormate {
+.devs h2.dev_mentormate {
   color: transparent;
   height: 50px;
-  background-image: url("mentormate_logo.png");
+  background-image: url("./assets/mentormate_logo.png");
   background-size: contain;
   background-repeat: no-repeat;
 }
@@ -186,7 +186,7 @@ span.input, .input + label, .input[type=text] {
   margin-left: 10px;
   margin-bottom: 10px;
 }
-.ratings > * {
+.ratings [data-rating] {
   display: inline-block;
   width: 50px;
   font-size: 12px;
@@ -200,13 +200,13 @@ span.input, .input + label, .input[type=text] {
   margin: 0 2px;
   color: #000;
 }
-.ratings .r1 {
+.ratings [data-rating="1"] {
   background-color: #EF4B3E;
 }
-.ratings .r2 {
+.ratings [data-rating="2"] {
   background-color: #fc3;
 }
-.ratings .r3 {
+.ratings [data-rating="3"] {
   background-color: #6c9;
 }
 

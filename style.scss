@@ -192,10 +192,10 @@ blockquote{
 			background-color:#fff;
 		}
 	}
-	h2.mentormate{
+	h2.dev_mentormate{
 		color:transparent;
 		height:50px;
-		background-image:url("mentormate_logo.png");
+		background-image:url("./assets/mentormate_logo.png");
 		background-size:contain;
 		background-repeat:no-repeat;
 	}
@@ -217,7 +217,7 @@ blockquote{
 	margin-left:10px;
 	margin-bottom:10px;
 
-	& > *{
+	[data-rating]{
 		display:inline-block;
 		width:50px;
 		font-size:12px;
@@ -231,13 +231,13 @@ blockquote{
 		margin:0 2px;
 		color:#000;
 	}
-	.r1{
+	[data-rating="1"]{
 		background-color:$mm-red;
 	}
-	.r2{
+	[data-rating="2"]{
 		background-color:#fc3;
 	}
-	.r3{
+	[data-rating="3"]{
 		background-color:#6c9;
 	}
 }

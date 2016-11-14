@@ -3,13 +3,10 @@
 	<head>
 		<title>Apps &agrave; la carte</title>
 		<script src="./bower_components/angular/angular.js"></script>
-		<style>@font-face{font-family:"Lato";font-style:normal;font-weight:400;src:url("./Lato.woff2");}</style>
+		<style>@font-face{font-family:"Lato";font-style:normal;font-weight:400;src:url("./assets/Lato.woff2");}</style>
 		<!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.8/angular.min.js"></script>
 		<link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet"> -->
-		<script src="./js/main.module.js"></script>
-		<script src="./js/main.controller.js"></script>
-		<script src="./js/feature.factory.js"></script>
-		<script src="./js/epic.factory.js"></script>
+		<script src="./main.js"></script>
 		<link rel="stylesheet" href="style.css" />
 	</head>
 	<body data-ng-app="estimator" data-ng-controller="mainController as main">
@@ -99,7 +96,7 @@
 							<div class="ratings">
 								<span
 									data-ng-repeat="(key, val) in ::dev.rating"
-									data-ng-class="'r' + val"
+									data-rating="{{::val}}"
 								>
 									{{::key}}: {{::val}}
 								</span>
