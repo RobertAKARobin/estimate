@@ -11,16 +11,15 @@
 	</head>
 	<body data-ng-app="estimator" data-ng-controller="mainController as main">
 
-		<section>
+		<section class="epics">
 			<header>
 				<h1>What's your app idea?</h1>
 
 				<p>Mix and match the components below to flesh out your idea and estimate its complexity (in points).</p>
 			</header>
 
-			<div class="epics recordset">
-
-				<div class="header" data-ng-repeat-start="epic in main.epics">
+			<div class="recordset">
+				<div class="header" data-ng-repeat-start="epic in ::main.epics">
 					<div>
 						<span class="input">{{epic.total}}</span>
 					</div>
@@ -30,7 +29,7 @@
 					</div>
 				</div>
 
-				<div class="record" data-ng-repeat-end data-ng-repeat="feature in epic.features">
+				<div class="record" data-ng-repeat-end data-ng-repeat="feature in ::epic.features">
 					<div>
 						<input
 							class="input"
@@ -49,32 +48,38 @@
 						<p>{{::feature.desc}}</p>
 					</div>
 				</div>
+			</div>
 
-				<div class="header">
-					<div>
-						<span class="input">
-							{{main.total}}
-						</span>
-					</div>
-					<div>
-						<h2>Total Complexity Points</h2>
-						<p>How complicated would this idea be to develop?</p>
-					</div>
+			<div class="footer">
+				<h2>Total Complexity</h2>
+				<p data-ng-if="!main.level">How complicated would this idea be to develop?</p>
+				<p data-ng-if="main.level">This idea is {{main.level.adj}} complex.</p>
+
+				<div class="graph">
+					<span class="intervals">
+						<span
+							data-ng-repeat="level in ::main.complexity_levels"
+							data-ng-style="::{width: (level / main.graph.diff) + '%'}"
+						>{{::level}}</span>
+					</span>
+					<span class="progress" data-ng-style="{width: main.progress + '%'}">
+						<span>{{main.total || ""}}</span>
+					</span>
 				</div>
 			</div>
 		</section>
 
-		<section>
+		<section class="devs">
 			<header>
 				<h1>How much will it cost?</h1>
 
 				<p>That depends on who builds it!</p>
 			</header>
 
-			<div class="devs recordset">
+			<div class="recordset">
 
 				<div
-					data-ng-repeat="dev in main.devs"
+					data-ng-repeat="dev in ::main.devs"
 					data-ng-class="['record', 'condition', main.dev == dev.id ? 'on' : '']"
 				>
 					<div>

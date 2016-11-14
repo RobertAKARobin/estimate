@@ -70,13 +70,14 @@ blockquote {
 
 .recordset {
   display: table;
+  width: 100%;
 }
 .recordset > * {
   display: table-row;
 }
 .recordset > * > * {
-  position: relative;
   display: table-cell;
+  position: relative;
   vertical-align: top;
   padding-top: 25px;
   padding-bottom: 10px;
@@ -139,29 +140,40 @@ span.input, .input + label, .input[type=text] {
   float: left;
 }
 
-.epics .header {
-  background-color: #46A3E2;
-  border-top: 5px solid #231E20;
-  color: #fff;
-}
 .epics .record:last-child {
   border-bottom: 0;
 }
 .epics .record:hover {
   background-color: #f9f9f9;
 }
+.epics .header > *,
+.epics .footer {
+  position: relative;
+  vertical-align: top;
+  padding-top: 25px;
+  padding-bottom: 10px;
+  padding-left: 10px;
+  border-bottom: 1px solid #eee;
+  border-top: 2px solid #231E20;
+  background-color: #46A3E2;
+  color: #fff;
+}
+.epics .header > *:last-child,
+.epics .footer:last-child {
+  padding-right: 10px;
+}
 
-.devs > *:first-child > * {
+.devs .recordset > *:first-child > * {
   border-top: 1px solid #bbb;
 }
-.devs > * > * {
+.devs .recordset > * > * {
   border-bottom: 1px solid #bbb;
   background-color: #f0f0f0;
 }
-.devs > *:hover > * {
+.devs .recordset > *:hover > * {
   background-color: #f9f9f9;
 }
-.devs > *.on > * {
+.devs .recordset > *.on > * {
   background-color: #fff;
 }
 .devs h2.dev_mentormate {
@@ -222,4 +234,44 @@ section {
 }
 section > header {
   padding: 0 10px;
+}
+
+.graph {
+  background-color: rgba(0, 0, 0, 0.2);
+  position: relative;
+  font-size: 0;
+  height: 30px;
+  margin-bottom: 30px;
+}
+.graph .intervals > *,
+.graph .progress {
+  display: block;
+  position: absolute;
+  top: 0;
+  left: 0;
+  font-size: 15px;
+  line-height: 30px;
+  box-sizing: border-box;
+  text-align: right;
+}
+.graph .intervals > * {
+  top: 30px;
+  padding: 0 5px;
+  border-style: solid;
+  border-color: rgba(0, 0, 0, 0.2);
+  border-width: 0px;
+  border-right-width: 2px;
+  color: #fff;
+}
+.graph .intervals > *:first-child {
+  border-right-width: 0px;
+  border-left-width: 2px;
+}
+.graph .progress {
+  background-color: #EF4B3E;
+  transition: width 0.3s;
+  z-index: 9999;
+}
+.graph .progress > span {
+  padding-right: 7px;
 }

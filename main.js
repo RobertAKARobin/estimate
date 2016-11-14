@@ -10,14 +10,22 @@
 
 	function MainController($http){
 		var vm = this;
-		vm.total = 0;
 		vm.recalculate = recalculate;
 		$http
 			.get('variables.json')
 			.then(function loadData(response){
 				angular.extend(vm, response.data);
-				recalculate();
-			});
+			})
+			.then(function makeGraph(){
+				var range = vm.complexity_levels;
+				var graph = {
+					max: Math.max.apply(null, range),
+					min: Math.min.apply(null, range)
+				}
+				graph.diff = (graph.max - graph.min) / 100;
+				vm.graph = graph;
+			})
+			.then(recalculate);
 
 		function recalculate(){
 			var epic, feature;
@@ -33,6 +41,14 @@
 					}
 				}
 				vm.total += epic.total;
+			}
+			vm.progress = Math.min(vm.total, vm.graph.max) / vm.graph.diff;
+			vm.level = null;
+			for(var i = vm.complexity_levels.length - 1; i >= 0; i--){
+				if(vm.total > vm.complexity_levels[i]){
+					vm.level = vm.complexity_level_descriptions[i];
+					break;
+				}
 			}
 		}
 

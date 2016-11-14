@@ -1,33 +1,31 @@
 {
-	"levels": [
+	"complexity_levels": [
+		0, 7, 14, 21
+	],
+	"complexity_level_descriptions": [
 		{
-			"min": "1",
-			"adj": "Not very complex",
-			"desc": "",
+			"adj": "not very",
 			"range": {
 				"min": 8000,
 				"max": 25000
 			}
 		},
 		{
-			"min": "7",
-			"adj": "Somewhat complex",
+			"adj": "somewhat",
 			"range": {
 				"min": 25000,
 				"max": 75000
 			}
 		},
 		{
-			"min": "14",
-			"adj": "Complex",
+			"adj": "",
 			"range": {
 				"min": 75000,
 				"max": 150000
 			}
 		},
 		{
-			"min": "20",
-			"adj": "Very complex",
+			"adj": "very",
 			"range": {
 				"min": 150000
 			}

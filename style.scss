@@ -10,6 +10,18 @@ $mm-red: #EF4B3E;
   position:absolute;
   overflow:hidden;
 }
+@mixin row{
+	position:relative;
+	vertical-align:top;
+	padding-top:25px;
+	padding-bottom:10px;
+	padding-left:10px;
+	border-bottom:1px solid #eee;
+
+	&:last-child{
+		padding-right:10px;
+	}
+}
 
 * {
   margin: 0;
@@ -72,22 +84,14 @@ blockquote{
 
 .recordset{
 	display:table;
+	width:100%;
 
 	& > *{
 		display:table-row;
 
 		& > *{
-			position:relative;
 			display:table-cell;
-			vertical-align:top;
-			padding-top:25px;
-			padding-bottom:10px;
-			padding-left:10px;
-			border-bottom:1px solid #eee;
-
-			&:last-child{
-				padding-right:10px;
-			}
+			@include row;
 		}
 	}
 }
@@ -161,11 +165,6 @@ blockquote{
 }
 
 .epics{
-	.header{
-		background-color:$mm-blue;
-		border-top:5px solid $mm-dblue;
-		color:#fff;
-	}
 	.record{
 		&:last-child{
 			border-bottom:0;
@@ -174,22 +173,31 @@ blockquote{
 			background-color:#f9f9f9;
 		}
 	}
+	.header > *,
+	.footer{
+		@include row;
+		border-top:2px solid $mm-dblue;
+		background-color:$mm-blue;
+		color:#fff;
+	}
 }
 
 .devs{
-	& > *{
-		&:first-child > *{
-			border-top:1px solid #bbb;
-		}
+	.recordset{
 		& > *{
-			border-bottom:1px solid #bbb;
-			background-color:#f0f0f0;
-		}
-		&:hover > *{
-			background-color:#f9f9f9;
-		}
-		&.on > *{
-			background-color:#fff;
+			&:first-child > *{
+				border-top:1px solid #bbb;
+			}
+			& > *{
+				border-bottom:1px solid #bbb;
+				background-color:#f0f0f0;
+			}
+			&:hover > *{
+				background-color:#f9f9f9;
+			}
+			&.on > *{
+				background-color:#fff;
+			}
 		}
 	}
 	h2.dev_mentormate{
@@ -256,5 +264,48 @@ section{
 
 	& > header{
 		padding:0 10px;
+	}
+}
+
+.graph{
+	background-color:rgba(0,0,0,0.2);
+	position:relative;
+	font-size:0;
+	height:30px;
+	margin-bottom:30px;
+
+	.intervals > *,
+	.progress{
+		display:block;
+		position:absolute;
+		top:0;
+		left:0;
+		font-size:15px;
+		line-height:30px;
+		box-sizing:border-box;
+		text-align:right;
+	}
+	.intervals > *{
+		top:30px;
+		padding:0 5px;
+		border-style:solid;
+		border-color:rgba(0,0,0,0.2);
+		border-width:0px;
+		border-right-width:2px;
+		color:#fff;
+
+		&:first-child{
+			border-right-width:0px;
+			border-left-width:2px;
+		}
+	}
+	.progress{
+		background-color:$mm-red;
+		transition: width 0.3s;
+		z-index:9999;
+
+		& > span{
+			padding-right:7px;
+		}
 	}
 }
