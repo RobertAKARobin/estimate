@@ -109,6 +109,14 @@
 							<p><strong>Pros:</strong> {{::dev.pros}}</p>
 							<p><strong>Cons:</strong> {{::dev.cons}}</p>
 							<p><strong>Good if:</strong> {{::dev.good_if}}</p>
+							<p data-ng-show="main.dev == 'dev_mentormate'"><strong>
+								Cost: <span data-ng-show="!main.level">You've entered nothing, which costs nothing! Pick some options above.</span>
+								<span data-ng-show="main.level">An app like this that's <em>{{main.level.adj}} complex</em> will probably cost {{main.level.range}}</span>
+							</strong></p>
+							<p data-ng-show="main.dev != 'dev_mentormate'">
+								<strong>Where to find:</strong>
+								<span data-ng-show="main.dev != 'dev_mentormate'">{{::dev.find_where}}</span>
+							</p>
 						</div>
 					</div>
 				</div>

@@ -4,31 +4,20 @@
 	],
 	"complexity_level_descriptions": [
 		{
-			"adj": "not very",
-			"range": {
-				"min": 8000,
-				"max": 25000
-			}
+			"adj": "not too",
+			"range": "between $8,000 and $25,000."
 		},
 		{
 			"adj": "somewhat",
-			"range": {
-				"min": 25000,
-				"max": 75000
-			}
+			"range": "between $25,000 and $75,000."
 		},
 		{
 			"adj": "",
-			"range": {
-				"min": 75000,
-				"max": 150000
-			}
+			"range": "between $75,000 and $150,000."
 		},
 		{
 			"adj": "very",
-			"range": {
-				"min": 150000
-			}
+			"range": "at least $150,000. Can you remove some features that aren't essential to your minimum viable product (MVP)?"
 		}
 	],
 	"epics": [
@@ -203,16 +192,16 @@
 				"scale": 3,
 				"trust": 3,
 				"skill": 3,
-				"time": 2
+				"time": 3
 			},
 			"pros": "Development is much more than cranking out code. MentorMate provides all clients with responsive points-of-contact to take feedback, address concerns, and stay aligned on vision. Not only are you communicating with expert programmers; you're communicating with experts in the entire development process, from ideation to design to development to quality assurance to deployment. When you have questions, you'll get answers.",
-			"cons": "If you want to 'move fast and break things', then MentorMate may not be for you. We like to move fast, within reason. We don't like to break things. We would much rather take the time to test our work, so you spend less time (and money) later.",
+			"cons": "When it comes to apps, you get what you pay for. Established development companies have the highest initial cost of your potential partners because they deliver the best results. Good development yields good revenue.",
 			"good_if": "You want to be completely confident that your time and money is going to the best possible use. You want rock-solid, expert development. You want to focus on running your business instead of holding hands."
 		},
 		{
 			"name": "Staff Developer",
 			"id": "dev_employee",
-			"desc": "Someone you hire as an employee.",
+			"desc": "A developer or designer you hire as an employee.",
 			"rating": {
 				"scale": 3,
 				"trust": 2,
@@ -220,8 +209,9 @@
 				"time": 2
 			},
 			"pros": "You benefit from everything an employee learns as their career progresses. Since they report to you, you don't need to worry about scheduling around their other commitments. You know precisely who's going to be working on what, and when.",
-			"cons": "If you hire a PHP developer, and then realize you actually need a .NET developer, your options are to pivot your whole project, ask them to learn a new technology, or let them go. This can be devastating to the morale of the employees close to the one in question. You're responsible for salaries, benefits, and working conditions.",
-			"good_if": "You already have several thousand customers, a solid revenue stream, and an HR department with bandwidth to spare."
+			"cons": "If you hire a PHP developer, and then realize you actually need a .NET developer, your options are to pivot your whole project, ask them to learn a new technology, or let them go. This can be devastating to the morale of the employees close to the one in question. You're responsible for salaries, project management, and working conditions.",
+			"good_if": "You already have several thousand customers, a solid revenue stream, and an HR department with bandwidth to spare.",
+			"find_where": "Take a look at Indeed, Craigslist, or Monster."
 		},
 		{
 			"name": "Technical Cofounder",
@@ -235,7 +225,8 @@
 			"desc": "A developer you bring on early in your company's lifetime, usually as the second or third employee, who focuses on code while you focus on growth and marketing.",
 			"pros": "You usually offer a cofounder a stake in your company, rather than a salary, so they only get paid when you do. Not only does a co-founder bring technical skills, they also bring vision and a network to add to yours, which doubles your assets.",
 			"cons": "A cofounder invests their livelihood in your idea. Working like your life depends on it isn't sustainable. Building a business together will put even the healthiest friendship to the test. Also, similar to freelancers, technical cofounders work in a vacuum and are susceptible to writing bad code that costs you money in the long run.",
-			"good_if": "You know a programmer with a solid technical background who you would trust with your health, your money, and your life."
+			"good_if": "You know a programmer with a solid technical background who you would trust with your health, your money, and your life.",
+			"find_where": "Your best bet is your own personal network or word-of-mouth."
 		},
 		{
 			"name": "Freelancer",
@@ -249,7 +240,8 @@
 			"desc": "A self-employed programmer, designer, or developer.",
 			"pros": "Freelancers are generally fairly inexpensive. They don't need to get feedback from coworkers and managers, and so can move quickly on design decisions.",
 			"cons": "There's a huge range in how well freelancers deliver on expectations. One might have a great-looking portfolio without knowing a bit of code, which is bad for anything more complex than a personal homepage. Working alone means freelancers can afford to be messy. Many developers have taken over a project from a freelancer only to find it's so disorganized that starting over from scratch may actually be cheaper.",
-			"good_if": "Your project is heavy on visual design and light on functionality. A freelancer's biggest asset is (theoretically) that they provide a single point-of-contact with whom you can discuss your style and vision."
+			"good_if": "Your project is heavy on visual design and light on functionality. A freelancer's biggest asset is (theoretically) that they provide a single point-of-contact with whom you can discuss your style and vision.",
+			"find_where": "Look on Craigslist, Elance, or Upwork, or ask around your personal network."
 		},
 		{
 			"name": "Discount Development Shop",
@@ -262,8 +254,9 @@
 			},
 			"desc": "A team of web, mobile, and/or software developers, often located in India or the Philippines.",
 			"pros": "Overseas shops offer very competitive rates since they're located in areas with low costs of living. They also tend to work quickly.",
-			"cons": "Because these companies are overseas, they don't need to follow the same laws regarding consumer rights and corporate policy. They often keep costs down by working their employees extremely hard, which leads to cutting corners and unmaintainable code. Language barriers and time zone differences can make communication very painful.",
-			"good_if": "You've already published several apps. You know exactly what needs to be done and how. You would just code it yourself if you had the time."
+			"cons": "Although likely your cheapest option in the short-term, these companies cost you a lot in the long-term. Because these companies are overseas, they don't need to follow the same laws regarding consumer rights and corporate policy. They often keep costs down by working their employees extremely hard, which leads to cutting corners and unmaintainable code. Language barriers and time zone differences can make communication very painful.",
+			"good_if": "You've already published several apps. You know exactly what needs to be done and how. You would just code it yourself if you had the time.",
+			"find_where": "Put some feelers on Elance, Upwork, Odesk, or Guru."
 		}
 	]
 }
