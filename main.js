@@ -14,7 +14,7 @@
 		vm.params = {};
 		vm.recalculate = recalculate;
 		vm.reset = reset;
-		vm.exampleLink = window.location.origin + "?example";
+		vm.exampleLink = window.location.origin + window.location.pathname + '?example';
 
 		$http
 			.get('variables.json')
@@ -44,7 +44,7 @@
 			});
 
 		function reset(){
-			window.location.href = "/"; // Cheap shot
+			window.location.href = window.location.origin + window.location.pathname + '?'; // Cheap shot
 		}
 
 		function recalculate(){ // more code === better code
@@ -62,7 +62,7 @@
 						feature.input = (param === 'true' || param);
 						// Add value to example link
 						if(feature.ex){
-							vm.exampleLink += "&" + feature.id + "=" + feature.ex;
+							vm.exampleLink += '&' + feature.id + '=' + feature.ex;
 						}
 					}
 					switch(feature.type){

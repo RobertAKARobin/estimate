@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 	<head>
-		<title>Apps &agrave; la carte</title>
+		<title>Estimate your app</title>
 		<script src="./bower_components/angular/angular.js"></script>
 		<style>@font-face{font-family:"Lato";font-style:normal;font-weight:400;src:url("./assets/Lato.woff2");}</style>
 		<!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.8/angular.min.js"></script>
@@ -120,7 +120,7 @@
 								<span data-ng-show="main.level">An app like this that's <em>{{main.level.adj}} complex</em> will probably cost {{main.level.range}}</span>
 							</strong></p>
 							<p data-ng-show="main.dev != 'dev_mentormate'">
-								<strong>Where to find:</strong>
+								<strong>Cost:</strong> We can really only estimate for development with MentorMate, but to find a {{::dev.name}},
 								<span data-ng-show="main.dev != 'dev_mentormate'">{{::dev.find_where}}</span>
 							</p>
 						</div>
