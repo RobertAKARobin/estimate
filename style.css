@@ -60,8 +60,22 @@ label {
 }
 
 a {
+  cursor: pointer;
   color: #EF4B3E;
   text-decoration: underline;
+}
+a.button {
+  display: inline-block;
+  float: left;
+  cursor: pointer;
+  background-color: #ddd;
+  color: #231E20;
+  padding: 5px 10px;
+  margin-top: 10px;
+  margin-right: 10px;
+}
+a.button:hover {
+  color: #46A3E2;
 }
 
 blockquote {
@@ -161,6 +175,10 @@ span.input, .input + label, .input[type=text] {
 .epics .header > *:last-child,
 .epics .footer:last-child {
   padding-right: 10px;
+}
+.epics .header > * a,
+.epics .footer a {
+  color: #fff;
 }
 
 .devs .recordset > *:first-child > * {

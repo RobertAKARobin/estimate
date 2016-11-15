@@ -75,8 +75,24 @@ label{
 	cursor:pointer;
 }
 a{
+	cursor:pointer;
 	color:$mm-red;
 	text-decoration:underline;
+
+	&.button{
+		display:inline-block;
+		float:left;
+		cursor:pointer;
+		background-color:#ddd;
+		color:$mm-dblue;
+		padding:5px 10px;
+		margin-top:10px;
+		margin-right:10px;
+
+		&:hover{
+			color:$mm-blue;
+		}
+	}
 }
 blockquote{
 	font-style:italic;
@@ -179,6 +195,10 @@ blockquote{
 		border-top:2px solid $mm-dblue;
 		background-color:$mm-blue;
 		color:#fff;
+
+		a{
+			color:#fff;
+		}
 	}
 }
 
