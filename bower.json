@@ -15,6 +15,7 @@
     "tests"
   ],
   "dependencies": {
-    "angular": "^1.5.8"
+    "angular": "^1.5.8",
+    "ng-stats": "^2.5.4"
   }
 }
