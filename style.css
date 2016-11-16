@@ -27,6 +27,11 @@ body {
   max-width: 1000px;
 }
 
+div {
+  position: relative;
+  overflow: auto;
+}
+
 h1 {
   font-size: 50px;
   line-height: 50px;
@@ -63,19 +68,6 @@ a {
   cursor: pointer;
   color: #EF4B3E;
   text-decoration: underline;
-}
-a.button {
-  display: inline-block;
-  float: left;
-  cursor: pointer;
-  background-color: #ddd;
-  color: #231E20;
-  padding: 5px 10px;
-  margin-top: 10px;
-  margin-right: 10px;
-}
-a.button:hover {
-  color: #46A3E2;
 }
 
 blockquote {
@@ -160,8 +152,7 @@ span.input, .input + label, .input[type=text] {
 .epics .record:hover {
   background-color: #f9f9f9;
 }
-.epics .header > *,
-.epics .footer {
+.epics .header > * {
   position: relative;
   vertical-align: top;
   padding-top: 25px;
@@ -172,12 +163,10 @@ span.input, .input + label, .input[type=text] {
   background-color: #46A3E2;
   color: #fff;
 }
-.epics .header > *:last-child,
-.epics .footer:last-child {
+.epics .header > *:last-child {
   padding-right: 10px;
 }
-.epics .header > * a,
-.epics .footer a {
+.epics .header > * a {
   color: #fff;
 }
 
@@ -254,42 +243,86 @@ section > header {
   padding: 0 10px;
 }
 
-.graph {
-  background-color: rgba(0, 0, 0, 0.2);
-  position: relative;
-  font-size: 0;
-  height: 30px;
-  margin-bottom: 30px;
+#complexity {
+  background-color: #231E20;
+  width: 100%;
+  max-width: 1000px;
+  z-index: 9990;
+  color: #fff;
 }
-.graph .intervals > *,
-.graph .progress {
+#complexity.sticky + div {
+  display: none;
+}
+#complexity.sticky.on {
+  position: fixed;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+}
+#complexity.sticky.on + div {
+  display: block;
+}
+#complexity.sticky.on:hover {
+  opacity: 1;
+}
+#complexity p {
+  padding: 10px 10px;
+  margin-bottom: 0;
+}
+#complexity a.button {
+  display: inline-block;
+  cursor: pointer;
+  color: #fff;
+  margin-right: 10px;
+}
+#complexity a.button:first-child {
+  margin-left: 10px;
+}
+#complexity a.button:hover {
+  color: #46A3E2;
+}
+#complexity .graph {
+  font-size: 0;
+  height: 20px;
+  background-color: #444;
+  transition: opacity 0.2s;
+}
+#complexity .graph.off {
+  opacity: 0;
+}
+#complexity .graph.on {
+  opacity: 1;
+}
+#complexity .graph .intervals > *,
+#complexity .graph .progress {
   display: block;
   position: absolute;
   top: 0;
   left: 0;
   font-size: 15px;
-  line-height: 30px;
+  line-height: 20px;
   box-sizing: border-box;
   text-align: right;
 }
-.graph .intervals > * {
-  top: 30px;
-  padding: 0 5px;
+#complexity .graph .intervals > * {
+  padding-left: 10px;
+  padding-right: 5px;
   border-style: solid;
-  border-color: rgba(0, 0, 0, 0.2);
+  border-color: #666;
+  color: #666;
   border-width: 0px;
   border-right-width: 2px;
-  color: #fff;
+  z-index: 9998;
 }
-.graph .intervals > *:first-child {
+#complexity .graph .intervals > *:first-child, #complexity .graph .intervals > *:last-child {
   border-right-width: 0px;
-  border-left-width: 2px;
 }
-.graph .progress {
+#complexity .graph .progress {
   background-color: #EF4B3E;
+  color: #000;
   transition: width 0.3s;
   z-index: 9999;
 }
-.graph .progress > span {
+#complexity .graph .progress > span {
   padding-right: 7px;
 }

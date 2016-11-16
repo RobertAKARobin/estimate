@@ -13,10 +13,34 @@
 
 		<section class="epics">
 			<header>
-				<h1>What's your app idea?</h1>
-
-				<p>Mix and match the components below to flesh out your idea and estimate its complexity (in points).</p>
+				<h1>How complex is your app idea?</h1>
 			</header>
+
+			<div id="complexity" class="sticky">
+				<div data-ng-class="['graph', main.progress > 0 ? 'on' : 'off']">
+					<span class="intervals">
+						<span
+							data-ng-repeat="level in ::main.complexity_levels"
+							data-ng-style="::{width: (level / main.graph.diff) + '%'}"
+						>{{::level}}</span>
+					</span>
+					<span class="progress" data-ng-style="{width: main.progress + '%'}">
+						<span>{{main.total || ""}}</span>
+					</span>
+				</div>
+
+				<p>
+					<span data-ng-show="main.level">
+						This idea is {{main.level.adj}} complex.
+						<a data-ng-href="{{main.saveLink}}" class="button">Share this estimate</a>
+						<a data-ng-click="main.reset()" class="button">Reset</a>
+					</span>
+					<span data-ng-show="!main.level">
+						Pick the features you want, and we'll estimate its complexity in points.
+					</span>
+					<a data-ng-href="{{main.exampleLink}}" class="button">How much is this page?</a>
+				</p>
+			</div>
 
 			<div class="recordset">
 				<div class="header" data-ng-repeat-start="epic in ::main.epics">
@@ -48,30 +72,6 @@
 						<p>{{::feature.desc}}</p>
 					</div>
 				</div>
-			</div>
-
-			<div class="footer">
-				<h2>Total Complexity</h2>
-				<p data-ng-if="!main.level">How complicated would this idea be to develop?</p>
-				<p data-ng-if="main.level">This idea is {{main.level.adj}} complex.</p>
-
-				<div class="graph">
-					<span class="intervals">
-						<span
-							data-ng-repeat="level in ::main.complexity_levels"
-							data-ng-style="::{width: (level / main.graph.diff) + '%'}"
-						>{{::level}}</span>
-					</span>
-					<span class="progress" data-ng-style="{width: main.progress + '%'}">
-						<span>{{main.total || ""}}</span>
-					</span>
-				</div>
-			</div>
-
-			<div>
-				<a data-ng-href="{{main.saveLink}}" class="button">Link to this estimate</a>
-				<a data-ng-click="main.reset()" class="button">Reset</a>
-				<a data-ng-href="{{main.exampleLink}}" class="button">Estimate this page</a>
 			</div>
 		</section>
 

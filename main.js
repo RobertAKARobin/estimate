@@ -41,6 +41,30 @@
 			.then(function(){
 				recalculate();
 				vm.isLoaded = true;
+			})
+			.then(function makeGraphSticky(){
+				var el = document.getElementById("complexity");
+				var body = document.body;
+				var placeholder = document.createElement("DIV");
+				var stickyClass = "on";
+				var offset = el.offsetTop;
+				var elHeight;
+				calculateParameters();
+				el.parentNode.insertBefore(placeholder, el.nextSibling);
+				window.addEventListener("scroll", placeElement);
+				window.addEventListener("resize", calculateParameters);
+
+				function calculateParameters(){
+					elHeight = el.clientHeight;
+					placeholder.style.height = elHeight + "px";
+				}
+				function placeElement(){
+					if(offset < body.scrollTop){
+						el.classList.add(stickyClass);
+					}else{
+						el.classList.remove(stickyClass);
+					}
+				}
 			});
 
 		function reset(){
