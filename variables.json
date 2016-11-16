@@ -151,7 +151,7 @@
 			"features": [
 				{
 					"name": "File upload",
-					"id": "upload",
+					"id": "file_upload",
 					"desc": "Let your users upload pictures, videos, and documents.",
 					"points": 2
 				},
@@ -163,7 +163,7 @@
 				},
 				{
 					"name": "Automatic e-mails",
-					"id": "email",
+					"id": "send_emails",
 					"desc": "The app will use a template to automatically send e-mails.",
 					"ex": true,
 					"points": 2

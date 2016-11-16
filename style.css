@@ -66,7 +66,7 @@ label {
 
 a {
   cursor: pointer;
-  color: #EF4B3E;
+  color: #46A3E2;
   text-decoration: underline;
 }
 
@@ -272,14 +272,21 @@ section > header {
 #complexity a.button {
   display: inline-block;
   cursor: pointer;
-  color: #fff;
+  color: #ccc;
   margin-right: 10px;
+  transition: 0.2s color;
 }
 #complexity a.button:first-child {
   margin-left: 10px;
 }
 #complexity a.button:hover {
   color: #46A3E2;
+}
+#complexity a.button:before {
+  content: "(";
+}
+#complexity a.button:after {
+  content: ")";
 }
 #complexity .graph {
   font-size: 0;
@@ -325,4 +332,51 @@ section > header {
 }
 #complexity .graph .progress > span {
   padding-right: 7px;
+}
+
+#contact h1 {
+  margin-top: 0;
+}
+#contact #form {
+  width: 100%;
+  max-width: 600px;
+}
+#contact #form form {
+  padding: 0 10px;
+}
+#contact #form label,
+#contact #form input,
+#contact #form textarea {
+  display: block;
+  width: 100%;
+  resize: none;
+}
+#contact #form input,
+#contact #form textarea {
+  padding: 2px 10px;
+  background-color: #eee;
+}
+#contact #form input[type=submit] {
+  background-color: #46A3E2;
+  color: #fff;
+  cursor: pointer;
+  margin-top: 10px;
+}
+#contact #form .hs_project_description__c {
+  color: #ddd;
+}
+#contact #form .hs_project_description__c textarea {
+  height: 20px;
+  background-color: #fff;
+  padding-left: 0;
+  white-space: nowrap;
+  overflow: hidden;
+}
+#contact #form .hs-error-msgs li {
+  color: #aaa;
+  border-bottom: 2px solid #ddd;
+}
+#contact .submitted-message {
+  color: #46A3E2;
+  padding: 0 10px;
 }

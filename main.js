@@ -10,6 +10,7 @@
 
 	function MainController($http){
 		var vm = this;
+		var HubspotForm = {};
 		vm.isLoaded = false;
 		vm.params = {};
 		vm.recalculate = recalculate;
@@ -43,20 +44,20 @@
 				vm.isLoaded = true;
 			})
 			.then(function makeGraphSticky(){
-				var el = document.getElementById("complexity");
+				var el = document.getElementById('complexity');
 				var body = document.body;
-				var placeholder = document.createElement("DIV");
-				var stickyClass = "on";
+				var placeholder = document.createElement('DIV');
+				var stickyClass = 'on';
 				var offset = el.offsetTop;
 				var elHeight;
 				calculateParameters();
 				el.parentNode.insertBefore(placeholder, el.nextSibling);
-				window.addEventListener("scroll", placeElement);
-				window.addEventListener("resize", calculateParameters);
+				window.addEventListener('scroll', placeElement);
+				window.addEventListener('resize', calculateParameters);
 
 				function calculateParameters(){
 					elHeight = el.clientHeight;
-					placeholder.style.height = elHeight + "px";
+					placeholder.style.height = elHeight + 'px';
 				}
 				function placeElement(){
 					if(offset < body.scrollTop){
@@ -67,15 +68,23 @@
 				}
 			})
 			.then(function loadForm(){
-				var el = document.createElement("SCRIPT");
-				var form = document.getElementById("form");
-				el.setAttribute("src", "//js.hsforms.net/forms/v2.js");
-				form.appendChild(el);
-				el.onload = function(){
-					hbspt.forms.create({
+				var script = document.createElement('SCRIPT');
+				var el = document.getElementById('form');
+				var linkFieldId = 'project_description__c';
+				var formId = '05a6003b-845a-40a5-b0da-46dc877c1996';
+				script.setAttribute('src', '//js.hsforms.net/forms/v2.js');
+				el.appendChild(script);
+				script.onload = function(){
+					HubspotForm = hbspt.forms.create({
 						css: '',
 						portalId: '211554',
-						formId: '05a6003b-845a-40a5-b0da-46dc877c1996'
+						formId: formId
+					});
+					HubspotForm.onReady(function(){
+						document.getElementById(linkFieldId + '-' + formId).addEventListener('change', function(){
+							HubspotForm.setFieldValue(linkFieldId, vm.saveLink);
+						});
+						HubspotForm.setFieldValue(linkFieldId, vm.saveLink);
 					});
 				}
 			});
@@ -123,7 +132,8 @@
 					break;
 				}
 			}
-			vm.saveLink = window.location.origin + '?' + querystring.join('&');
+			vm.saveLink = window.location.origin + window.location.pathname + '?' + querystring.join('&');
+			if(HubspotForm.setFieldValue) HubspotForm.setFieldValue('project_description__c', vm.saveLink);
 		}
 
 	}

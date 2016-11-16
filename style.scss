@@ -89,7 +89,7 @@ label{
 }
 a{
 	cursor:pointer;
-	color:$mm-red;
+	color:$mm-blue;
 	text-decoration:underline;
 }
 blockquote{
@@ -311,14 +311,21 @@ section{
 	a.button{
 		display:inline-block;
 		cursor:pointer;
-		color:#fff;
+		color:#ccc;
 		margin-right:10px;
+		transition:0.2s color;
 
 		&:first-child{
 			margin-left:10px;
 		}
 		&:hover{
 			color:$mm-blue;
+		}
+		&:before{
+			content:"(";
+		}
+		&:after{
+			content:")";
 		}
 	}
 	.graph{
@@ -369,5 +376,58 @@ section{
 				padding-right:7px;
 			}
 		}
+	}
+}
+
+#contact{
+	h1{
+		margin-top:0;
+	}
+	#form{
+		width:100%;
+		max-width:600px;
+
+		form{
+			padding:0 10px;
+		}
+		label,
+		input,
+		textarea{
+			display:block;
+			width:100%;
+			resize:none;
+		}
+		input,
+		textarea{
+			padding:2px 10px;
+			background-color:#eee;
+		}
+		input[type=submit]{
+			background-color:$mm-blue;
+			color:#fff;
+			cursor:pointer;
+			margin-top:10px;
+		}
+		.hs_project_description__c{
+			color:#ddd;
+
+			textarea{
+				height:20px;
+				background-color:#fff;
+				padding-left:0;
+				white-space:nowrap;
+				overflow:hidden;
+			}
+		}
+		.hs-error-msgs{
+			li{
+				color:#aaa;
+				border-bottom:2px solid #ddd;
+			}
+		}
+	}
+	.submitted-message{
+		color:$mm-blue;
+		padding:0 10px;
 	}
 }
