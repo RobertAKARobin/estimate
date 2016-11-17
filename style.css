@@ -208,8 +208,10 @@ span.input, .input + label, .input[type=text] {
 .ratings [data-rating] {
   display: inline-block;
   width: 50px;
+  height: 50px;
   font-size: 12px;
-  line-height: 50px;
+  line-height: 15px;
+  padding: 10px 0;
   border-radius: 25px;
   text-align: center;
   vertical-align: top;
@@ -271,22 +273,12 @@ section > header {
 }
 #complexity a.button {
   display: inline-block;
-  cursor: pointer;
-  color: #ccc;
-  margin-right: 10px;
+  color: #46A3E2;
   transition: 0.2s color;
-}
-#complexity a.button:first-child {
-  margin-left: 10px;
+  margin-right: 5px;
 }
 #complexity a.button:hover {
-  color: #46A3E2;
-}
-#complexity a.button:before {
-  content: "(";
-}
-#complexity a.button:after {
-  content: ")";
+  color: #fff;
 }
 #complexity .graph {
   font-size: 0;
@@ -350,6 +342,7 @@ section > header {
   display: block;
   width: 100%;
   resize: none;
+  box-sizing: border-box;
 }
 #contact #form input,
 #contact #form textarea {
@@ -362,10 +355,8 @@ section > header {
   cursor: pointer;
   margin-top: 10px;
 }
-#contact #form .hs_project_description__c {
-  color: #ddd;
-}
 #contact #form .hs_project_description__c textarea {
+  color: #46A3E2;
   height: 20px;
   background-color: #fff;
   padding-left: 0;

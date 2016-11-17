@@ -4,20 +4,20 @@
 	],
 	"complexity_level_descriptions": [
 		{
-			"adj": "not too",
+			"adj": "not very",
 			"range": "between $8,000 and $25,000."
 		},
 		{
 			"adj": "somewhat",
-			"range": "between $25,000 and $75,000."
+			"range": "between $25,000 and $75,000"
 		},
 		{
 			"adj": "",
-			"range": "between $75,000 and $150,000."
+			"range": "between $75,000 and $150,000"
 		},
 		{
 			"adj": "very",
-			"range": "at least $150,000. Can you remove some features that aren't essential to your minimum viable product (MVP)?"
+			"range": "at least $150,000"
 		}
 	],
 	"epics": [
@@ -165,7 +165,6 @@
 					"name": "Automatic e-mails",
 					"id": "send_emails",
 					"desc": "The app will use a template to automatically send e-mails.",
-					"ex": true,
 					"points": 2
 				},
 				{

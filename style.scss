@@ -239,8 +239,10 @@ blockquote{
 	[data-rating]{
 		display:inline-block;
 		width:50px;
+    height:50px;
 		font-size:12px;
-		line-height:50px;
+		line-height:15px;
+    padding:10px 0;
 		border-radius:25px;
 		text-align:center;
 		vertical-align:top;
@@ -310,22 +312,12 @@ section{
 	}
 	a.button{
 		display:inline-block;
-		cursor:pointer;
-		color:#ccc;
-		margin-right:10px;
+		color:$mm-blue;
 		transition:0.2s color;
+		margin-right:5px;
 
-		&:first-child{
-			margin-left:10px;
-		}
 		&:hover{
-			color:$mm-blue;
-		}
-		&:before{
-			content:"(";
-		}
-		&:after{
-			content:")";
+			color:#fff;
 		}
 	}
 	.graph{
@@ -396,6 +388,7 @@ section{
 			display:block;
 			width:100%;
 			resize:none;
+      box-sizing:border-box;
 		}
 		input,
 		textarea{
@@ -409,9 +402,9 @@ section{
 			margin-top:10px;
 		}
 		.hs_project_description__c{
-			color:#ddd;
 
 			textarea{
+				color:$mm-blue;
 				height:20px;
 				background-color:#fff;
 				padding-left:0;

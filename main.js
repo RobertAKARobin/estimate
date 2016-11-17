@@ -81,7 +81,7 @@
 						formId: formId
 					});
 					HubspotForm.onReady(function(){
-						document.getElementById(linkFieldId + '-' + formId).addEventListener('change', function(){
+						document.getElementById(linkFieldId + '-' + formId).addEventListener('keyup', function(){
 							HubspotForm.setFieldValue(linkFieldId, vm.saveLink);
 						});
 						HubspotForm.setFieldValue(linkFieldId, vm.saveLink);

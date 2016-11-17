@@ -31,14 +31,14 @@
 
 				<p>
 					<span data-ng-show="main.level">
-						This idea is {{main.level.adj}} complex.
-						<a data-ng-href="{{main.saveLink}}" class="button">Share this estimate</a>
+						This is {{main.level.adj}} complex.
+						<a data-ng-href="{{main.saveLink}}" class="button">Link to this estimate</a>
 						<a data-ng-click="main.reset()" class="button">Reset</a>
 					</span>
 					<span data-ng-show="!main.level">
 						Pick the features you want, and we'll estimate its complexity in points.
 					</span>
-					<a data-ng-href="{{main.exampleLink}}" class="button">How much is this page?</a>
+					<a data-ng-href="{{main.exampleLink}}" class="button">Estimate this estimator!</a>
 				</p>
 			</div>
 
@@ -109,16 +109,17 @@
 									data-ng-repeat="(key, val) in ::dev.rating"
 									data-rating="{{::val}}"
 								>
-									{{::key}}: {{::val}}
+									{{::key}}<br />{{::val}}/3
 								</span>
 							</div>
 							<p><strong>Pros:</strong> {{::dev.pros}}</p>
 							<p><strong>Cons:</strong> {{::dev.cons}}</p>
 							<p><strong>Good if:</strong> {{::dev.good_if}}</p>
-							<p data-ng-show="main.dev == 'dev_mentormate'"><strong>
-								Cost: <span data-ng-show="!main.level">You've entered nothing, which costs nothing! Pick some options above.</span>
-								<span data-ng-show="main.level">An app like this that's <em>{{main.level.adj}} complex</em> will probably cost {{main.level.range}}</span>
-							</strong></p>
+							<p data-ng-show="main.dev == 'dev_mentormate'">
+								<strong>Cost:</strong>
+								<span data-ng-show="!main.level">You've entered nothing, which costs nothing! Pick some options above.</span>
+								<span data-ng-show="main.level">This isn't a quote or a formal estimate, but an educated ballpark guess is that <strong>your idea, which is <em>{{main.level.adj}} complex</em>, will probably cost {{main.level.range}}</strong>.</span>
+							</p>
 							<p data-ng-show="main.dev != 'dev_mentormate'">
 								<strong>Cost:</strong> We can really only estimate for development with MentorMate, but to find a {{::dev.name}},
 								<span data-ng-show="main.dev != 'dev_mentormate'">{{::dev.find_where}}</span>
