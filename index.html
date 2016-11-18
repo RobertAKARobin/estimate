@@ -100,7 +100,7 @@
 						<label data-ng-attr-for="{{::dev.id}}"></label>
 					</div>
 					<div>
-						<h2 data-ng-class="::dev.id">{{::dev.name}}</h2>
+						<h2>{{::dev.name}}</h2>
 						<blockquote>
 							<p>{{::dev.desc}}</p>
 						</blockquote>
@@ -119,10 +119,10 @@
 							<p data-ng-show="main.dev == 'dev_mentormate'">
 								<strong>Cost:</strong>
 								<span data-ng-show="!main.level">You've entered nothing, which costs nothing! Pick some options above.</span>
-								<span data-ng-show="main.level">This isn't a quote or a formal estimate, but an educated ballpark guess is that <strong>your idea, which is <em>{{main.level.adj}} complex</em>, will probably cost {{main.level.range}}</strong>.</span>
+								<span data-ng-show="main.level">This isn't a quote or a formal estimate, but an educated ballpark guess is that <strong>your idea, which is <em>{{main.level.adj}} complex</em>, would probably cost {{main.level.range}}</strong> to develop with <a href="http://mentormate.com">MentorMate</a>.</span>
 							</p>
 							<p data-ng-show="main.dev != 'dev_mentormate'">
-								<strong>Cost:</strong> We can really only estimate for development with MentorMate, but to find a {{::dev.name}},
+								<strong>Cost:</strong> We can really only estimate for development with <a href="http://mentormate.com">MentorMate</a>, but to find a {{::dev.name}},
 								<span data-ng-show="main.dev != 'dev_mentormate'">{{::dev.find_where}}</span>
 							</p>
 						</div>

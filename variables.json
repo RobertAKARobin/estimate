@@ -5,7 +5,7 @@
 	"complexity_level_descriptions": [
 		{
 			"adj": "not very",
-			"range": "between $8,000 and $25,000."
+			"range": "between $8,000 and $25,000"
 		},
 		{
 			"adj": "somewhat",
@@ -184,16 +184,16 @@
 	],
 	"devs": [
 		{
-			"name": "MentorMate",
+			"name": "Established Development Company",
 			"id": "dev_mentormate",
-			"desc": "An established development company with 15 years of experience, hundreds of published software solutions, and thousands of positive continuing relationships around the world.",
+			"desc": "An organization of enthusiastic coders and technologists with many years of experience, hundreds of published software solutions, and thousands of positive continuing relationships around the world.",
 			"rating": {
 				"scale": 3,
 				"trust": 3,
 				"skill": 3,
 				"time": 3
 			},
-			"pros": "Development is much more than cranking out code. MentorMate provides all clients with responsive points-of-contact to take feedback, address concerns, and stay aligned on vision. Not only are you communicating with expert programmers; you're communicating with experts in the entire development process, from ideation to design to development to quality assurance to deployment. When you have questions, you'll get answers.",
+			"pros": "Development is much more than cranking out code. A company like ours provides all clients with responsive points-of-contact to take feedback, address concerns, and stay aligned on vision. Not only are you communicating with expert programmers; you're communicating with experts in the entire development process, from ideation to design to development to quality assurance to deployment. When you have questions, you'll get answers.",
 			"cons": "When it comes to apps, you get what you pay for. Established development companies have the highest initial cost of your potential partners because they deliver the best results. Good development yields good revenue.",
 			"good_if": "You want to be completely confident that your time and money is going to the best possible use. You want rock-solid, expert development. You want to focus on running your business instead of holding hands."
 		},

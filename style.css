@@ -113,7 +113,7 @@ span.input, .input + label, .input[type=text] {
   border-color: #ddd;
 }
 .input:checked, .input:checked + label, .input[type=text].ng-not-empty, .input[type=text].ng-not-empty + label {
-  background-color: #EF4B3E;
+  background-color: #66CC99;
   border-color: transparent !important;
   color: #444;
 }
@@ -159,7 +159,6 @@ span.input, .input + label, .input[type=text] {
   padding-bottom: 10px;
   padding-left: 10px;
   border-bottom: 1px solid #eee;
-  border-top: 2px solid #231E20;
   background-color: #46A3E2;
   color: #fff;
 }
@@ -182,13 +181,6 @@ span.input, .input + label, .input[type=text] {
 }
 .devs .recordset > *.on > * {
   background-color: #fff;
-}
-.devs h2.dev_mentormate {
-  color: transparent;
-  height: 50px;
-  background-image: url("./assets/mentormate_logo.png");
-  background-size: contain;
-  background-repeat: no-repeat;
 }
 .devs [type=radio] + label {
   border-color: #ddd;
@@ -246,11 +238,11 @@ section > header {
 }
 
 #complexity {
-  background-color: #231E20;
+  background-color: #fff;
   width: 100%;
   max-width: 1000px;
   z-index: 9990;
-  color: #fff;
+  border-bottom: 10px solid #231E20;
 }
 #complexity.sticky + div {
   display: none;
@@ -260,6 +252,9 @@ section > header {
   top: 0;
   left: 50%;
   transform: translateX(-50%);
+}
+#complexity.sticky.on .graph {
+  opacity: 1 !important;
 }
 #complexity.sticky.on + div {
   display: block;
@@ -278,12 +273,11 @@ section > header {
   margin-right: 5px;
 }
 #complexity a.button:hover {
-  color: #fff;
+  color: #231E20;
 }
 #complexity .graph {
   font-size: 0;
   height: 20px;
-  background-color: #444;
   transition: opacity 0.2s;
 }
 #complexity .graph.off {
@@ -307,18 +301,19 @@ section > header {
   padding-left: 10px;
   padding-right: 5px;
   border-style: solid;
-  border-color: #666;
-  color: #666;
+  border-color: #ddd;
+  color: #ddd;
   border-width: 0px;
   border-right-width: 2px;
   z-index: 9998;
 }
-#complexity .graph .intervals > *:first-child, #complexity .graph .intervals > *:last-child {
+#complexity .graph .intervals > *:first-child {
+  border-left-width: 2px;
   border-right-width: 0px;
 }
 #complexity .graph .progress {
-  background-color: #EF4B3E;
-  color: #000;
+  background-color: #66CC99;
+  color: #231E20;
   transition: width 0.3s;
   z-index: 9999;
 }
