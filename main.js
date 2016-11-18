@@ -34,7 +34,7 @@
 				var range = vm.complexity_levels;
 				var graph = {
 					max: Math.max.apply(null, range),
-					min: Math.min.apply(null, range)
+					min: 0
 				}
 				graph.diff = (graph.max - graph.min) / 100;
 				vm.graph = graph;

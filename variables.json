@@ -1,11 +1,11 @@
 {
 	"complexity_levels": [
-		0, 7, 14, 21
+		7, 14, 21
 	],
 	"complexity_level_descriptions": [
 		{
 			"adj": "not very",
-			"range": "between $8,000 and $25,000"
+			"range": "between $5,000 and $25,000"
 		},
 		{
 			"adj": "somewhat",

@@ -3,6 +3,11 @@ $mm-dblue: #231E20;
 $mm-red: #EF4B3E;
 $mm-green: #66CC99;
 $mm-yellow: #FFCC33;
+$f:17px;
+$l:27px;
+$b:4px;
+$mw:1000px;
+$p: $f;
 
 @mixin hidden{
   display:block;
@@ -15,13 +20,12 @@ $mm-yellow: #FFCC33;
 @mixin row{
 	position:relative;
 	vertical-align:top;
-	padding-top:25px;
-	padding-bottom:10px;
-	padding-left:10px;
+	padding-top:$p;
+	padding-left:$p;
 	border-bottom:1px solid #eee;
 
 	&:last-child{
-		padding-right:10px;
+		padding-right:$p;
 	}
 }
 
@@ -43,12 +47,12 @@ $mm-yellow: #FFCC33;
 html, body {
   font-family: Lato, Helvetica, sans-serif;
   color: $mm-dblue;
-  font-size: 15px;
-  line-height: 25px;
+  font-size: $f;
+  line-height: $l;
 }
 body{
 	margin:0 auto;
-	max-width:1000px;
+	max-width:$mw;
 }
 div{
 	position:relative;
@@ -61,14 +65,12 @@ h1{
 }
 h2,
 h3{
-	font-size:20px;
-	line-height:17px;
-	margin-bottom:10px;
+	font-weight:bold;
 }
 p,
 blockquote{
 	text-align:left;
-	margin-bottom:10px;
+	margin-bottom:$l;
 }
 em{
 	font-style:italic;
@@ -110,12 +112,13 @@ blockquote{
 	&[type=text]{
 		display:inline-block;
 		text-align:center;
-		font-size:20px;
-		width:40px;
-		line-height:40px;
-		height:40px;
+		font-size:$f;
+		width:2*$l;
+		line-height:2*($l - $b);
+		height:2*$l;
 		background-color:rgba(0,0,0,0.2);
-		border:4px solid transparent;
+		border:$b solid transparent;
+		box-sizing:border-box;
 	}
 
 	&[type=text],
@@ -146,7 +149,7 @@ blockquote{
 	}
 
 	&[type=radio] + label{
-		border-radius:25px;
+		border-radius:50%;
 	}
 
 	&[type=text]{
@@ -154,17 +157,17 @@ blockquote{
 		border-right-width:0;
 
 		&{
-			width:20px;
+			width:$l;
 			float:left;
 		}
 
 		& + label{
-			width:20px;
+			width:$l;
 			border-left-width:0;
 
 			&:before{
 				content:"x";
-				font-size:10px;
+				font-size:$f/2;
 				float:left;
 			}
 		}
@@ -223,17 +226,22 @@ blockquote{
 
 .ratings{
 	float:right;
-	margin-left:10px;
-	margin-bottom:10px;
+	margin-left:$p;
+	margin-bottom:$p;
+
+	@media(max-width: 500px){
+		float:none;
+		margin-left:0;
+	}
 
 	[data-rating]{
 		display:inline-block;
-		width:50px;
-    height:50px;
-		font-size:12px;
-		line-height:15px;
-    padding:10px 0;
-		border-radius:25px;
+		width:2*$l;
+    height:2*$l;
+		font-size:$f;
+		line-height:$f;
+		padding-top:($l - $f);
+		border-radius:50%;
 		text-align:center;
 		vertical-align:top;
 		border-right:1px solid rgba(0,0,0,0.1);
@@ -266,16 +274,16 @@ section{
 	margin-bottom:100px;
 
 	& > header{
-		padding:0 10px;
+		padding:0 $p;
 	}
 }
 
 #complexity{
 	background-color:#fff;
 	width:100%;
-	max-width:1000px;
+	max-width:$mw;
 	z-index:9990;
-	border-bottom:10px solid $mm-dblue;
+	border-bottom:$f/2 solid $mm-dblue;
 
 	&.sticky{
 		& + div{
@@ -300,14 +308,14 @@ section{
 	}
 
 	p{
-		padding:10px 10px;
+		padding:($l - $f)/2 $p;
 		margin-bottom:0;
 	}
 	a.button{
 		display:inline-block;
 		color:$mm-blue;
 		transition:0.2s color;
-		margin-right:5px;
+		margin-right:$f/4;
 
 		&:hover{
 			color:$mm-dblue;
@@ -315,7 +323,7 @@ section{
 	}
 	.graph{
 		font-size:0;
-		height:20px;
+		height:$l;
 		transition:opacity 0.2s;
 
 
@@ -331,14 +339,14 @@ section{
 			position:absolute;
 			top:0;
 			left:0;
-			font-size:15px;
-			line-height:20px;
+			font-size:$f;
+			line-height:$l;
 			box-sizing:border-box;
 			text-align:right;
 		}
 		.intervals > *{
-			padding-left:10px;
-			padding-right:5px;
+			padding-left:$p;
+			padding-right:$p/2;
 			border-style:solid;
 			border-color:#ddd;
 			color:#ddd;
@@ -348,7 +356,15 @@ section{
 
 			&:first-child{
 				border-left-width:2px;
-				border-right-width:0px;
+			}
+
+			@media (max-width: #{$mw}){
+				&:last-child{
+					border-right-width:0px;
+				}
+				&:first-child{
+					border-left-width:0px;
+				}
 			}
 		}
 		.progress{
@@ -358,7 +374,7 @@ section{
 			z-index:9999;
 
 			& > span{
-				padding-right:7px;
+				padding-right:$p/2;
 			}
 		}
 	}
@@ -373,7 +389,7 @@ section{
 		max-width:600px;
 
 		form{
-			padding:0 10px;
+			padding:0 $p;
 		}
 		label,
 		input,
@@ -385,14 +401,14 @@ section{
 		}
 		input,
 		textarea{
-			padding:2px 10px;
+			padding:2px $p/2;
 			background-color:#eee;
 		}
 		input[type=submit]{
 			background-color:$mm-blue;
 			color:#fff;
 			cursor:pointer;
-			margin-top:10px;
+			margin-top:$p;
 		}
 		.hs_project_description__c{
 
@@ -412,6 +428,6 @@ section{
 	}
 	.submitted-message{
 		color:$mm-blue;
-		padding:0 10px;
+		padding:0 $p;
 	}
 }
