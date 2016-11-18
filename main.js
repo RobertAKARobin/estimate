@@ -45,7 +45,6 @@
 			})
 			.then(function makeGraphSticky(){
 				var el = document.getElementById('complexity');
-				var body = document.body;
 				var placeholder = document.createElement('DIV');
 				var stickyClass = 'on';
 				var offset = el.offsetTop;
@@ -60,7 +59,7 @@
 					placeholder.style.height = elHeight + 'px';
 				}
 				function placeElement(){
-					if(offset < body.scrollTop){
+					if(offset < (document.body.scrollTop || document.documentElement.scrollTop)){
 						el.classList.add(stickyClass);
 					}else{
 						el.classList.remove(stickyClass);

@@ -357,10 +357,8 @@ section > header {
 }
 #contact #form .hs_project_description__c textarea {
   color: #46A3E2;
-  height: 20px;
   background-color: #fff;
   padding-left: 0;
-  white-space: nowrap;
   overflow: hidden;
 }
 #contact #form .hs-error-msgs li {
