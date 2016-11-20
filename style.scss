@@ -7,7 +7,8 @@ $f:17px;
 $l:27px;
 $b:4px;
 $mw:1000px;
-$p: $f;
+$mob:500px;
+$p: 10px;
 
 @mixin hidden{
   display:block;
@@ -16,17 +17,6 @@ $p: $f;
   opacity:0.01;
   position:absolute;
   overflow:hidden;
-}
-@mixin row{
-	position:relative;
-	vertical-align:top;
-	padding-top:$p;
-	padding-left:$p;
-	border-bottom:1px solid #eee;
-
-	&:last-child{
-		padding-right:$p;
-	}
 }
 
 * {
@@ -69,7 +59,6 @@ h3{
 }
 p,
 blockquote{
-	text-align:left;
 	margin-bottom:$l;
 }
 em{
@@ -100,7 +89,15 @@ blockquote{
 
 		& > *{
 			display:table-cell;
-			@include row;
+			position:relative;
+			vertical-align:top;
+			padding-top:$l;
+			padding-left:$p;
+			border-bottom:1px solid #eee;
+
+			&:last-child{
+				padding-right:$p;
+			}
 		}
 	}
 }
@@ -183,13 +180,9 @@ blockquote{
 			background-color:#f9f9f9;
 		}
 	}
-	.header > *{
-		@include row;
+	.header{
 		background-color:$mm-blue;
 		color:#fff;
-		a{
-			color:#fff;
-		}
 	}
 }
 
@@ -208,6 +201,12 @@ blockquote{
 			}
 			&.on > *{
 				background-color:#fff;
+
+				@media (max-width:$mob){
+					blockquote{
+						margin-bottom:0;
+					}
+				}
 			}
 		}
 	}
@@ -228,8 +227,9 @@ blockquote{
 	float:right;
 	margin-left:$p;
 	margin-bottom:$p;
+	margin-top:$p;
 
-	@media(max-width: 500px){
+	@media(max-width: $mob){
 		float:none;
 		margin-left:0;
 	}
@@ -238,14 +238,12 @@ blockquote{
 		display:inline-block;
 		width:2*$l;
     height:2*$l;
-		font-size:$f;
+		font-size:0.7 * $f;
 		line-height:$f;
 		padding-top:($l - $f);
 		border-radius:50%;
 		text-align:center;
 		vertical-align:top;
-		border-right:1px solid rgba(0,0,0,0.1);
-		border-bottom:0;
 		box-sizing:border-box;
 		margin:0 2px;
 		color:#000;
@@ -271,8 +269,6 @@ blockquote{
 }
 
 section{
-	margin-bottom:100px;
-
 	& > header{
 		padding:0 $p;
 	}
@@ -355,7 +351,8 @@ section{
 			z-index:9998;
 
 			&:first-child{
-				border-left-width:2px;
+				// border-right-width:0;
+				display:none;
 			}
 
 			@media (max-width: #{$mw}){
@@ -381,9 +378,6 @@ section{
 }
 
 #contact{
-	h1{
-		margin-top:0;
-	}
 	#form{
 		width:100%;
 		max-width:600px;
