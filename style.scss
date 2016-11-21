@@ -274,12 +274,24 @@ section{
 	}
 }
 
+.toggleDetails{
+	display:block;
+	background-color:$mm-dblue;
+	color:$mm-green;
+	text-decoration:none;
+	text-align:center;
+	font-size:0px;
+	line-height:$p;
+
+	input{
+		@include hidden;
+	}
+}
 #complexity{
 	background-color:#fff;
 	width:100%;
 	max-width:$mw;
 	z-index:9990;
-	border-bottom:$f/2 solid $mm-dblue;
 
 	&.sticky{
 		& + div{
@@ -300,9 +312,25 @@ section{
 			&:hover{
 				opacity:1;
 			}
+
+			.details{
+				&.off{
+					display:none;
+				}
+				&.on{
+					display:block;
+				}
+			}
+			.toggleDetails{
+				cursor:pointer;
+				line-height:$l;
+				font-size:$f;
+				&:hover{
+					background-color:#444;
+				}
+			}
 		}
 	}
-
 	p{
 		padding:($l - $f)/2 $p;
 		margin-bottom:0;

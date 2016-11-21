@@ -229,12 +229,29 @@ section > header {
   padding: 0 10px;
 }
 
+.toggleDetails {
+  display: block;
+  background-color: #231E20;
+  color: #66CC99;
+  text-decoration: none;
+  text-align: center;
+  font-size: 0px;
+  line-height: 10px;
+}
+.toggleDetails input {
+  display: block;
+  width: 1px;
+  height: 1px;
+  opacity: 0.01;
+  position: absolute;
+  overflow: hidden;
+}
+
 #complexity {
   background-color: #fff;
   width: 100%;
   max-width: 1000px;
   z-index: 9990;
-  border-bottom: 8.5px solid #231E20;
 }
 #complexity.sticky + div {
   display: none;
@@ -253,6 +270,20 @@ section > header {
 }
 #complexity.sticky.on:hover {
   opacity: 1;
+}
+#complexity.sticky.on .details.off {
+  display: none;
+}
+#complexity.sticky.on .details.on {
+  display: block;
+}
+#complexity.sticky.on .toggleDetails {
+  cursor: pointer;
+  line-height: 27px;
+  font-size: 17px;
+}
+#complexity.sticky.on .toggleDetails:hover {
+  background-color: #444;
 }
 #complexity p {
   padding: 5px 10px;

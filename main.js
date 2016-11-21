@@ -15,6 +15,7 @@
 		vm.params = {};
 		vm.recalculate = recalculate;
 		vm.reset = reset;
+		vm.showDetails = true;
 		vm.exampleLink = window.location.origin + window.location.pathname + '?example';
 
 		$http

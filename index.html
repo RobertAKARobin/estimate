@@ -31,7 +31,7 @@
 					</span>
 				</div>
 
-				<p>
+				<p data-ng-class="['details', main.showDetails ? 'on' : 'off']">
 					<span data-ng-show="main.level">
 						This is {{main.level.adj}} complex.
 						<a data-ng-href="{{main.saveLink}}" class="button">Link to this estimate</a>
@@ -42,6 +42,11 @@
 					</span>
 					<a data-ng-href="{{main.exampleLink}}" class="button">Estimate this estimator!</a>
 				</p>
+
+				<label class="toggleDetails">
+					<input type="checkbox" data-ng-model="main.showDetails" />
+					&utrif;
+				</label>
 			</div>
 
 			<div class="recordset">
