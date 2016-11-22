@@ -103,6 +103,7 @@
 
 		function recalculate(){ // more code === better code
 			var epic, feature, param, value, querystring = [];
+			var is_not_numeric = /[^\d]/;
 			vm.total = 0;
 			for(var eps = {i: 0, l: vm.epics.length}; eps.i < eps.l; eps.i++){
 				epic = vm.epics[eps.i];
@@ -120,7 +121,15 @@
 						}
 					}
 					switch(feature.type){
-						case 'number': value = (feature.points * (feature.input || 0)); break;
+						case 'number':
+							if(is_not_numeric.test(feature.input)){
+								feature.input = "";
+							}
+							if(feature.input > vm.graph.max){
+								feature.input = vm.graph.max;
+							}
+							value = (feature.points * (feature.input || 0));
+							break;
 						default: value = (feature.input ? feature.points : 0); break;
 					}
 					if(value){
