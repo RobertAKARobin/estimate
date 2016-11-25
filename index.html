@@ -87,23 +87,27 @@
 				<h1>So how much will that cost?</h1>
 
 				<p>That depends on who builds it!</p>
+
+				<p>Get an idea of an established development company like ours, and get to know your other options.</p>
 			</header>
 
 			<div class="recordset">
 
 				<div
 					data-ng-repeat="dev in ::main.devs"
-					data-ng-class="['record', 'condition', main.dev == dev.id ? 'on' : '']"
+					data-ng-class="['record', 'condition', dev.isVisible ? 'on' : 'off']"
 				>
 					<div>
 						<input
 							class="input"
-							type="radio"
-							data-ng-model="main.dev"
-							data-ng-value="::dev.id"
+							type="checkbox"
+							data-ng-model="dev.isVisible"
 							data-ng-attr-id="{{::dev.id}}"
 						/>
-						<label data-ng-attr-for="{{::dev.id}}"></label>
+						<label
+							data-ng-attr-for="{{::dev.id}}"
+							data-rating="{{dev.isVisible ? dev.overall : ''}}"
+						>&ZeroWidthSpace;</label>
 					</div>
 					<div>
 						<h2>{{::dev.name}}</h2>
@@ -120,13 +124,13 @@
 							<p><strong>Pros:</strong> {{::dev.pros}}</p>
 							<p><strong>Cons:</strong> {{::dev.cons}}</p>
 							<p><strong>Good if:</strong> {{::dev.good_if}}</p>
-							<p data-ng-show="main.dev == 'dev_mentormate'">
+							<p data-ng-show="::dev.id == 'dev_mentormate'">
 								<strong>Cost:</strong>
 								<span data-ng-show="!main.level">You've entered nothing, which costs nothing! Pick some options above.</span>
 								<span data-ng-show="main.level">This isn't a quote or a formal estimate, but an educated ballpark guess is that <strong>your idea, which is <em>{{main.level.adj}} complex</em>, would probably cost {{main.level.range}}</strong> to develop with <a href="http://mentormate.com">MentorMate</a>.</span>
 							</p>
-							<p data-ng-show="main.dev != 'dev_mentormate'">
-								<strong>Cost:</strong> We can really only estimate for development with <a href="http://mentormate.com">MentorMate</a>, but to find a {{::dev.name}},
+							<p data-ng-show="::dev.id != 'dev_mentormate'">
+								<strong>Where:</strong> To find a {{::dev.name}}
 								<span data-ng-show="main.dev != 'dev_mentormate'">{{::dev.find_where}}</span>
 							</p>
 						</div>

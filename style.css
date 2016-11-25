@@ -208,14 +208,17 @@ span.input, .input + label, .input[type=text] {
   margin: 0 2px;
   color: #000;
 }
-.ratings [data-rating="1"] {
-  background-color: #EF4B3E;
+
+[data-rating="1"] {
+  background-color: #EF4B3E !important;
 }
-.ratings [data-rating="2"] {
-  background-color: #fc3;
+
+[data-rating="2"] {
+  background-color: #FFCC33 !important;
 }
-.ratings [data-rating="3"] {
-  background-color: #6c9;
+
+[data-rating="3"] {
+  background-color: #66CC99 !important;
 }
 
 .condition .conditional {

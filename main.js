@@ -40,7 +40,7 @@
 				graph.diff = (graph.max - graph.min) / 100;
 				vm.graph = graph;
 			})
-			.then(function(){
+			.then(function prepareInterface(){
 				recalculate();
 				vm.isLoaded = true;
 			})
@@ -67,7 +67,7 @@
 					}
 				}
 			})
-			.then(function loadForm(){
+			.then(function loadHubspotForm(){
 				var script = document.createElement('SCRIPT');
 				var el = document.getElementById('form');
 				var linkFieldId = 'project_description__c';

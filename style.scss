@@ -248,15 +248,15 @@ blockquote{
 		margin:0 2px;
 		color:#000;
 	}
-	[data-rating="1"]{
-		background-color:$mm-red;
-	}
-	[data-rating="2"]{
-		background-color:#fc3;
-	}
-	[data-rating="3"]{
-		background-color:#6c9;
-	}
+}
+[data-rating="1"]{
+	background-color:$mm-red !important;
+}
+[data-rating="2"]{
+	background-color:$mm-yellow !important;
+}
+[data-rating="3"]{
+	background-color:$mm-green !important;
 }
 
 .condition{
