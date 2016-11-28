@@ -16,6 +16,8 @@
 				<h1>Estimate your app!</h1>
 
 				<p>An app's cost is based on its complexity. Estimating this can be pretty tough, so we at <a href="http://mentormate.com">MentorMate</a> built this tool to grease the wheels.</p>
+
+				<p>Pick the features you want, and we'll estimate its complexity in points. <a data-ng-href="{{main.exampleLink}}" class="button">Estimate this estimator!</a></p>
 			</header>
 
 			<div id="complexity" class="sticky">
@@ -33,14 +35,13 @@
 
 				<p data-ng-class="['details', main.showDetails ? 'on' : 'off']">
 					<span data-ng-show="main.level">
-						This is {{main.level.adj}} complex.
-						<a data-ng-href="{{main.saveLink}}" class="button">Link to this estimate</a>
+						This setup is {{main.level.adj}} complex.
+						<a data-ng-href="{{main.saveLink}}" class="button">Link to this setup</a>
 						<a data-ng-click="main.reset()" class="button">Reset</a>
 					</span>
 					<span data-ng-show="!main.level">
-						Pick the features you want, and we'll estimate its complexity in points.
+						Try selecting something!
 					</span>
-					<a data-ng-href="{{main.exampleLink}}" class="button">Estimate this estimator!</a>
 				</p>
 
 				<label class="toggleDetails">
