@@ -125,12 +125,15 @@
 							<p><strong>Pros:</strong> {{::dev.pros}}</p>
 							<p><strong>Cons:</strong> {{::dev.cons}}</p>
 							<p><strong>Good if:</strong> {{::dev.good_if}}</p>
-							<p data-ng-show="::dev.id == 'dev_mentormate'">
-								<strong>Cost:</strong>
-								<span data-ng-show="!main.level">You've entered nothing, which costs nothing! Pick some options above.</span>
-								<span data-ng-show="main.level">An educated ballpark guess is that your idea, which is <em>{{main.level.adj}} complex</em>, will probably cost {{main.level.range}} to develop with <a href="http://mentormate.com">MentorMate</a>. The <strong>actual cost</strong> will be different &mdash; maybe very different, because there are a billion things you can add to your app and we can't capture all of them in this form! <a href="#contact">Want to talk through it?</a></span>
-							</p>
-							<p data-ng-show="::dev.id != 'dev_mentormate'">
+							<div data-ng-if="::dev.id == 'dev_mentormate'">
+								<p data-ng-show="!main.level">
+									<strong>Cost:</strong> You've entered nothing, which costs nothing! Pick some options above.
+								</p>
+								<p data-ng-show="main.level">
+									<strong>Cost:</strong> An educated ballpark guess is that your idea, which is <em>{{main.level.adj}} complex</em>, will probably cost {{main.level.range || "$###"}} to develop with <a href="http://mentormate.com">MentorMate</a>. The <strong>actual cost</strong> will be different &mdash; maybe very different, because there are a billion things you can add to your app and we can't capture all of them in this form! <a href="#contact">Want to talk through it?</a>
+								</p>
+							</div>
+							<p data-ng-if="::dev.id != 'dev_mentormate'">
 								<strong>Where:</strong> To find a {{::dev.name}}
 								<span data-ng-show="main.dev != 'dev_mentormate'">{{::dev.find_where}}</span>
 							</p>

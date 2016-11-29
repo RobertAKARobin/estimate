@@ -1,0 +1,10 @@
+input,
+.input,
+.graph,
+.ratings,
+label{
+	display:none;
+}
+[data-ng-show].ng-hide{
+	display:block !important;
+}
