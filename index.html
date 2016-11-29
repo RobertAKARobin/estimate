@@ -17,7 +17,7 @@
 
 				<p>An app's cost is based on its complexity. Estimating this can be pretty tough, so we at <a href="http://mentormate.com">MentorMate</a> built this tool to grease the wheels.</p>
 
-				<p>Pick the features you want, and we'll estimate its complexity in points. <a data-ng-href="{{main.exampleLink}}" class="button">Estimate this estimator!</a></p>
+				<p>Pick the features you want. We'll estimate its complexity in points, and give you a ballpark idea of its cost with an established development company. <a data-ng-href="{{main.exampleLink}}" class="button">For example, estimate this estimator!</a></p>
 			</header>
 
 			<div id="complexity" class="sticky">
@@ -128,7 +128,7 @@
 							<p data-ng-show="::dev.id == 'dev_mentormate'">
 								<strong>Cost:</strong>
 								<span data-ng-show="!main.level">You've entered nothing, which costs nothing! Pick some options above.</span>
-								<span data-ng-show="main.level">This isn't a quote or a formal estimate, but an educated ballpark guess is that <strong>your idea, which is <em>{{main.level.adj}} complex</em>, would probably cost {{main.level.range}}</strong> to develop with <a href="http://mentormate.com">MentorMate</a>.</span>
+								<span data-ng-show="main.level">An educated ballpark guess is that your idea, which is <em>{{main.level.adj}} complex</em>, will probably cost {{main.level.range}} to develop with <a href="http://mentormate.com">MentorMate</a>. The <strong>actual cost</strong> will be different &mdash; maybe very different, because there are a billion things you can add to your app and we can't capture all of them in this form! <a href="#contact">Want to talk through it?</a></span>
 							</p>
 							<p data-ng-show="::dev.id != 'dev_mentormate'">
 								<strong>Where:</strong> To find a {{::dev.name}}

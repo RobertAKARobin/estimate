@@ -17,7 +17,7 @@
 		},
 		{
 			"adj": "very",
-			"range": "at least $150,000"
+			"range": "more than $150,000"
 		}
 	],
 	"epics": [
@@ -27,11 +27,17 @@
 			"desc": "What kinds of devices will your users be using?",
 			"features": [
 				{
-					"name": "Web",
+					"name": "Modern web",
 					"id": "web",
-					"desc": "Your users will access your app from a laptop, phone, or tablet using a web browser like Chrome or Safari. This is usually cheapest, and guarantees anyone with a smartphone or computer can use your app.",
+					"desc": "Your users will access your app from a laptop, phone, or tablet using a modern web browser like Chrome, Firefox, Safari, or Internet Explorer 11. This is usually cheapest, and guarantees anyone with a smartphone or computer can use your app.",
 					"ex": true,
 					"points": 1
+				},
+				{
+					"name": "Old web",
+					"id": "compatibility",
+					"desc": "People running old and outdated web browsers (like Internet Explorer 10 and earlier) will experience your app the same way as people running modern browsers.",
+					"points": 3
 				},
 				{
 					"name": "Mobile Android",
