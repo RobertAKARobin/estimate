@@ -1,0 +1,272 @@
+{
+	"complexity_levels": [
+		0, 7, 14, 21
+	],
+	"complexity_level_descriptions": [
+		{
+			"adj": "not too",
+			"range": "between $5,000 and $25,000"
+		},
+		{
+			"adj": "somewhat",
+			"range": "between $25,000 and $75,000"
+		},
+		{
+			"adj": "",
+			"range": "between $75,000 and $150,000"
+		},
+		{
+			"adj": "very",
+			"range": "more than $150,000"
+		}
+	],
+	"epics": [
+		{
+			"name": "Platform",
+			"id": "platform",
+			"desc": "What kinds of devices will your users be using?",
+			"features": [
+				{
+					"name": "Modern web",
+					"id": "web",
+					"desc": "Your users will access your app from a laptop, phone, or tablet using a modern web browser like Chrome, Firefox, Safari, or Internet Explorer 11. This is usually cheapest, and guarantees anyone with a smartphone or computer can use your app.",
+					"ex": true,
+					"points": 1
+				},
+				{
+					"name": "Old web",
+					"id": "compatibility",
+					"desc": "People running old and outdated web browsers (like Internet Explorer 10 and earlier) will experience your app the same way as people running modern browsers.",
+					"points": 3
+				},
+				{
+					"name": "Mobile Android",
+					"id": "android",
+					"desc": "Your users can download your app from Google Play, the Android App Store, to their Android phones or tablets.",
+					"points": 3
+				},
+				{
+					"name": "Mobile iOS",
+					"id": "ios",
+					"desc": "Your users can download your app from the Apple App Store to their iPhones or iPads.",
+					"points": 3
+				}
+			]
+		},
+		{
+			"name": "Authentication",
+			"id": "auth",
+			"desc": "How will your users sign in? (If you or your users aren't saving information anywhere, you might not need this at all!)",
+			"features": [
+				{
+					"name": "Sign in through a social network",
+					"id": "social",
+					"desc": "Google, Twitter, Facebook, LinkedIn, Github... These all provide ways of letting people log in and sign up. How many social networks do you want to include?",
+					"type": "number",
+					"points": 1
+				},
+				{
+					"name": "Sign in without going through anyone else's site",
+					"id": "local",
+					"desc": "This is more expensive than letting people use their social media accounts, but means you have more control over your user experience.",
+					"points": 2
+				},
+				{
+					"name": "Admin portal",
+					"id": "admin",
+					"desc": "Use a secure admin account to manage your users and your data.",
+					"points": 2
+				}
+			]
+		},
+		{
+			"name": "Database",
+			"id": "data",
+			"desc": "Where does your app get its data? Where does it send new data?",
+			"features": [
+				{
+					"name": "Read from a spreadsheet or table",
+					"id": "static",
+					"desc": "Your app pulls data from a CSV or JSON file that you own. This is great when your data is rarely going to change, like if you want to show data from a census or survey.",
+					"points": 1,
+					"ex": true
+				},
+				{
+					"name": "Read from someone's API",
+					"id": "read_api",
+					"desc": "Your app tells you whether it's raining using data from the National Weather Service, or shows graphs of basketball scores from ESPN, or visualizes data that it gets from someone else's site.",
+					"points": 1
+				},
+				{
+					"name": "Write to someone's API",
+					"id": "write_api",
+					"desc": "You forward user input to Salesforce, Mailchimp, or some other provider.",
+					"points": 3
+				},
+				{
+					"name": "Read from and write to a SQL database",
+					"id": "sql",
+					"desc": "You will be sifting through a lot of data, maybe more than 10,000 records. You might be managing complex relationships, like with a social network. This will be handled with PHP and MySQL.",
+					"points": 3
+				},
+				{
+					"name": "Read from and write to a real-time database",
+					"id": "websockets",
+					"desc": "It's important that your users see data change in real-time: if a person on Computer B types something in, a person on Computer A sees it immediately. This will be handled by Google Firebase.",
+					"points": 2
+				}
+			]
+		},
+		{
+			"name": "Design",
+			"id": "design",
+			"desc": "How much work, if any, needs to be put into your user interface?",
+			"features": [
+				{
+					"name": "Basic responsive styling",
+					"id": "basic",
+					"desc": "Bootstrap or another CSS framework with some very light customization will make sure your app looks clean and presentable on most web browsers.",
+					"ex": true,
+					"points": 1
+				},
+				{
+					"name": "Pixel-perfect wireframes",
+					"id": "wireframes",
+					"desc": "Professional wireframes are much more than a sketch or mock-up. Having a development-minded designer establish your layout will keep you from spending too much on programmers: you'll know exactly what you want, and they'll know exactly what to code. You won't need to make lots of small costly tweaks as you go.",
+					"points": 2
+				},
+				{
+					"name": "A unique, branded look-and-feel",
+					"id": "custom",
+					"desc": "User experience is the most important thing to your app's success, and the hardest thing to get right. Design professionals will work with you to define the typesets, colors, buttons, icons, and logos that add the most to your bottom line. Packaged up with all the necessary font files, images, and hex codes, this style guide can be incorporated into any other project.",
+					"points": 3
+				},
+				{
+					"name": "Custom graphics",
+					"id": "graphics",
+					"desc": "Even the smallest logo or icon can take a lot of time and thought. How many custom graphics do you need?",
+					"type": "number",
+					"points": 1
+				}
+			]
+		},
+		{
+			"name": "Features",
+			"id": "misc",
+			"desc": "What else will you add to your app to make it unique?",
+			"features": [
+				{
+					"name": "File upload",
+					"id": "file_upload",
+					"desc": "Let your users upload pictures, videos, and documents.",
+					"points": 2
+				},
+				{
+					"name": "Data reporting",
+					"id": "visualize",
+					"desc": "Aggregate and display data in a slick graphical or print-friendly format.",
+					"points": 2
+				},
+				{
+					"name": "Automatic e-mails",
+					"id": "send_emails",
+					"desc": "The app will use a template to automatically send e-mails.",
+					"points": 2
+				},
+				{
+					"name": "Analytics",
+					"id": "analytics",
+					"desc": "Incorporate Google analytics or similar into your app.",
+					"points": 1
+				},
+				{
+					"name": "Payment processing",
+					"id": "payments",
+					"desc": "Use Stripe, PayPal, Bitcoin, or a similar third-party service to collect payments.",
+					"points": 3
+				}
+			]
+		}
+	],
+	"devs": [
+		{
+			"name": "Established Development Company",
+			"id": "dev_mentormate",
+			"desc": "An organization of enthusiastic coders and technologists with many years of experience, hundreds of published software solutions, and thousands of positive continuing relationships around the world.",
+			"overall": 3,
+			"rating": {
+				"scale": 3,
+				"trust": 3,
+				"skill": 3,
+				"time": 3
+			},
+			"pros": "Development is much more than cranking out code. A company like ours provides all clients with responsive points-of-contact to take feedback, address concerns, and stay aligned on vision. Not only are you communicating with expert programmers; you're communicating with experts in the entire development process, from ideation to design to development to quality assurance to deployment. When you have questions, you'll get answers.",
+			"cons": "When it comes to apps, you get what you pay for. Established development companies have the highest initial cost of your potential partners because they deliver the best results. Good development yields good revenue.",
+			"good_if": "You want to be completely confident that your time and money is going to the best possible use. You want rock-solid, expert development. You want to focus on running your business instead of holding hands."
+		},
+		{
+			"name": "Staff Developer",
+			"id": "dev_employee",
+			"desc": "A developer or designer you hire as an employee.",
+			"overall": 2,
+			"rating": {
+				"scale": 3,
+				"trust": 2,
+				"skill": 2,
+				"time": 2
+			},
+			"pros": "You benefit from everything an employee learns as their career progresses. Since they report to you, you don't need to worry about scheduling around their other commitments. You know precisely who's going to be working on what, and when.",
+			"cons": "If you hire a PHP developer, and then realize you actually need a .NET developer, your options are to pivot your whole project, ask them to learn a new technology, or let them go. This can be devastating to the morale of the employees close to the one in question. You're responsible for salaries, project management, and working conditions.",
+			"good_if": "You already have several thousand customers, a solid revenue stream, and an HR department with bandwidth to spare.",
+			"find_where": "take a look at Indeed, Craigslist, Monster, or Reddit."
+		},
+		{
+			"name": "Technical Cofounder",
+			"id": "dev_cofounder",
+			"desc": "A developer you bring on early in your company's lifetime, usually as the second or third employee, who focuses on code while you focus on growth and marketing.",
+			"overall": 2,
+			"rating": {
+				"scale": 2,
+				"trust": 2,
+				"skill": 2,
+				"time": 2
+			},
+			"pros": "You usually offer a cofounder a stake in your company, rather than a salary, so they only get paid when you do. Not only does a co-founder bring technical skills, they also bring vision and a network to add to yours, which doubles your assets.",
+			"cons": "A cofounder invests their livelihood in your idea. Working like your life depends on it isn't sustainable. Building a business together will put even the healthiest friendship to the test. Also, similar to freelancers, technical cofounders work in a vacuum and are susceptible to writing bad code that costs you money in the long run.",
+			"good_if": "You know a programmer with a solid technical background who you would trust with your health, your money, and your life.",
+			"find_where": "your best bet is your own personal network or word-of-mouth."
+		},
+		{
+			"name": "Freelancer",
+			"id": "dev_freelance",
+			"desc": "A self-employed programmer, designer, or developer.",
+			"overall": 2,
+			"rating": {
+				"scale": 1,
+				"trust": 1,
+				"skill": 2,
+				"time": 2
+			},
+			"pros": "Freelancers are generally fairly inexpensive. They don't need to get feedback from coworkers and managers, and so can move quickly on design decisions.",
+			"cons": "There's a huge range in how well freelancers deliver on expectations. One might have a great-looking portfolio without knowing a bit of code, which is bad for anything more complex than a personal homepage. Working alone means freelancers can afford to be messy. Many developers have taken over a project from a freelancer only to find it's so disorganized that starting over from scratch may actually be cheaper.",
+			"good_if": "Your project is heavy on visual design and light on functionality. A freelancer's biggest asset is (theoretically) that they provide a single point-of-contact with whom you can discuss your style and vision.",
+			"find_where": "look on Craigslist, Upwork, or Reddit, or ask around your personal network."
+		},
+		{
+			"name": "Discount Development Shop",
+			"id": "dev_overseas",
+			"desc": "A team of web, mobile, and/or software developers, often located in India or the Philippines.",
+			"overall": 1,
+			"rating": {
+				"scale": 1,
+				"trust": 1,
+				"skill": 1,
+				"time": 2
+			},
+			"pros": "Overseas shops offer very competitive rates since they're located in areas with low costs of living. They also tend to work quickly.",
+			"cons": "Although likely your cheapest option in the short-term, these companies cost you a lot in the long-term. Located in developing countries with little regulation of consumer rights and corporate policy, they often keep costs down by working their employees unreasonably hard. This leads to cutting corners and unmaintainable, nonfunctioning code. Language barriers and time zone differences can make communication very difficult.",
+			"good_if": "You've already published several apps. You know exactly what needs to be done and how. You would just code it yourself if you had the time.",
+			"find_where": "put some feelers on Odesk or Guru."
+		}
+	]
+}
