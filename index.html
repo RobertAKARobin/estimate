@@ -13,11 +13,11 @@
 
 		<section class="epics">
 			<header>
-				<h1>Estimate your app!</h1>
+				<h1>Estimate Your App</h1>
 
-				<p>Pick the features you want. This tool will estimate its complexity in &ldquo;points&rdquo;, and its cost with an established development company like <a href="http://mentormate.com">ours</a>. For example, you can <a data-ng-href="{{main.exampleLink}}" class="button">estimate this estimator!</a></p>
+				<p>Pick the features you want. This tool will estimate its complexity in &ldquo;points&rdquo; and its cost to be developed by an established company like <a href="http://mentormate.com">ours</a>. For example, you can <a data-ng-href="{{main.exampleLink}}" class="button">estimate this estimator.</a></p>
 
-				<p><strong>This isn't a quote; it's a conversation-starter.</strong> Our aim is to give a sense of how development choices affect cost. How much your app <em>actually</em> costs will depend on the details. To get a formal estimate, <a href="#contact">let's talk!</a></p>
+				<p><strong>This isn't a quote. It's a conversation-starter.</strong> Our aim is to give a sense of how development choices affect cost. How much your app <em>actually</em> costs will depend on the details. To get a formal estimate, <a href="#contact">let's talk.</a></p>
 			</header>
 
 			<div id="complexity" class="sticky">
@@ -40,7 +40,7 @@
 						<a data-ng-click="main.reset()" class="button">Reset</a>
 					</span>
 					<span data-ng-show="!main.level">
-						Try selecting some features!
+						Try selecting some features.
 					</span>
 				</p>
 
@@ -77,7 +77,7 @@
 					</div>
 					<div>
 						<h3>{{::feature.name}}</h3>
-						<p>{{::feature.desc}}</p>
+						<p data-ng-bind-html="::feature.desc | htmlSafe"></p>
 					</div>
 				</div>
 			</div>
@@ -87,9 +87,9 @@
 			<header>
 				<h1>So how much will that cost?</h1>
 
-				<p>That depends on who builds it!</p>
+				<p>That depends on who builds it.</p>
 
-				<p>Get an idea of an established development company like ours, and get to know your other options.</p>
+				<p>Compare an established development company like ours to know your other options.</p>
 			</header>
 
 			<div class="recordset">
@@ -132,11 +132,11 @@
 								<div data-ng-show="main.level">
 									<p><strong>Cost:</strong> Your idea, which is <em>{{main.level.adj}} complex</em>, will probably be in the ballpark of {{main.level.range || "$###"}} if you develop with <a href="http://mentormate.com">MentorMate</a>.</p>
 
-									<p>The <em>actual</em> cost will depend on the details, and things like HIPAA compliance, rewriting code that someone else wrote, and integrating with existing systems will take a little discussion to accurately estimate complexity. <a href="#contact">Want to talk through it?</a></p>
+									<p>The <em>actual</em> cost will depend on details like industry regulation, the  caliber of existing code, and the level of integration needed. <a href="#contact">Want to talk through it?</a></p>
 								</div>
 							</div>
 							<p data-ng-if="::dev.id != 'dev_mentormate'">
-								<strong>Where:</strong> To find a {{::dev.name}}
+								<strong>Where:</strong> To find a {{::dev.name | lowercase}}
 								<span data-ng-show="main.dev != 'dev_mentormate'">{{::dev.find_where}}</span>
 							</p>
 						</div>
@@ -149,7 +149,7 @@
 			<header>
 				<h1>Have questions?</h1>
 
-				<p>Whether you want to start development today, or you're not sure what to do next, we'd love to talk about it!</p>
+				<p>Whether you want to start development today or you're not sure what to do next, we're here to be a resource for you.</p>
 
 				<p>Tell us a bit about the development you're considering. One of us &mdash; <a href="http://mentormate.com">MentorMate's</a> Solutions Architects &mdash; will respond to you as soon as we can.</p>
 			</header>

@@ -1,10 +1,34 @@
 'use strict';
 
+/*
+<ng-save-face>
+Developer's note: I'm not one of MentorMate's staff developers but rather
+one of the sales folks, who happens to know Angular 1. This doesn't adhere
+to MentorMate's code standards. If this was produced for a client it would
+have been split into directives, not have crazy callback chains, be compiled
+with WebPack, yadda yadda yadda.
+
+Feel free to make a pull request at https://github.com/RobertAKARobin/estimate
+</ng-save-face>
+*/
+
 (function(){
 
 	angular
 		.module('estimator', [])
-		.controller('mainController', MainController);
+		.controller('mainController', MainController)
+		.filter('htmlSafe', htmlSafe);
+
+	htmlSafe.$inject = ['$sce'];
+
+	function htmlSafe($sce){
+		return filter;
+
+		function filter(input){
+			var out = $sce.trustAsHtml(input);
+			return out;
+		}
+	}
 
 	MainController.$inject = ['$http'];
 
@@ -94,7 +118,7 @@
 					var n=d.createElement(s),e=d.getElementsByTagName(s)[0];
 					n.id=i;n.src='//js.hs-analytics.net/analytics/'+(Math.ceil(new Date()/r)*r)+'/211554.js';
 					e.parentNode.insertBefore(n, e);
-				})(document,"script","hs-analytics",300000);
+				})(document,'script','hs-analytics',300000);
 			});
 
 		function reset(){
@@ -123,7 +147,7 @@
 					switch(feature.type){
 						case 'number':
 							if(is_not_numeric.test(feature.input)){
-								feature.input = "";
+								feature.input = '';
 							}
 							if(feature.input > vm.graph.max){
 								feature.input = vm.graph.max;
