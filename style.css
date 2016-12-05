@@ -65,11 +65,17 @@ label {
 a {
   cursor: pointer;
   color: #46A3E2;
+}
+a:hover {
   text-decoration: underline;
 }
 
 blockquote {
   font-style: italic;
+}
+
+ul, ol {
+  list-style-position: inside;
 }
 
 .recordset {

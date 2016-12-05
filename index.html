@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 	<head>
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -15,9 +15,9 @@
 			<header>
 				<h1>Estimate your app!</h1>
 
-				<p>An app's cost is based on its complexity. Estimating this can be pretty tough, so we at <a href="http://mentormate.com">MentorMate</a> built this tool to grease the wheels.</p>
+				<p>Pick the features you want. This tool will estimate its complexity in &ldquo;points&rdquo;, and its cost with an established development company like <a href="http://mentormate.com">ours</a>. For example, you can <a data-ng-href="{{main.exampleLink}}" class="button">estimate this estimator!</a></p>
 
-				<p>Pick the features you want. We'll estimate its complexity in points, and give you a ballpark idea of its cost with an established development company. <a data-ng-href="{{main.exampleLink}}" class="button">For example, estimate this estimator!</a></p>
+				<p><strong>This isn't a quote; it's a conversation-starter.</strong> Our aim is to give a sense of how development choices affect cost. How much your app <em>actually</em> costs will depend on the details. To get a formal estimate, <a href="#contact">let's talk!</a></p>
 			</header>
 
 			<div id="complexity" class="sticky">
@@ -35,12 +35,12 @@
 
 				<p data-ng-class="['details', main.showDetails ? 'on' : 'off']">
 					<span data-ng-show="main.level">
-						This setup is {{main.level.adj}} complex.
+						An app with the selected features would be <em>{{main.level.adj}} complex</em> to develop.
 						<a data-ng-href="{{main.saveLink}}" class="button">Link to this setup</a>
 						<a data-ng-click="main.reset()" class="button">Reset</a>
 					</span>
 					<span data-ng-show="!main.level">
-						Try selecting something!
+						Try selecting some features!
 					</span>
 				</p>
 
@@ -129,9 +129,11 @@
 								<p data-ng-show="!main.level">
 									<strong>Cost:</strong> You've entered nothing, which costs nothing! Pick some options above.
 								</p>
-								<p data-ng-show="main.level">
-									<strong>Cost:</strong> An educated ballpark guess is that your idea, which is <em>{{main.level.adj}} complex</em>, will probably cost {{main.level.range || "$###"}} to develop with <a href="http://mentormate.com">MentorMate</a>. The <strong>actual cost</strong> will be different &mdash; maybe very different, because there are a billion things you can add to your app and we can't capture all of them in this form! <a href="#contact">Want to talk through it?</a>
-								</p>
+								<div data-ng-show="main.level">
+									<p><strong>Cost:</strong> Your idea, which is <em>{{main.level.adj}} complex</em>, will probably be in the ballpark of {{main.level.range || "$###"}} if you develop with <a href="http://mentormate.com">MentorMate</a>.</p>
+
+									<p>The <em>actual</em> cost will depend on the details, and things like HIPAA compliance, rewriting code that someone else wrote, and integrating with existing systems will take a little discussion to accurately estimate complexity. <a href="#contact">Want to talk through it?</a></p>
+								</div>
 							</div>
 							<p data-ng-if="::dev.id != 'dev_mentormate'">
 								<strong>Where:</strong> To find a {{::dev.name}}

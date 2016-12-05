@@ -75,10 +75,15 @@ label{
 a{
 	cursor:pointer;
 	color:$mm-blue;
-	text-decoration:underline;
+	&:hover{
+		text-decoration:underline;
+	}
 }
 blockquote{
 	font-style:italic;
+}
+ul, ol{
+	list-style-position:inside;
 }
 
 .recordset{

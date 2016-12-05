@@ -4,20 +4,20 @@
 	],
 	"complexity_level_descriptions": [
 		{
-			"adj": "not too",
-			"range": "between $5,000 and $25,000"
+			"adj": "a little",
+			"range": "$5,000 to $25,000"
 		},
 		{
 			"adj": "somewhat",
-			"range": "between $25,000 and $75,000"
+			"range": "$25,000 to $75,000"
 		},
 		{
 			"adj": "",
-			"range": "between $75,000 and $150,000"
+			"range": "$75,000 to $150,000"
 		},
 		{
 			"adj": "very",
-			"range": "more than $150,000"
+			"range": "$150,000 or more"
 		}
 	],
 	"epics": [
