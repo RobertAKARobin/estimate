@@ -3,10 +3,10 @@
 /*
 <ng-save-face>
 Developer's note: I'm not one of MentorMate's staff developers but rather
-one of the sales folks, who happens to know Angular 1. This doesn't adhere
-to MentorMate's code standards. If this was produced for a client it would
-have been split into directives, not have crazy callback chains, be compiled
-with WebPack, yadda yadda yadda.
+one of the sales folks, who happens to know Angular 1. This code doesn't
+adhere to MentorMate's code standards. If this was produced for a client it
+would have been split into directives, not have crazy callback chains, be
+compiled with WebPack, probably unit-tested, yadda yadda yadda.
 
 Feel free to make a pull request at https://github.com/RobertAKARobin/estimate
 </ng-save-face>
