@@ -192,6 +192,7 @@
 		{
 			"name": "Established Development Company",
 			"id": "dev_mentormate",
+			"isVisible": true,
 			"desc": "An organization of enthusiastic coders and technologists with many years of experience, hundreds of published software solutions, and thousands of positive continuing relationships around the world.",
 			"overall": 3,
 			"rating": {
