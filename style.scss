@@ -198,12 +198,33 @@ ul, ol{
 			&:first-child > *{
 				border-top:1px solid #bbb;
 			}
+			&:first-child{
+				h2{
+					text-decoration:underline;
+					color:$mm-blue;
+				}
+			}
 			& > *{
 				border-bottom:1px solid #bbb;
 				background-color:#f0f0f0;
 			}
 			&:hover > *{
 				background-color:#f9f9f9;
+			}
+			& .input + label{
+				color:#fff;
+			}
+			& .input + label:after{
+				content:"\02713";
+			}
+			&:hover .input + label{
+				color:#ddd !important;
+			}
+			& .input + label:hover{
+				color:#999 !important;
+			}
+			& .input:checked + label{
+				color:#000 !important;
 			}
 			&.on > *{
 				background-color:#fff;
@@ -214,17 +235,6 @@ ul, ol{
 					}
 				}
 			}
-		}
-	}
-	[type=radio]{
-		& + label{
-			border-color:#ddd;
-		}
-		&:hover + label{
-			border-color:#ccc;
-		}
-		&:checked + label{
-			background-color:$mm-blue;
 		}
 	}
 }

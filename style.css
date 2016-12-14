@@ -164,12 +164,31 @@ span.input, .input + label, .input[type=text] {
 .devs .recordset > *:first-child > * {
   border-top: 1px solid #bbb;
 }
+.devs .recordset > *:first-child h2 {
+  text-decoration: underline;
+  color: #46A3E2;
+}
 .devs .recordset > * > * {
   border-bottom: 1px solid #bbb;
   background-color: #f0f0f0;
 }
 .devs .recordset > *:hover > * {
   background-color: #f9f9f9;
+}
+.devs .recordset > * .input + label {
+  color: #fff;
+}
+.devs .recordset > * .input + label:after {
+  content: "\02713";
+}
+.devs .recordset > *:hover .input + label {
+  color: #ddd !important;
+}
+.devs .recordset > * .input + label:hover {
+  color: #999 !important;
+}
+.devs .recordset > * .input:checked + label {
+  color: #000 !important;
 }
 .devs .recordset > *.on > * {
   background-color: #fff;
@@ -178,15 +197,6 @@ span.input, .input + label, .input[type=text] {
   .devs .recordset > *.on > * blockquote {
     margin-bottom: 0;
   }
-}
-.devs [type=radio] + label {
-  border-color: #ddd;
-}
-.devs [type=radio]:hover + label {
-  border-color: #ccc;
-}
-.devs [type=radio]:checked + label {
-  background-color: #46A3E2;
 }
 
 .ratings {
