@@ -40,6 +40,7 @@ Feel free to make a pull request at https://github.com/RobertAKARobin/estimate
 		vm.recalculate = recalculate;
 		vm.reset = reset;
 		vm.showDetails = true;
+		vm.toggleIfNotShown = toggleIfNotShown;
 		vm.exampleLink = window.location.origin + window.location.pathname + '?example';
 
 		$http
@@ -175,6 +176,16 @@ Feel free to make a pull request at https://github.com/RobertAKARobin/estimate
 			}
 			vm.saveLink = window.location.origin + window.location.pathname + '?' + querystring.join('&');
 			if(HubspotForm.setFieldValue) HubspotForm.setFieldValue('project_description__c', vm.saveLink);
+		}
+
+		function toggleIfNotShown(event, dev){
+			if(dev.isVisible){
+				if(event.target.tagName == "LABEL"){
+					dev.isVisible = false;
+				}
+			}else{
+				dev.isVisible = true;
+			}
 		}
 
 	}

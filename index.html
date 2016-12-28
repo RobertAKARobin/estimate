@@ -100,6 +100,7 @@
 				<div
 					data-ng-repeat="dev in ::main.devs"
 					data-ng-class="['record', 'condition', dev.isVisible ? 'on' : 'off']"
+					data-ng-click="main.toggleIfNotShown($event, dev)"
 				>
 					<div>
 						<input
@@ -109,7 +110,6 @@
 							data-ng-attr-id="{{::dev.id}}"
 						/>
 						<label
-							data-ng-attr-for="{{::dev.id}}"
 							data-rating="{{dev.isVisible ? dev.overall : ''}}"
 						>&ZeroWidthSpace;</label>
 					</div>

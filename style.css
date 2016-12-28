@@ -113,7 +113,7 @@ span.input, .input + label, .input[type=text] {
   border-color: #e9e9e9;
   color: #aaa;
 }
-.input[type]:hover, .input[type]:hover + label {
+.input[type]:hover, .input[type] + label:hover {
   border-color: #ddd;
 }
 .input:checked, .input:checked + label, .input[type=text].ng-not-empty, .input[type=text].ng-not-empty + label {
@@ -165,27 +165,28 @@ span.input, .input + label, .input[type=text] {
   border-top: 1px solid #bbb;
 }
 .devs .recordset > *:first-child h2 {
-  text-decoration: underline;
   color: #46A3E2;
+  text-decoration: underline;
 }
 .devs .recordset > * > * {
   border-bottom: 1px solid #bbb;
   background-color: #f0f0f0;
+}
+.devs .recordset > *.condition.off {
+  cursor: pointer;
 }
 .devs .recordset > *:hover > * {
   background-color: #f9f9f9;
 }
 .devs .recordset > * .input + label {
   color: #fff;
+  border-color: #ddd;
 }
 .devs .recordset > * .input + label:after {
   content: "\02713";
 }
 .devs .recordset > *:hover .input + label {
-  color: #ddd !important;
-}
-.devs .recordset > * .input + label:hover {
-  color: #999 !important;
+  color: #46A3E2 !important;
 }
 .devs .recordset > * .input:checked + label {
   color: #000 !important;

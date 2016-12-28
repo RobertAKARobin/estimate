@@ -132,7 +132,7 @@ ul, ol{
 	}
 
 	&[type]:hover,
-	&[type]:hover + label{
+	&[type]+ label:hover{
 		border-color:#ddd;
 	}
 
@@ -200,28 +200,29 @@ ul, ol{
 			}
 			&:first-child{
 				h2{
-					text-decoration:underline;
 					color:$mm-blue;
+					text-decoration:underline;
 				}
 			}
 			& > *{
 				border-bottom:1px solid #bbb;
 				background-color:#f0f0f0;
 			}
+			&.condition.off{
+				cursor:pointer;
+			}
 			&:hover > *{
 				background-color:#f9f9f9;
 			}
 			& .input + label{
 				color:#fff;
+				border-color:#ddd;
 			}
 			& .input + label:after{
 				content:"\02713";
 			}
 			&:hover .input + label{
-				color:#ddd !important;
-			}
-			& .input + label:hover{
-				color:#999 !important;
+				color:$mm-blue !important;
 			}
 			& .input:checked + label{
 				color:#000 !important;

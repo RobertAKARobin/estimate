@@ -99,7 +99,7 @@
 					"type": "number"
 				},
 				{
-					"name": "Write to one or more APIs",
+					"name": "Write data to one or more APIs",
 					"id": "write_api",
 					"desc": "You forward user input to Salesforce, Mailchimp, or some other provider.",
 					"points": 2,
