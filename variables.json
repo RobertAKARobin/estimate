@@ -92,16 +92,18 @@
 					"ex": true
 				},
 				{
-					"name": "Read from someone's API",
+					"name": "Read data from one or more APIs",
 					"id": "read_api",
 					"desc": "Your app tells you whether it's raining using data from the National Weather Service, shows graphs of basketball scores from ESPN, or visualizes data that it gets from someone else's site.",
-					"points": 1
+					"points": 1,
+					"type": "number"
 				},
 				{
-					"name": "Write to someone's API",
+					"name": "Write to one or more APIs",
 					"id": "write_api",
 					"desc": "You forward user input to Salesforce, Mailchimp, or some other provider.",
-					"points": 3
+					"points": 2,
+					"type": "number"
 				},
 				{
 					"name": "Read from and write to a SQL database",
