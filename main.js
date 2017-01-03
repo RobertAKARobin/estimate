@@ -41,12 +41,22 @@ Feel free to make a pull request at https://github.com/RobertAKARobin/estimate
 		vm.reset = reset;
 		vm.showDetails = true;
 		vm.toggleIfNotShown = toggleIfNotShown;
+		vm.expandMentorMate = expandMentorMate;
+		vm.mm_dev = {};
 		vm.exampleLink = window.location.origin + window.location.pathname + '?example';
 
 		$http
 			.get('variables.json')
 			.then(function loadData(response){
 				angular.extend(vm, response.data);
+			})
+			.then(function findMm_dev(){
+				var devs = vm.devs;
+				for(var i = devs.length - 1; i >= 0; i--){
+					if(devs[i].id == 'dev_mentormate'){
+						vm.mm_dev = devs[i];
+					}
+				}
 			})
 			.then(function loadFromQueryString(){
 				var pair, querystring;
@@ -180,12 +190,18 @@ Feel free to make a pull request at https://github.com/RobertAKARobin/estimate
 
 		function toggleIfNotShown(event, dev){
 			if(dev.isVisible){
-				if(event.target.tagName == "LABEL"){
+				if(event.target.tagName == 'LABEL'){
 					dev.isVisible = false;
 				}
 			}else{
 				dev.isVisible = true;
 			}
+		}
+
+		function expandMentorMate(){
+			vm.mm_dev.isVisible = true;
+			location.href = '#';
+			location.href = '#estimate_mentormate';
 		}
 
 	}

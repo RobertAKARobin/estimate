@@ -92,7 +92,7 @@
 
 				<p>That depends on who builds it.</p>
 
-				<p>Based on the <strong>complexity</strong> above, we've estimated the <strong>cost</strong> of developing with an established development company like ours. Compare us to your other options.</p>
+				<p id="estimate_mentormate">Based on the <strong>complexity</strong> above, we've estimated the <strong>cost</strong> of developing with an established development company like ours. Compare us to your other options.</p>
 			</header>
 
 			<div class="recordset">
@@ -107,7 +107,6 @@
 							class="input"
 							type="checkbox"
 							data-ng-model="dev.isVisible"
-							data-ng-attr-id="{{::dev.id}}"
 						/>
 						<label
 							data-rating="{{dev.isVisible ? dev.overall : ''}}"
@@ -138,10 +137,11 @@
 									<p>The <em>actual</em> cost will depend on details like industry regulation, the  caliber of existing code, and the level of integration needed. <a href="#contact">Want to talk through it?</a></p>
 								</div>
 							</div>
-							<p data-ng-if="::dev.id != 'dev_mentormate'">
-								<strong>Where:</strong> To find a {{::dev.name | lowercase}}
-								<span data-ng-show="main.dev != 'dev_mentormate'">{{::dev.find_where}}</span>
-							</p>
+							<div data-ng-if="::dev.id != 'dev_mentormate'">
+								<p>
+									<strong>Cost:</strong> This tool is designed only to estimate the cost of developing with <a data-ng-click="main.expandMentorMate()">MentorMate</a>. To look into hiring a {{::dev.name | lowercase}} {{::dev.find_where}}
+								</p>
+							</div>
 						</div>
 					</div>
 				</div>
