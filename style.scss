@@ -46,9 +46,8 @@ html, body {
   font-weight: 400;
 }
 body{
-	margin:0 auto;
-	margin-bottom:50px;
-	max-width:$mw;
+	margin:50px auto;
+	background-color:#fff;
 }
 div{
 	position:relative;
@@ -94,23 +93,29 @@ ul, ol{
 	list-style-position:inside;
 }
 
+.column{
+	padding:0 calc(((100% - #{$mw}) / 2));
+	@media(max-width: #{$mw}){
+		padding:0 10px;
+	}
+}
 .recordset{
-	display:table;
-	width:100%;
-
 	& > *{
-		display:table-row;
+		display:flex;
 
+		& > *:first-child{
+			flex-shrink:0;
+			flex-grow:0;
+		}
 		& > *{
-			display:table-cell;
+			flex-grow:1;
 			position:relative;
 			vertical-align:top;
 			padding-top:$l;
 			padding-left:$p;
-			border-bottom:1px solid #eee;
 
-			&:last-child{
-				padding-right:$p;
+			&:first-child{
+				padding-left:0;
 			}
 		}
 	}
@@ -186,14 +191,6 @@ ul, ol{
 }
 
 .epics{
-	.record{
-		&:last-child{
-			border-bottom:0;
-		}
-		&:hover{
-			background-color:#f9f9f9;
-		}
-	}
 	.header{
 		background-color:$mm-blue;
 		color:#fff;
@@ -203,8 +200,12 @@ ul, ol{
 .devs{
 	.recordset{
 		& > *{
-			&:first-child > *{
-				border-top:1px solid #bbb;
+			background-color:#f0f0f0;
+			&:hover{
+				background-color:#f9f9f9;
+			}
+			&.on{
+				background-color:#fff !important;
 			}
 			&:first-child{
 				h2{
@@ -212,19 +213,11 @@ ul, ol{
 					text-decoration:underline;
 				}
 			}
-			& > *{
-				border-bottom:1px solid #bbb;
-				background-color:#f0f0f0;
-			}
 			&.condition.off{
 				cursor:pointer;
 			}
-			&:hover > *{
-				background-color:#f9f9f9;
-			}
 			& .input + label{
 				color:#fff;
-				border-color:#ddd;
 			}
 			& .input + label:after{
 				content:"\02713";
@@ -235,9 +228,7 @@ ul, ol{
 			& .input:checked + label{
 				color:#000 !important;
 			}
-			&.on > *{
-				background-color:#fff;
-
+			&.on{
 				@media (max-width:$mob){
 					blockquote{
 						margin-bottom:0;
@@ -293,12 +284,6 @@ ul, ol{
 	}
 }
 
-section{
-	& > header{
-		padding:0 $p;
-	}
-}
-
 .toggleDetails{
 	display:block;
 	background-color:$mm-dblue;
@@ -315,7 +300,6 @@ section{
 #complexity{
 	background-color:#fff;
 	width:100%;
-	max-width:$mw;
 	z-index:9990;
 
 	&.sticky{
@@ -325,8 +309,7 @@ section{
 		&.on{
 			position:fixed;
 			top:0;
-			left:50%;
-			transform: translateX(-50%);
+			left:0;
 
 			.graph{
 				opacity:1 !important;
@@ -357,7 +340,8 @@ section{
 		}
 	}
 	p{
-		padding:($l - $f)/2 $p;
+		padding-top:($l - $f)/2;
+		padding-bottom:($l - $f)/2;
 		margin-bottom:0;
 	}
 	a.button{
@@ -431,19 +415,16 @@ section{
 }
 
 .hbspt-form{
-	width:100%;
+	@extend .column;
 	max-width:600px;
 
-	form{
-		padding:0 $p;
-	}
 	label,
 	input,
 	textarea{
 		display:block;
 		width:100%;
 		resize:none;
-	box-sizing:border-box;
+		box-sizing:border-box;
 	}
 	input,
 	textarea{

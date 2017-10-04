@@ -12,7 +12,7 @@
 	<body data-ng-app="estimator" data-ng-controller="mainController as main">
 
 		<section class="epics">
-			<header>
+			<header class="column">
 				<h1>Estimate Your App</h1>
 
 				<p>Pick the features you want. This tool will estimate its <strong>complexity</strong> in &ldquo;points&rdquo;, and its <strong>cost</strong> if you have it developed by an established company like <a href="http://mentormate.com">ours</a>. For example, you can <a data-ng-href="{{main.exampleLink}}" class="button">estimate this estimator.</a></p>
@@ -35,7 +35,7 @@
 					</span>
 				</div>
 
-				<p data-ng-class="['details', main.showDetails ? 'on' : 'off']">
+				<p data-ng-class="['details', main.showDetails ? 'on' : 'off']" class="column">
 					<span data-ng-show="main.level">
 						An app with the selected features would be <em>{{main.level.adj}} complex</em> to develop.
 						<a data-ng-href="{{main.saveLink}}" class="button">Link to this setup</a>
@@ -53,7 +53,7 @@
 			</div>
 
 			<div class="recordset">
-				<div class="header" data-ng-repeat-start="epic in ::main.epics">
+				<div class="header column" data-ng-repeat-start="epic in ::main.epics">
 					<div>
 						<span class="input">{{epic.total}}</span>
 					</div>
@@ -63,7 +63,7 @@
 					</div>
 				</div>
 
-				<div class="record" data-ng-repeat-end data-ng-repeat="feature in ::epic.features">
+				<div class="record column" data-ng-repeat-end data-ng-repeat="feature in ::epic.features">
 					<div>
 						<input
 							class="input"
@@ -86,7 +86,7 @@
 		</section>
 
 		<section class="devs">
-			<header>
+			<header class="column">
 				<h1>So how much will that cost?</h1>
 
 				<p>That depends on who builds it.</p>
@@ -100,6 +100,7 @@
 					data-ng-repeat="dev in ::main.devs"
 					data-ng-class="['record', 'condition', dev.isVisible ? 'on' : 'off']"
 					data-ng-click="main.toggleIfNotShown($event, dev)"
+					class="column"
 				>
 					<div>
 						<input
@@ -148,7 +149,7 @@
 		</section>
 
 		<section id="contact">
-			<header>
+			<header class="column">
 				<h1>Have questions?</h1>
 
 				<p>Whether you want to start development today or you're not sure what to do next, we're here to be a resource for you.</p>
