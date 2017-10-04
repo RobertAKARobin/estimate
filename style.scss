@@ -3,12 +3,16 @@ $mm-dblue: #231E20;
 $mm-red: #EF4B3E;
 $mm-green: #66CC99;
 $mm-yellow: #FFCC33;
-$f:17px;
-$l:27px;
+$mm-dgrey: #455963;
+$f:16.2px;
+$l:32.4px;
 $b:4px;
 $mw:1000px;
 $mob:500px;
 $p: 10px;
+
+@import url("https://fonts.googleapis.com/css?family=Roboto+Slab:700|Nunito+Sans:400,600&subset=latin,latin-ext");
+
 
 @mixin hidden{
   display:block;
@@ -35,10 +39,11 @@ $p: 10px;
 	outline:none;
 }
 html, body {
-  font-family: Lato, Helvetica, sans-serif;
-  color: $mm-dblue;
+  font-family: "Nunito Sans", Helvetica, sans-serif;
+  color: $mm-dgrey;
   font-size: $f;
   line-height: $l;
+  font-weight: 400;
 }
 body{
 	margin:0 auto;
@@ -49,6 +54,9 @@ div{
 	position:relative;
 	overflow:auto;
 }
+h1,h2,h3{
+	font-family:"Roboto Slab", serif;
+}
 h1{
 	font-size:50px;
   line-height:50px;
@@ -56,7 +64,7 @@ h1{
 }
 h2,
 h3{
-	font-weight:bold;
+	font-weight:700;
 }
 p,
 blockquote{
@@ -66,7 +74,7 @@ em{
 	font-style:italic;
 }
 strong{
-	font-weight:bold;
+	font-weight:400;
 	text-decoration:underline;
 }
 label{
@@ -422,47 +430,45 @@ section{
 	}
 }
 
-#contact{
-	#form{
+.hbspt-form{
+	width:100%;
+	max-width:600px;
+
+	form{
+		padding:0 $p;
+	}
+	label,
+	input,
+	textarea{
+		display:block;
 		width:100%;
-		max-width:600px;
+		resize:none;
+	box-sizing:border-box;
+	}
+	input,
+	textarea{
+		padding:2px $p/2;
+		background-color:#eee;
+	}
+	input[type=submit]{
+		background-color:$mm-blue;
+		color:#fff;
+		cursor:pointer;
+		margin-top:$p;
+	}
+	.hs_project_description__c{
 
-		form{
-			padding:0 $p;
-		}
-		label,
-		input,
 		textarea{
-			display:block;
-			width:100%;
-			resize:none;
-      box-sizing:border-box;
+			color:$mm-blue;
+			background-color:#fff;
+			padding-left:0;
+			overflow:hidden;
 		}
-		input,
-		textarea{
-			padding:2px $p/2;
-			background-color:#eee;
-		}
-		input[type=submit]{
-			background-color:$mm-blue;
-			color:#fff;
-			cursor:pointer;
-			margin-top:$p;
-		}
-		.hs_project_description__c{
-
-			textarea{
-				color:$mm-blue;
-				background-color:#fff;
-				padding-left:0;
-				overflow:hidden;
-			}
-		}
-		.hs-error-msgs{
-			li{
-				color:#aaa;
-				border-bottom:2px solid #ddd;
-			}
+	}
+	.hs-error-msgs{
+		li{
+			color:#aaa;
+			border-bottom:2px solid #ddd;
 		}
 	}
 	.submitted-message{

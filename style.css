@@ -1,3 +1,4 @@
+@import url("https://fonts.googleapis.com/css?family=Roboto+Slab:700|Nunito+Sans:400,600&subset=latin,latin-ext");
 * {
   margin: 0;
   padding: 0;
@@ -16,10 +17,11 @@
 }
 
 html, body {
-  font-family: Lato, Helvetica, sans-serif;
-  color: #231E20;
-  font-size: 17px;
-  line-height: 27px;
+  font-family: "Nunito Sans", Helvetica, sans-serif;
+  color: #455963;
+  font-size: 16.2px;
+  line-height: 32.4px;
+  font-weight: 400;
 }
 
 body {
@@ -33,6 +35,10 @@ div {
   overflow: auto;
 }
 
+h1, h2, h3 {
+  font-family: "Roboto Slab", serif;
+}
+
 h1 {
   font-size: 50px;
   line-height: 50px;
@@ -41,12 +47,12 @@ h1 {
 
 h2,
 h3 {
-  font-weight: bold;
+  font-weight: 700;
 }
 
 p,
 blockquote {
-  margin-bottom: 27px;
+  margin-bottom: 32.4px;
 }
 
 em {
@@ -54,7 +60,7 @@ em {
 }
 
 strong {
-  font-weight: bold;
+  font-weight: 400;
   text-decoration: underline;
 }
 
@@ -89,7 +95,7 @@ ul, ol {
   display: table-cell;
   position: relative;
   vertical-align: top;
-  padding-top: 27px;
+  padding-top: 32.4px;
   padding-left: 10px;
   border-bottom: 1px solid #eee;
 }
@@ -100,10 +106,10 @@ ul, ol {
 span.input, .input + label, .input[type=text] {
   display: inline-block;
   text-align: center;
-  font-size: 17px;
-  width: 54px;
-  line-height: 46px;
-  height: 54px;
+  font-size: 16.2px;
+  width: 64.8px;
+  line-height: 56.8px;
+  height: 64.8px;
   background-color: rgba(0, 0, 0, 0.2);
   border: 4px solid transparent;
   box-sizing: border-box;
@@ -137,16 +143,16 @@ span.input, .input + label, .input[type=text] {
   border-right-width: 0;
 }
 .input[type=text] {
-  width: 27px;
+  width: 32.4px;
   float: left;
 }
 .input[type=text] + label {
-  width: 27px;
+  width: 32.4px;
   border-left-width: 0;
 }
 .input[type=text] + label:before {
   content: "x";
-  font-size: 8.5px;
+  font-size: 8.1px;
   float: left;
 }
 
@@ -214,11 +220,11 @@ span.input, .input + label, .input[type=text] {
 }
 .ratings [data-rating] {
   display: inline-block;
-  width: 54px;
-  height: 54px;
-  font-size: 11.9px;
-  line-height: 17px;
-  padding-top: 10px;
+  width: 64.8px;
+  height: 64.8px;
+  font-size: 11.34px;
+  line-height: 16.2px;
+  padding-top: 16.2px;
   border-radius: 50%;
   text-align: center;
   vertical-align: top;
@@ -300,28 +306,28 @@ section > header {
 }
 #complexity.sticky.on .toggleDetails {
   cursor: pointer;
-  line-height: 27px;
-  font-size: 17px;
+  line-height: 32.4px;
+  font-size: 16.2px;
 }
 #complexity.sticky.on .toggleDetails:hover {
   background-color: #444;
 }
 #complexity p {
-  padding: 5px 10px;
+  padding: 8.1px 10px;
   margin-bottom: 0;
 }
 #complexity a.button {
   display: inline-block;
   color: #46A3E2;
   transition: 0.2s color;
-  margin-right: 4.25px;
+  margin-right: 4.05px;
 }
 #complexity a.button:hover {
   color: #231E20;
 }
 #complexity .graph {
   font-size: 0;
-  height: 27px;
+  height: 32.4px;
   transition: opacity 0.2s;
 }
 #complexity .graph.off {
@@ -336,8 +342,8 @@ section > header {
   position: absolute;
   top: 0;
   left: 0;
-  font-size: 17px;
-  line-height: 27px;
+  font-size: 16.2px;
+  line-height: 32.4px;
   box-sizing: border-box;
   text-align: right;
 }
@@ -372,43 +378,43 @@ section > header {
   padding-right: 5px;
 }
 
-#contact #form {
+.hbspt-form {
   width: 100%;
   max-width: 600px;
 }
-#contact #form form {
+.hbspt-form form {
   padding: 0 10px;
 }
-#contact #form label,
-#contact #form input,
-#contact #form textarea {
+.hbspt-form label,
+.hbspt-form input,
+.hbspt-form textarea {
   display: block;
   width: 100%;
   resize: none;
   box-sizing: border-box;
 }
-#contact #form input,
-#contact #form textarea {
+.hbspt-form input,
+.hbspt-form textarea {
   padding: 2px 5px;
   background-color: #eee;
 }
-#contact #form input[type=submit] {
+.hbspt-form input[type=submit] {
   background-color: #46A3E2;
   color: #fff;
   cursor: pointer;
   margin-top: 10px;
 }
-#contact #form .hs_project_description__c textarea {
+.hbspt-form .hs_project_description__c textarea {
   color: #46A3E2;
   background-color: #fff;
   padding-left: 0;
   overflow: hidden;
 }
-#contact #form .hs-error-msgs li {
+.hbspt-form .hs-error-msgs li {
   color: #aaa;
   border-bottom: 2px solid #ddd;
 }
-#contact .submitted-message {
+.hbspt-form .submitted-message {
   color: #46A3E2;
   padding: 0 10px;
 }
